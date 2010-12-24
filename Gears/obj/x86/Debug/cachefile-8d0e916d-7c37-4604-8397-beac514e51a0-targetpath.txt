@@ -1,0 +1,9 @@
+Content\Catalyst\catalyst2.xnb
+Content\Debug\Zone\Projectile\capsule.xnb
+Content\Debug\Zone\Projectile\circle.xnb
+Content\Debug\Zone\Projectile\ovular.xnb
+Content\Debug\Zone\Unit\example.xnb
+Content\Splash\splash.xnb
+Content\Splash\Catalyst\splashLogo.xnb
+Content\Fonts\MenuFont.xnb
+Content\Fonts\MenuItem.xnb
