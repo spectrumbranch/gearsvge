@@ -16,7 +16,7 @@ namespace GearsDebug
 {
     public class GearsDebug : Microsoft.Xna.Framework.Game
     {
-        //defaults
+        //Screen Resolution defaults
         private const int ScreenWidth = 1280;
         private const int ScreenHeight = 720;
 
