@@ -21,15 +21,16 @@ namespace Gears.Playable.Player
 
         internal PlayerManager()
         {
-
+            Initialize();
         }
         private void Initialize()
         {
             player = new Player();
         }
+
         internal void Update(GameTime gameTime)
         {
-
+            //check player events from here and execute appropriate handlers   
         }
         internal void Draw(SpriteBatch spriteBatch)
         {
@@ -43,6 +44,7 @@ namespace Gears.Playable.Player
 
         float baseAttack;
         float baseDefense;
+        float defenseBonus; //I havent figured how to determine this yet.  This is applied when guarding
 
         float health; //        life
         float stamina; //       energy: -2 <= stamina <= 2? Might want to work on this range
@@ -59,7 +61,7 @@ namespace Gears.Playable.Player
             //accel.X = stamina * stamina * stamina;
         }
 
-        void walk();
+        void walk(){}
         void sprint()
         {
             stamina -= .2f;
@@ -83,8 +85,28 @@ namespace Gears.Playable.Player
 
         }
 
-        void guard(); //based on baseDefense and armor worn
-        void attack();//attack with current weapon.  Based on baseAttack and the weapon used
+        void guard(){} //based on baseDefense, armor worn, and defense mode bonus
+        
+        
+        
+        double attack(float opposingDefense)
+        {
+            //I had some fun with this and did some calculus, rofl...
+            /*ok, so explanation...
+            attack and defense are modeled by y = sqrt(x)
+            y = defense
+            x = attack
+            Integrate f(x) wrt x from 0 to totalAttack...you get x^(3/2)/(3/2)
+            Integrate f(y) wrt y from 0 to totalDefense...you get y^3/3
+            Evaluate them and subtract the x integral from the y integral to get your damage.*/
+
+            double def = opposingDefense, atk = baseAttack;
+
+            def = Math.Pow(def, 1.5) / 1.5;
+            atk = Math.Pow(atk, 3) / 3;
+            return atk - def;
+
+        }
 
 
 
@@ -95,6 +117,8 @@ namespace Gears.Playable.Player
         //Item[] items;
         //PlState state; //Hidden, sneaking, compromised etc? This should be able to hold more than one state.  For example, a player can be both hidden as well as compromised
                          //Can also lead into special moves, such as a sneak attack
+        //Item currentItem; //the item equipped
+        //Weapon currentWeapon; //the weapon equipped
 
         internal Player()
         {
