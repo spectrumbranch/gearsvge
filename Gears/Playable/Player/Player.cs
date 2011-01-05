@@ -44,7 +44,7 @@ namespace Gears.Playable.Player
 
         float baseAttack;
         float baseDefense;
-        float defenseBonus; //I havent figured how to determine this yet.  This is applied when guarding
+        float defenseBonus = 10; //This will be based on specific armor worn.  For example, armored gloves will increase this. This is applied when guarding
 
         float health; //        life
         float stamina; //       energy: -2 <= stamina <= 2? Might want to work on this range
@@ -53,6 +53,7 @@ namespace Gears.Playable.Player
         Vector2 accel; //         
         float controlradius; // radius that controlled STEVE: wat?
 
+        //these methods need to be able to inteface with the input manager.
         void controlAccel() //acceleration is based on current stamina
         {
             //the stamina range will allow acceleration to be adjusted based on y = x^3
@@ -85,26 +86,29 @@ namespace Gears.Playable.Player
 
         }
 
-        void guard(){} //based on baseDefense, armor worn, and defense mode bonus
+        double guard(float opposingAttack)
+        {
+            double def = baseDefense + defenseBonus; //10 is defense mode bonus, will change this later on
+            double atk = Math.Sqrt(opposingAttack);
+
+            if (def < atk)
+                return (atk - def);
+
+            return 0; //this occurs when the def is higher than the attack
+            
+        }
         
         
         
         double attack(float opposingDefense)
         {
-            //I had some fun with this and did some calculus, rofl...
-            /*ok, so explanation...
-            attack and defense are modeled by y = sqrt(x)
-            y = defense
-            x = attack
-            Integrate f(x) wrt x from 0 to totalAttack...you get x^(3/2)/(3/2)
-            Integrate f(y) wrt y from 0 to totalDefense...you get y^3/3
-            Evaluate them and subtract the x integral from the y integral to get your damage.*/
+            
 
             double def = opposingDefense, atk = baseAttack;
 
-            def = Math.Pow(def, 1.5) / 1.5;
-            atk = Math.Pow(atk, 3) / 3;
-            return atk - def;
+            def = Math.Sqrt(def);
+            atk = .5 * Math.Pow(atk, .75);
+            return (atk - def);
 
         }
 
