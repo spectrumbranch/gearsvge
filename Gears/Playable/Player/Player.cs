@@ -28,6 +28,27 @@ namespace Gears.Playable.Player
             player = new Player();
         }
 
+        private void ChangeEquipment(/*Equipment[] newStuff*/) //when the weapons and armor class are implemented, they can be derived from this class to make passing them easier.
+        {
+            //grab the type info of each element and change the equipment accordingly.
+        }
+
+        private void RemoveEquipment(/*Equipment[] remove*/)
+        {
+
+        }
+
+        private void GiveItem(/*Item item, int quantity*/) //specify a negative quantity to remove
+        {
+
+        }
+
+        /*private plstate CheckState()
+         {
+            return player.GetState();
+         }
+         */
+
         internal void Update(GameTime gameTime)
         {
             //check player events from here and execute appropriate handlers   
@@ -56,7 +77,7 @@ namespace Gears.Playable.Player
         //these methods need to be able to inteface with the input manager.
         void controlAccel() //acceleration is based on current stamina
         {
-            //the stamina range will allow acceleration to be adjusted based on y = x^3
+            //the stamina range will allow acceleration to be adjusted based on y = x^3 (probably will need to be adjusted)
             //as it approaches 0, the player will continue to lose acceleration.  
             //once it drops below 0, the player will deccelerate until they've returned to walking speed
             //accel.X = stamina * stamina * stamina;
@@ -112,9 +133,13 @@ namespace Gears.Playable.Player
 
         }
 
+        /*public plstate GetState()
+         * {
+         *  return state;
+         *  }
+         */
 
-
-        //Ability[] abilities;
+        //Ability[] abilities; //these should be bound to commands
         //Weapon[] weapon = new Weapon[1]; //check syntax. this is here to give the idea
         //Armor[] armor; //etc
         //Skill[] skills;
