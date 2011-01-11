@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Gears.Cloud;
 using Gears.Cloud.Events;
 using Gears.Cloud._Debug;
 
@@ -61,7 +62,7 @@ namespace GearsDebug
         {
             if (TextureFileLocation != null)
             {
-                _texture = CContentManager.GetGame().Content.Load<Texture2D>(TextureFileLocation);
+                _texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
             }
             else
             {

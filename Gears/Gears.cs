@@ -33,7 +33,7 @@ namespace GearsDebug
         protected override void Initialize()
         {
             //Register our ContentManager
-            CContentManager.setGame(this);
+            ContentButler.setGame(this);
 
             //Setup screen display/graphics device
             ViewportHandler.SetScreen(ScreenWidth, ScreenHeight);
@@ -51,8 +51,8 @@ namespace GearsDebug
                 // MAYBE TODO: Make this enum based for easier switching?
                 // DEBUG :: The uncommented line will change the default state that runs first.
                 // Only one of the following Master.Push() lines should be uncommented at a time.
-                Master.Push(new Splash());    //Uncomment this line to start game normally.
-                //Master.Push(new debugger());    //Uncomment this line to start the game with debug menu.
+                //Master.Push(new Splash());    //Uncomment this line to start game normally.
+                Master.Push(new debugger());    //Uncomment this line to start the game with debug menu.
                 // END of Master.Push() lines
                 
             #else //release

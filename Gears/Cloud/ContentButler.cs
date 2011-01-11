@@ -12,9 +12,9 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-namespace GearsDebug
+namespace Gears.Cloud
 {
-    internal static class CContentManager
+    internal static class ContentButler
     {
         internal static void setGame(Game theGame)
         {

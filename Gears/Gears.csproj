@@ -126,12 +126,12 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Splash.cs" />
-    <Compile Include="Steve\CCamera.cs" />
-    <Compile Include="Steve\CCameraPath.cs" />
-    <Compile Include="Steve\CCommands.cs" />
-    <Compile Include="Steve\CContentManager.cs" />
-    <Compile Include="Steve\IInputHandler.cs" />
-    <Compile Include="Steve\phys.cs" />
+    <Compile Include="_oldunused\_steve\CCamera.cs" />
+    <Compile Include="_oldunused\_steve\CCameraPath.cs" />
+    <Compile Include="_oldunused\_steve\CCommands.cs" />
+    <Compile Include="Cloud\ContentButler.cs" />
+    <Compile Include="_oldunused\_steve\IInputHandler.cs" />
+    <Compile Include="_oldunused\_steve\phys.cs" />
     <Compile Include="TestPlayState.cs" />
     <Compile Include="TestZone.cs" />
     <Compile Include="Zone.cs" />
@@ -145,7 +145,6 @@
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="spectrumNotes.txt" />
-    <Content Include="Steve\TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">

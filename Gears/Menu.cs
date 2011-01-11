@@ -44,8 +44,8 @@ namespace GearsDebug
         }
         private void LoadContent()
         {
-            menuFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
-            menuItemFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
 
         protected internal override void Draw(SpriteBatch spriteBatch)

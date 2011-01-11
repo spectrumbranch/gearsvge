@@ -38,8 +38,8 @@ namespace Gears.Navigation
         protected internal GameState[] menu;
 
         //graphics resources
-        protected internal SpriteFont menuFont; //set to CContentManager dictionary string!
-        protected internal SpriteFont menuItemFont; //set to CContentManager dictionary string!
+        protected internal SpriteFont menuFont; //set to ContentButler dictionary string!
+        protected internal SpriteFont menuItemFont; //set to ContentButler dictionary string!
 
         //input
         protected internal KeyboardState oldKeyboardState, currentKeyboardState;
@@ -96,9 +96,9 @@ namespace Gears.Navigation
 
         private void LoadContent()
         {
-            //TODO: replace with a font singleton from CContentManager in the cloud
-            menuFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
-            menuItemFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            //TODO: replace with a font singleton from ContentButler in the cloud
+            menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
 
         protected internal void DrawMenu(SpriteBatch spriteBatch)
@@ -319,8 +319,8 @@ namespace Gears.Navigation
 
         private void LoadContent()
         {
-            menuFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
-            menuItemFont = CContentManager.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
 
         protected internal override void Draw(SpriteBatch spriteBatch)
@@ -413,7 +413,7 @@ namespace Gears.Navigation
                     Shift(DebugMenuOption.Null);
                     break;
                 case DebugMenuOption.Exit:
-                    CContentManager.GetGame().Exit();
+                    ContentButler.GetGame().Exit();
                     break;
                 default:
                     Shift(DebugMenuOption.Null);
