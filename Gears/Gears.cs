@@ -89,7 +89,7 @@ namespace GearsDebug
         {
             device.Clear(Master.GetClearColor());
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, ViewportHandler.GetTransformationMatrix());
 
             Master.Draw(spriteBatch);
 
