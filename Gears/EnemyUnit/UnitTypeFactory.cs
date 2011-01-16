@@ -15,7 +15,7 @@ namespace GearsDebug
 {
     internal abstract class UnitTypeFactory
     {
-        private unit[] _units;
+        private Unit[] _units;
 
         internal UnitTypeFactory()
         {
@@ -27,26 +27,26 @@ namespace GearsDebug
         }
         private void LoadContent()
         {
-            foreach (unit u in _units)
+            foreach (Unit u in _units)
             {
                 u.LoadContent();
             }
         }
         internal void Update(GameTime gameTime)
         {
-            foreach (unit u in _units)
+            foreach (Unit u in _units)
             {
                 u.Update(gameTime);
             }
         }
         internal void Draw(SpriteBatch spriteBatch)
         {
-            foreach (unit u in _units)
+            foreach (Unit u in _units)
             {
                 u.Draw(spriteBatch);
             }
         }
-        protected internal void Register(unit[] units)
+        protected internal void Register(Unit[] units)
         {
             _units = units;
             Initialize();

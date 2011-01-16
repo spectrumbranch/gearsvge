@@ -49,7 +49,7 @@ namespace GearsDebug
         private Vector2 _boundaryZ;
         private List<CCameraPath> _cameraPath;
         private CCameraPath _currentPath;
-        private unit _following;
+        private Unit _following;
         private cameraState _state;
         private bool _pathJump = false;
 
@@ -97,7 +97,7 @@ namespace GearsDebug
             _state = cameraState.FOLLOWINGPATH;
         }
 
-        public void setFollowingUnit(unit follow)
+        public void setFollowingUnit(Unit follow)
         {
             _following = follow;
             _state = cameraState.FOLLOWINGUNIT;

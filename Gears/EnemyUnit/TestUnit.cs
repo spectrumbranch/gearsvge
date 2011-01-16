@@ -16,7 +16,7 @@ using Gears.Navigation;
 
 namespace GearsDebug
 {
-    sealed internal class TestUnit : unit
+    sealed internal class TestUnit : Unit
     {
         private string fileloc = @"Debug\Zone\Unit\example";
         protected internal override string TextureFileLocation { get { return fileloc; } }

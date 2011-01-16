@@ -19,7 +19,7 @@ using Gears.Cloud._Debug;
 namespace GearsDebug
 {
     //TODO: Entire abstract unit architecture should be moved to \Playable\
-    internal abstract class unit
+    internal abstract class Unit
     {
         protected internal Vector2 _position;
         protected internal Color _color;
@@ -40,11 +40,11 @@ namespace GearsDebug
         /// This defaulted constructor is for debugging/testing purposes only.
         /// It is required in a regular game to use a parameterized constructor instead.
         /// </summary>
-        internal unit() : this(Vector2.Zero, Color.White, 0.0f, "example") { }
+        internal Unit() : this(Vector2.Zero, Color.White, 0.0f, "example") { }
         //TODO: make unitparameters the primary constructor
-        internal unit(UnitParameters up) : this(up.Origin, up.Color, up.Rotation, up.TextureFileName) { }
+        internal Unit(UnitParameters up) : this(up.Origin, up.Color, up.Rotation, up.TextureFileName) { }
         //TODO: make this constructor an alias constructor
-        internal unit(Vector2 origin, Color color, float rotation, string textureFileName)
+        internal Unit(Vector2 origin, Color color, float rotation, string textureFileName)
         {
             _position = origin;
             _color = color;
@@ -66,8 +66,8 @@ namespace GearsDebug
             }
             else
             {
-                Debug.Out("DEV.ERROR##unit::TextureFileLocation not set properly.");
-                throw new Exception("DEV.ERROR##unit::TextureFileLocation not set properly.");
+                Debug.Out("DEV.ERROR##Unit::TextureFileLocation not set properly.");
+                throw new Exception("DEV.ERROR##Unit::TextureFileLocation not set properly.");
             }
         }
         //NOTE:  The inherited function must call this at the end or beginning of it's definition.
