@@ -23,10 +23,12 @@ namespace GearsDebug
         private GraphicsDeviceManager graphics;
         private GraphicsDevice device;
         private SpriteBatch spriteBatch;
+        private VersionManager versionManager;
 
         public GearsDebug()
         {
             graphics = new GraphicsDeviceManager(this);
+            versionManager = new VersionManager();
             Content.RootDirectory = "Content";
         }
         
@@ -45,8 +47,10 @@ namespace GearsDebug
             //TODO: GetVersionInformation();
             
             
+            //version info
+            versionManager.Version = "0.1.0";
             #if DEBUG
-                Window.Title = "Gears [Debug]";
+                Window.Title = "Gears [Debug] Version " + versionManager.Version;
 
                 // MAYBE TODO: Make this enum based for easier switching?
                 // DEBUG :: The uncommented line will change the default state that runs first.

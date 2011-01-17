@@ -93,6 +93,7 @@
     <Compile Include="Cloud\GameState.cs" />
     <Compile Include="Cloud\Input\Input.cs" />
     <Compile Include="Cloud\Master.cs" />
+    <Compile Include="Cloud\VersionManager.cs" />
     <Compile Include="Cloud\ViewportHandler.cs" />
     <Compile Include="Cloud\_Debug\Debug.cs" />
     <Compile Include="debugger.cs" />
