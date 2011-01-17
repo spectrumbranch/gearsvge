@@ -39,8 +39,9 @@ namespace GearsDebug
 
             //Setup screen display/graphics device
             ViewportHandler.SetScreen(ScreenWidth, ScreenHeight);
-            graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
-            graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
+            /*graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
+            graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();*/
+            
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
