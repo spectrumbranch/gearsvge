@@ -23,17 +23,18 @@ namespace GearsDebug
         private GraphicsDeviceManager graphics;
         private GraphicsDevice device;
         private SpriteBatch spriteBatch;
-        private VersionManager versionManager;
 
         public GearsDebug()
         {
             graphics = new GraphicsDeviceManager(this);
-            versionManager = new VersionManager();
             Content.RootDirectory = "Content";
         }
         
         protected override void Initialize()
         {
+            //VERSION
+            VersionManager.Version = "0.1.0";
+
             //Register our ContentManager
             ContentButler.setGame(this);
 
@@ -42,15 +43,11 @@ namespace GearsDebug
             graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
             graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
             graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
+            graphics.ApplyChanges();      
+            
 
-            //TODO: GetVersionInformation();
-            
-            
-            //version info
-            versionManager.Version = "0.1.0";
             #if DEBUG
-                Window.Title = "Gears [Debug] Version " + versionManager.Version;
+                Window.Title = "Gears [Debug] v." + VersionManager.Version;
 
                 // MAYBE TODO: Make this enum based for easier switching?
                 // DEBUG :: The uncommented line will change the default state that runs first.
@@ -60,7 +57,7 @@ namespace GearsDebug
                 // END of Master.Push() lines
                 
             #else //release
-                Window.Title = "Gears";
+                Window.Title = "Gears v." + versionManager.Version;
                 Master.Push(new Splash()); //Start game normally
             #endif
 

@@ -5,25 +5,19 @@ using System.Text;
 
 namespace Gears.Cloud
 {
-    class VersionManager
+    internal static class VersionManager
     {
-        public VersionManager() { }
-
-        public string Version
+        private static string _version;
+        public static string Version
         {
             get
             {
-                return version;
+                return _version;
             }
             set
             {
-                version = value;
+                _version = value;
             }
         }
-
-
-        private string version;
-
-        
     }
 }
