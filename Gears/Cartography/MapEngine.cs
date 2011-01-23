@@ -5,7 +5,6 @@ using System.Xml.Serialization;
 using System.Text;
 using System.IO;
 
-using GearsDebug;
 using Gears.Cloud._Debug;
 
 namespace Gears.Cartography

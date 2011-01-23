@@ -16,7 +16,7 @@ using Gears.Cloud.Events;
 using Gears.Cloud._Debug;
 
 
-namespace GearsDebug
+namespace Gears.Playable
 {
     //TODO: Entire abstract unit architecture should be moved to \Playable\
     internal abstract class Unit

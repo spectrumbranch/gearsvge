@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Gears.Playable;
+
 namespace GearsDebug
 {
     sealed internal class TestZone : Zone

@@ -43,7 +43,8 @@ namespace GearsDebug
         {
             //Grab script data and clear the script cache
             //<<currently not used, but has future post-beta concepts for scripting>>
-            Script(ScreenStateHandler.Data());
+            // THE FOLLOWING LINE OF CODE HAS A DEPRECATED CLASS REFERENCE
+            //Script(ScreenStateHandler.Data());
 
             //TODO: Make the menu item data pass down from an actual database/XML.
             //Load the menu item data to pass down to the MenuEngine
@@ -87,7 +88,9 @@ namespace GearsDebug
         private void Script(string script)
         {
             if (script == null) //error checking
+            {
                 script = ""; //sanitize null passes for people who dont script properly
+            }
             Verify(ref script);
             switch (script)
             {
