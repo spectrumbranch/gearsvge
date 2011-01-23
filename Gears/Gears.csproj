@@ -100,7 +100,7 @@
     <Compile Include="EnemyUnit\TestUnit.cs" />
     <Compile Include="EnemyUnit\TestUnitManager.cs" />
     <Compile Include="EnemyUnit\TestUnitTypeFactory.cs" />
-    <Compile Include="EnemyUnit\unit.cs" />
+    <Compile Include="EnemyUnit\Unit.cs" />
     <Compile Include="EnemyUnit\UnitManager.cs" />
     <Compile Include="EnemyUnit\UnitParameters.cs" />
     <Compile Include="EnemyUnit\UnitTypeFactory.cs" />
