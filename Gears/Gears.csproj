@@ -71,6 +71,7 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
@@ -98,9 +99,9 @@
     <Compile Include="Cloud\_Debug\Debug.cs" />
     <Compile Include="Gears.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Navigation\DebugMenu.cs" />
     <Compile Include="Navigation\DemoMenu.cs" />
     <Compile Include="Navigation\MenuEngine.cs" />
+    <Compile Include="Navigation\MenuItem.cs" />
     <Compile Include="Navigation\OLD_MenuItem.cs" />
     <Compile Include="Playable\EnemyUnit\Unit.cs" />
     <Compile Include="Playable\EnemyUnit\UnitManager.cs" />
@@ -130,6 +131,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Splash.cs" />
+    <Compile Include="_oldunused\DebugMenu.cs" />
     <Compile Include="_oldunused\_steve\CCamera.cs" />
     <Compile Include="_oldunused\_steve\CCameraPath.cs" />
     <Compile Include="_oldunused\_steve\CCommands.cs" />
