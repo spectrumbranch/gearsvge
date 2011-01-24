@@ -43,7 +43,7 @@ namespace GearsDebug
             graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
-
+            
             //TODO: GetVersionInformation();
             
             
@@ -89,7 +89,7 @@ namespace GearsDebug
         {
             device.Clear(Master.GetClearColor());
 
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, ViewportHandler.GetTransformationMatrix());
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, ViewportHandler.GetScaleMatrix());
 
             Master.Draw(spriteBatch);
 
