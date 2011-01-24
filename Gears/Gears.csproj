@@ -114,6 +114,7 @@
     <Compile Include="Projectile\Projectile.cs" />
     <Compile Include="Projectile\ProjectileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewportHandlerTest.cs" />
     <Compile Include="_main\Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
