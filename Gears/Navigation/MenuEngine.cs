@@ -28,6 +28,7 @@ namespace Gears.Navigation
         DebugOutTest,
         SubMenuTest,
         TestPlayState,
+        ViewportHandlerTest,
         Exit
     }
 
@@ -129,6 +130,9 @@ namespace Gears.Navigation
                 case DebugMenuOption.TestPlayState:
                     //
                     break;
+                case DebugMenuOption.ViewportHandlerTest:
+                    //
+                    break;
                 case DebugMenuOption.Exit:
                     //
                     break;
@@ -190,6 +194,12 @@ namespace Gears.Navigation
                     Debug.Out("TestPlayState");
                     Input.DisableInput();///////////////////
                     Master.Push(new TestPlayState());
+                    Shift(DebugMenuOption.Null);
+                    break;
+                case DebugMenuOption.ViewportHandlerTest:
+                    Debug.Out("ViewportHandlerTest");
+                    Input.DisableInput();
+                    Master.Push(new ViewportHandlerTest());
                     Shift(DebugMenuOption.Null);
                     break;
                 case DebugMenuOption.Exit:

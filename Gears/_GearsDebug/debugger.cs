@@ -48,13 +48,14 @@ namespace GearsDebug
 
             //TODO: Make the menu item data pass down from an actual database/XML.
             //Load the menu item data to pass down to the MenuEngine
-            OLD_MenuItem[] LoadMenuItemData = new OLD_MenuItem[6]; //make index based on data
+            OLD_MenuItem[] LoadMenuItemData = new OLD_MenuItem[7]; //make index based on data
             LoadMenuItemData[0] = new OLD_MenuItem("XMLSerializerTest", DebugMenuOption.XMLSerializerTest);
             LoadMenuItemData[1] = new OLD_MenuItem("XMLDeserializerTest", DebugMenuOption.XMLDeserializerTest);
             LoadMenuItemData[2] = new OLD_MenuItem("DebugOutTest", DebugMenuOption.DebugOutTest);
             LoadMenuItemData[3] = new OLD_MenuItem("SubMenuTest", DebugMenuOption.SubMenuTest);
             LoadMenuItemData[4] = new OLD_MenuItem("TestPlayState", DebugMenuOption.TestPlayState);
-            LoadMenuItemData[5] = new OLD_MenuItem("Exit", DebugMenuOption.Exit);
+            LoadMenuItemData[5] = new OLD_MenuItem("ViewportHandlerTest", DebugMenuOption.ViewportHandlerTest);
+            LoadMenuItemData[6] = new OLD_MenuItem("Exit", DebugMenuOption.Exit);
             // /end TODO
 
             //Initialize the menu and load its data.
