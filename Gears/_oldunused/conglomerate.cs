@@ -7,7 +7,7 @@ using System.Text;
  *      algorithms or structures can be reused.
  *****/
 
-namespace GearsDebug
+namespace Gears_DEPRECATED
 {
     /// <summary>
     /// DEPRECATED

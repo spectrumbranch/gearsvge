@@ -35,13 +35,12 @@ namespace GearsDebug
         public Splash()
         {
             base.SetName("Splash");
+            Initialize();
+            LoadContent();
         }
         private void Initialize()
         {
-            LoadContent();
             splashRectangle = new Rectangle(0, 0, ViewportHandler.GetWidth(), ViewportHandler.GetHeight());
-
-            _init = true;
         }
         private void LoadContent()
         {
@@ -49,19 +48,16 @@ namespace GearsDebug
         }
         protected internal override void Draw(SpriteBatch spriteBatch)
         {
-            if (_init)
-            {
-                spriteBatch.Draw(splashBackgroundTexture, splashRectangle, Color.White);
-            }
+            spriteBatch.Draw(splashBackgroundTexture, splashRectangle, Color.White);
         }
         protected internal override void Update(GameTime gameTime)
         {
             if (!_init)
             {
-                Initialize();
+                _init = true;
                 splashScreenBegun = gameTime.TotalRealTime.Seconds;
             }
-            else // we have initialized our splash screen already.
+            else // we have initialized our splash screen timer already.
             {
                 if (gameTime.TotalRealTime.Seconds - splashScreenBegun <= splashScreenExpirationSeconds)
                 {

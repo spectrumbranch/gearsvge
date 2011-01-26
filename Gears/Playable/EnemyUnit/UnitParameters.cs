@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-namespace GearsDebug
+namespace Gears.Playable
 {
     internal struct UnitParameters
     {

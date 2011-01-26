@@ -5,7 +5,6 @@ using System.Xml.Serialization;
 using System.Text;
 using System.IO;
 
-using GearsDebug;
 using Gears.Cloud._Debug;
 
 namespace Gears.Cartography
@@ -72,36 +71,65 @@ namespace Gears.Cartography
             //throw new NotImplementedException(); // . . .
             //STILL BROKEN GOTTA FIX IT!
 
-            using (TextReader textReader = new StreamReader(LOAD_LOCATION))
+            try
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(Map));
-                //TextReader textReader = new StreamReader(@"C:\movie.xml"); //change load location
-                Map map;
-                try
+                using (TextReader textReader = new StreamReader(LOAD_LOCATION))
                 {
-                    map = (Map)deserializer.Deserialize(textReader);
-                    
-                    Debug.Out("@MAP/VERSION=" + map.VERSION);
-                    Debug.Out("@MAP/BGMFILE=" + map.BGM_FILE_LOC);
-                    Debug.Out("@MAP/FADEINFILE=" + map.FADE_IN_FILE_LOC);
-                    Debug.Out("@MAP/FADEOUTFILE=" + map.FADE_OUT_FILE_LOC);
-                    Debug.Out("@MAP/BGIFILE=" + map.BG_IMAGE_FILE_LOC);
-                    Debug.Out("@MAP/LAYERS=" + map.NUM_LAYERS);
-                    Debug.Out("@MAP/LAYERWIDTH=" + map.LAYER_WIDTH_TILES);
-                    Debug.Out("@MAP/LAYERHEIGHT=" + map.LAYER_HEIGHT_TILES);
-                    Debug.Out("@MAP/DATA=" + map.TILE_DATA);
-                    return map;
-                }
-                catch (InvalidOperationException ioe)
-                {
-                    Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. The XML file read from " + LOAD_LOCATION + " is of an incompatible format.");
-                    Debug.Out(ioe.Message);
-                }
+                    XmlSerializer deserializer = new XmlSerializer(typeof(Map));
+                    //TextReader textReader = new StreamReader(@"C:\movie.xml"); //change load location
+                    Map map;
+                    try
+                    {
+                        map = (Map)deserializer.Deserialize(textReader);
 
-                
-                textReader.Close();
-                return null;
+                        Debug.Out("@MAP/VERSION=" + map.VERSION);
+                        Debug.Out("@MAP/BGMFILE=" + map.BGM_FILE_LOC);
+                        Debug.Out("@MAP/FADEINFILE=" + map.FADE_IN_FILE_LOC);
+                        Debug.Out("@MAP/FADEOUTFILE=" + map.FADE_OUT_FILE_LOC);
+                        Debug.Out("@MAP/BGIFILE=" + map.BG_IMAGE_FILE_LOC);
+                        Debug.Out("@MAP/LAYERS=" + map.NUM_LAYERS);
+                        Debug.Out("@MAP/LAYERWIDTH=" + map.LAYER_WIDTH_TILES);
+                        Debug.Out("@MAP/LAYERHEIGHT=" + map.LAYER_HEIGHT_TILES);
+                        Debug.Out("@MAP/DATA=" + map.TILE_DATA);
+                        return map;
+                    }
+                    catch (InvalidOperationException ioe)
+                    {
+                        Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. The XML file read from " + LOAD_LOCATION + " is of an incompatible format.");
+                        Debug.Out(ioe.Message);
+                    }
+
+
+                    textReader.Close();
+                    return null;
+                }
             }
+            catch (ArgumentNullException ane)
+            {
+                Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. ArgumentNullException.");
+                Debug.Out(ane.Message);
+            }
+            catch (FileNotFoundException fnfe)
+            {
+                Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. The file for " + LOAD_LOCATION + " does not exist.");
+                Debug.Out(fnfe.Message);
+            }
+            catch (DirectoryNotFoundException dnfe)
+            {
+                Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. The directory for " + LOAD_LOCATION + " does not exist.");
+                Debug.Out(dnfe.Message);
+            }
+            catch (IOException ioe)
+            {
+                Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. IOException.");
+                Debug.Out(ioe.Message);
+            }
+            catch (ArgumentException ae)
+            {
+                Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. ArgumentException.");
+                Debug.Out(ae.Message);
+            }
+            return null;
 
         }
     }

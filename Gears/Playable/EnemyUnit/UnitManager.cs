@@ -11,44 +11,37 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-namespace GearsDebug
+namespace Gears.Playable
 {
-    internal abstract class UnitTypeFactory
+    internal abstract class UnitManager
     {
-        private Unit[] _units;
+        private UnitTypeFactory[] _factories;
 
-        internal UnitTypeFactory()
+        internal UnitManager()
         {
-            //
+
         }
         private void Initialize()
         {
-            LoadContent();
-        }
-        private void LoadContent()
-        {
-            foreach (Unit u in _units)
-            {
-                u.LoadContent();
-            }
+            //
         }
         internal void Update(GameTime gameTime)
         {
-            foreach (Unit u in _units)
+            foreach (UnitTypeFactory utf in _factories)
             {
-                u.Update(gameTime);
+                utf.Update(gameTime);
             }
         }
         internal void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Unit u in _units)
+            foreach (UnitTypeFactory utf in _factories)
             {
-                u.Draw(spriteBatch);
+                utf.Draw(spriteBatch);
             }
         }
-        protected internal void Register(Unit[] units)
+        protected internal void Register(UnitTypeFactory[] factories)
         {
-            _units = units;
+            _factories = factories;
             Initialize();
         }
     }

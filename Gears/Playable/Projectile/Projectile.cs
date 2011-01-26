@@ -11,7 +11,8 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-namespace GearsDebug
+//IN DEVELOPMENT. NOT APPROVED FOR USE IN VERSION 0.1.0
+namespace Gears.Playable
 {
     //TODO: This class is scheduled to become abstract to support polymorphic behavior.
     class Projectile
