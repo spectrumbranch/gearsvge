@@ -113,15 +113,12 @@
     <Compile Include="Playable\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewportHandlerTest.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="_GearsDebug\debugger.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnit.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnitManager.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnitTypeFactory.cs" />
     <Compile Include="_GearsDebug\TestPlayState.cs" />
     <Compile Include="_GearsDebug\TestZone.cs" />
->>>>>>> master
     <Compile Include="_main\Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
