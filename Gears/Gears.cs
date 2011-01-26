@@ -43,14 +43,7 @@ namespace GearsDebug
             graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
             graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
             graphics.IsFullScreen = false;
-<<<<<<< HEAD
-            graphics.ApplyChanges();
-            
-            //TODO: GetVersionInformation();
-=======
             graphics.ApplyChanges();      
->>>>>>> master
-            
 
             #if DEBUG
                 Window.Title = "Gears [Debug] v." + VersionManager.Version;
