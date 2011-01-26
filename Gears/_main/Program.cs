@@ -1,7 +1,7 @@
 using System;
-
 using GearsDebug;
 
+//This file is scheduled to not exist in future versions of Gears. Gears will become a library.
 namespace Gears
 {
     static class Program

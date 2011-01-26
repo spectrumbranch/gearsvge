@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 
 using Gears.Cloud;
 using Gears.Navigation;
+using Gears.Playable;
 
 namespace GearsDebug
 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Gears.Playable;
+
 namespace GearsDebug
 {
     sealed internal class TestUnitTypeFactory : UnitTypeFactory

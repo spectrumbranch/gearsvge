@@ -23,17 +23,18 @@ namespace GearsDebug
         private GraphicsDeviceManager graphics;
         private GraphicsDevice device;
         private SpriteBatch spriteBatch;
-        private VersionManager versionManager;
 
         public GearsDebug()
         {
             graphics = new GraphicsDeviceManager(this);
-            versionManager = new VersionManager();
             Content.RootDirectory = "Content";
         }
         
         protected override void Initialize()
         {
+            //VERSION
+            VersionManager.Version = "0.1.0";
+
             //Register our ContentManager
             ContentButler.setGame(this);
 
@@ -42,25 +43,27 @@ namespace GearsDebug
             graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
             graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
             graphics.IsFullScreen = false;
+<<<<<<< HEAD
             graphics.ApplyChanges();
             
             //TODO: GetVersionInformation();
+=======
+            graphics.ApplyChanges();      
+>>>>>>> master
             
-            
-            //version info
-            versionManager.Version = "0.1.0";
+
             #if DEBUG
-                Window.Title = "Gears [Debug] Version " + versionManager.Version;
+                Window.Title = "Gears [Debug] v." + VersionManager.Version;
 
                 // MAYBE TODO: Make this enum based for easier switching?
-                // DEBUG :: The uncommented line will change the default state that runs first.
-                // Only one of the following Master.Push() lines should be uncommented at a time.
+                //  DEBUG :: The uncommented line will change the default state that runs first.
+                //  Only one of the following Master.Push() lines should be uncommented at a time.
                 //Master.Push(new Splash());    //Uncomment this line to start game normally.
                 Master.Push(new debugger());    //Uncomment this line to start the game with debug menu.
-                // END of Master.Push() lines
+                //  END of Master.Push() lines
                 
             #else //release
-                Window.Title = "Gears";
+                Window.Title = "Gears v." + versionManager.Version;
                 Master.Push(new Splash()); //Start game normally
             #endif
 
