@@ -31,12 +31,12 @@ namespace GearsDebug
         private void Initialize()
         {
             menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
-            safeArea = ViewportHandler.GetViewport().TitleSafeArea;
+            
         }
 
         protected internal override void Update(GameTime gameTime)
         {
-
+            safeArea = ViewportHandler.GetViewport().TitleSafeArea;
         }
         protected internal override void Draw(SpriteBatch spriteBatch)
         {

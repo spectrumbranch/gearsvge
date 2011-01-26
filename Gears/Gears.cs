@@ -28,8 +28,20 @@ namespace GearsDebug
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.Window.AllowUserResizing = true;
+            this.Window.ClientSizeChanged += new EventHandler(Window_ClientSizeChanged);
         }
-        
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            ViewportHandler.SetScreen(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height);
+            graphics.PreferredBackBufferWidth = this.Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = this.Window.ClientBounds.Height;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
+
+        }
+
         protected override void Initialize()
         {
             //VERSION
