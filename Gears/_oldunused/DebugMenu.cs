@@ -6,7 +6,7 @@ using Gears.Cloud._Debug;
 namespace GearsDebug
 {
     //becoming deprecated
-    class DebugMenu : MenuEngine
+    class DebugMenu : MenuEngineX
     {
         private bool _init = false; //whether or not this has been initialized
 

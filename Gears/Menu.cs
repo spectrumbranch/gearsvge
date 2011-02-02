@@ -16,7 +16,7 @@ using Gears.Cloud;
 namespace GearsDebug
 {
     //TODO: Move this into content-containing class section. 
-    //          Menu should belong to Gears.Navigation.MenuEngine.
+    //          Menu should belong to Gears.Navigation.MenuEngineX.
     internal class MainMenu : GameState
     {
         //private bool _init = false; //whether or not this has been initialized

@@ -31,10 +31,23 @@ namespace Gears.Navigation
         ViewportHandlerTest,
         Exit
     }
+    //work in progress. see flowchart.
+    internal sealed class MenuEngine
+    {
+        public MenuEngine()
+        {
+            Initialize();
+            LoadContent();
+        }
+        private void Initialize() { }
+        private void LoadContent() { }
+        internal void Draw(SpriteBatch spriteBatch) { }
+        internal void Update(GameTime gameTime) { }
 
+    }
 
-    //MenuEngine is old technology that is phasing out in a future revision.
-    class MenuEngine : GameState
+    //MenuEngineX is old technology that is phasing out in a future revision.
+    internal class MenuEngineX : GameState
     {
         //menu data
         private OLD_MenuItem[] menu;
@@ -66,9 +79,9 @@ namespace Gears.Navigation
         private Color activeItemColor = new Color(200, 125, 125);
 
 
-        public MenuEngine(OLD_MenuItem[] menuItemList)
+        public MenuEngineX(OLD_MenuItem[] menuItemList)
         {
-            Debug.Out("MenuEngine Constructor");
+            Debug.Out("MenuEngineX Constructor");
             Initialize(menuItemList);
             LoadContent();
         }

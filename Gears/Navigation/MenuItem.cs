@@ -63,7 +63,7 @@ namespace Gears.Navigation
         //start
         internal MenuItem()
         {
-            //Debug.Out("MenuEngine Constructor");
+            //Debug.Out("MenuEngineX Constructor");
             Initialize();
             LoadContent();
         }

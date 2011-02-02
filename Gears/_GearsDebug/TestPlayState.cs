@@ -19,14 +19,32 @@ namespace GearsDebug
     /// <summary>
     /// TestPlayState is for testing via the debugger state menu ONLY.
     /// </summary>
-    sealed internal class TestPlayState : GameState
+    sealed internal class TestPlayState : GameState, IMenuItem
     {
         //temporary and bad name scheme. this zone is for testing via the menu
         public TestZone exampleZone; // a real playstate template would have this setup properly!!!
+        private string menuText;
+        public string MenuText
+        {
+            get { return menuText; }
+            set
+            {
+                //15 chars or less to fit release 2 of menu implementation
+                if (value.Length <= 15)
+                {
+                    menuText = value;
+                }
+                else
+                {
+                    //do nothing currently
+                }
+            }
+        }
 
         public TestPlayState()
         {
-            base.SetName("TestPlayState");
+            MenuText = "TestPlayState";
+            base.SetName(MenuText);
 
             Initialize();
         }
@@ -43,6 +61,10 @@ namespace GearsDebug
         protected internal override void Draw(SpriteBatch spriteBatch)
         {
             exampleZone.Draw(spriteBatch);
+        }
+        public void ThrowPushEvent()
+        {
+
         }
     }
 }

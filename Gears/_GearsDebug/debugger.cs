@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 
 using Gears.Cloud;
 using Gears.Navigation;
+using GearsDebug.Navigation;
 
 namespace GearsDebug
 {
@@ -20,7 +21,7 @@ namespace GearsDebug
     class debugger : GameState
     {
         //The menu for the debug screen.
-        private MenuEngine menu;
+        private MenuEngineX menu;
 
         //identifier is for data passage identification. 
         //<<currently not used, but has future post-beta concepts for scripting>>
@@ -41,25 +42,30 @@ namespace GearsDebug
         }
         private void Initialize()
         {
+            
+
+
+
+
             //Grab script data and clear the script cache
             //<<currently not used, but has future post-beta concepts for scripting>>
             // THE FOLLOWING LINE OF CODE HAS A DEPRECATED CLASS REFERENCE
             //Script(ScreenStateHandler.Data());
 
             //TODO: Make the menu item data pass down from an actual database/XML.
-            //Load the menu item data to pass down to the MenuEngine
-            OLD_MenuItem[] LoadMenuItemData = new OLD_MenuItem[7]; //make index based on data
-            LoadMenuItemData[0] = new OLD_MenuItem("XMLSerializerTest", DebugMenuOption.XMLSerializerTest);
-            LoadMenuItemData[1] = new OLD_MenuItem("XMLDeserializerTest", DebugMenuOption.XMLDeserializerTest);
-            LoadMenuItemData[2] = new OLD_MenuItem("DebugOutTest", DebugMenuOption.DebugOutTest);
-            LoadMenuItemData[3] = new OLD_MenuItem("SubMenuTest", DebugMenuOption.SubMenuTest);
-            LoadMenuItemData[4] = new OLD_MenuItem("TestPlayState", DebugMenuOption.TestPlayState);
-            LoadMenuItemData[5] = new OLD_MenuItem("ViewportHandlerTest", DebugMenuOption.ViewportHandlerTest);
-            LoadMenuItemData[6] = new OLD_MenuItem("Exit", DebugMenuOption.Exit);
+            //Load the menu item data to pass down to the MenuEngineX
+          //  OLD_MenuItem[] LoadMenuItemData = new OLD_MenuItem[7]; //make index based on data
+          //  LoadMenuItemData[0] = new OLD_MenuItem("XMLSerializerTest", DebugMenuOption.XMLSerializerTest);
+           // LoadMenuItemData[1] = new OLD_MenuItem("XMLDeserializerTest", DebugMenuOption.XMLDeserializerTest);
+          //  LoadMenuItemData[2] = new OLD_MenuItem("DebugOutTest", DebugMenuOption.DebugOutTest);
+           // LoadMenuItemData[3] = new OLD_MenuItem("SubMenuTest", DebugMenuOption.SubMenuTest);
+           // LoadMenuItemData[4] = new OLD_MenuItem("TestPlayState", DebugMenuOption.TestPlayState);
+            //LoadMenuItemData[5] = new OLD_MenuItem("ViewportHandlerTest", DebugMenuOption.ViewportHandlerTest);
+           // LoadMenuItemData[6] = new OLD_MenuItem("Exit", DebugMenuOption.Exit);
             // /end TODO
 
             //Initialize the menu and load its data.
-            menu = new MenuEngine(LoadMenuItemData);
+            //menu = new MenuEngineX(LoadMenuItemData);
             
             //example
             //exampleZone = new Zone();
@@ -73,13 +79,14 @@ namespace GearsDebug
         protected internal override void Update(GameTime gameTime)
         {
             //Update the Menu
-            menu.Update(gameTime);
+            //menu.Update(gameTime);
+            TestMenuData tmd = new TestMenuData();
         }
 
         protected internal override void Draw(SpriteBatch spriteBatch)
         {
             //Draw the Menu
-            menu.Draw(spriteBatch);
+           // menu.Draw(spriteBatch);
         }
 
 
