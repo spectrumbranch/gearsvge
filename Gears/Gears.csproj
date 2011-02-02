@@ -98,9 +98,9 @@
     <Compile Include="Cloud\ViewportHandler.cs" />
     <Compile Include="Cloud\_Debug\Debug.cs" />
     <Compile Include="Gears.cs" />
-    <Compile Include="HardExitGameState.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Navigation\DemoMenu.cs" />
+    <Compile Include="Navigation\HardExitGameState.cs" />
     <Compile Include="Navigation\IMenuItem.cs" />
     <Compile Include="Navigation\MenuEngine.cs" />
     <Compile Include="Navigation\MenuItem.cs" />
