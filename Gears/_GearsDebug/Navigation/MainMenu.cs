@@ -13,14 +13,11 @@ using Microsoft.Xna.Framework.Storage;
 
 using Gears.Cloud; 
 
-namespace GearsDebug
+namespace GearsDebug.Navigation
 {
-    //TODO: Move this into content-containing class section. 
-    //          Menu should belong to Gears.Navigation.MenuEngineX.
+    //TODO: Set this up to use the NEW menu engine functionality.
     internal class MainMenu : GameState
     {
-        //private bool _init = false; //whether or not this has been initialized
-
         private SpriteFont menuFont;
         private SpriteFont menuItemFont;
 

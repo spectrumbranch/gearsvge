@@ -58,4 +58,37 @@ namespace Gears_DEPRECATED
         Null
     }
 
+    class OfDeprecation
+    {
+        //<<currently not used, but has future post-alpha concepts for scripting>>
+        //SCRIPT NEEDS TO BE WORKED ON
+        private void Script(string script)
+        {
+            if (script == null) //error checking
+            {
+                script = ""; //sanitize null passes for people who dont script properly
+            }
+            Verify(ref script);
+            switch (script)
+            {
+                case "":
+                    break;
+                default:
+                    break;
+            }
+        }
+        //WORK ON
+        private bool Verify(ref string msg)
+        {
+            if (msg.Length > 1)
+            {
+                if (msg.StartsWith("d"))
+                {
+                    msg = msg.Remove(0, 1);
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 }

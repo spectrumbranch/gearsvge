@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Gears.Navigation
+﻿namespace Gears.Navigation
 {
     public abstract class MenuUserControl : IMenuItem
     {
@@ -31,8 +26,6 @@ namespace Gears.Navigation
         {
             MenuText = menuText;
         }
-
-
         public virtual void ThrowPushEvent()
         {
 

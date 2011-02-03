@@ -98,16 +98,13 @@
     <Compile Include="Cloud\ViewportHandler.cs" />
     <Compile Include="Cloud\_Debug\Debug.cs" />
     <Compile Include="Gears.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Navigation\DemoMenu.cs" />
+    <Compile Include="Navigation\BackMenuOption.cs" />
     <Compile Include="Navigation\HardExitGameState.cs" />
     <Compile Include="Navigation\IMenuItem.cs" />
-    <Compile Include="Navigation\MenuEngine.cs" />
-    <Compile Include="Navigation\MenuItem.cs" />
+    <Compile Include="Navigation\Menu.cs" />
     <Compile Include="Navigation\MenuItemCollection.cs" />
     <Compile Include="Navigation\MenuState.cs" />
     <Compile Include="Navigation\MenuUserControl.cs" />
-    <Compile Include="Navigation\OLD_MenuItem.cs" />
     <Compile Include="Playable\EnemyUnit\Unit.cs" />
     <Compile Include="Playable\EnemyUnit\UnitManager.cs" />
     <Compile Include="Playable\EnemyUnit\UnitParameters.cs" />
@@ -117,14 +114,16 @@
     <Compile Include="Playable\Projectile\ProjectileManager.cs" />
     <Compile Include="Playable\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewportHandlerTest.cs" />
     <Compile Include="_GearsDebug\debugger.cs" />
+    <Compile Include="_GearsDebug\Navigation\MainMenu.cs" />
     <Compile Include="_GearsDebug\Navigation\TestMenuData.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnit.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnitManager.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnitTypeFactory.cs" />
+    <Compile Include="_GearsDebug\Splash.cs" />
     <Compile Include="_GearsDebug\TestPlayState.cs" />
     <Compile Include="_GearsDebug\TestZone.cs" />
+    <Compile Include="_GearsDebug\ViewportHandlerTest.cs" />
     <Compile Include="_main\Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -137,8 +136,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="Splash.cs" />
-    <Compile Include="_oldunused\DebugMenu.cs" />
     <Compile Include="_oldunused\_steve\CCamera.cs" />
     <Compile Include="_oldunused\_steve\CCameraPath.cs" />
     <Compile Include="_oldunused\_steve\CCommands.cs" />

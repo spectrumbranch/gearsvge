@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Gears.Navigation
+﻿namespace Gears.Navigation
 {
     public interface IMenuItem
     {
@@ -12,7 +7,6 @@ namespace Gears.Navigation
             get;
             set;
         }
-
         void ThrowPushEvent();
     }
 }

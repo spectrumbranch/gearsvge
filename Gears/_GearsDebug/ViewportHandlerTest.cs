@@ -19,7 +19,7 @@ namespace GearsDebug
     /// <summary>
     /// ViewportHandlerTest is for testing via the debugger state menu ONLY.
     /// </summary>
-    sealed internal class ViewportHandlerTest : GameState, IMenuItem
+    internal sealed class ViewportHandlerTest : GameState, IMenuItem
     {
         private static Rectangle safeArea;
         private static SpriteFont menuItemFont;
@@ -45,16 +45,13 @@ namespace GearsDebug
         public ViewportHandlerTest()
         {
             MenuText = "ViewportHandler";
-            base.SetName(MenuText);
             Initialize();
         }
-
         private void Initialize()
         {
             menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
             safeArea = ViewportHandler.GetViewport().TitleSafeArea;
         }
-
         protected internal override void Update(GameTime gameTime)
         {
 
@@ -87,7 +84,6 @@ Center", new Vector2(safeArea.Center.X, safeArea.Center.Y), Color.White);
             spriteBatch.DrawString(menuItemFont, "+", new Vector2(safeAreaRight, safeAreBottom), Color.White);
 
         }
-
         public void ThrowPushEvent()
         {
 

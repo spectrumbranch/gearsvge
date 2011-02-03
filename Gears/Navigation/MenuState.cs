@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Net;
-using Microsoft.Xna.Framework.Storage;
 using Gears.Cloud;
 
 namespace Gears.Navigation
@@ -31,13 +21,14 @@ namespace Gears.Navigation
     /// </summary>
     internal abstract class MenuState : GameState, IMenuItem
     {
-        private MenuItemCollection mic; //  TODO: PLAN AND SIMULATE/TEST LOADING THE MENUITEMCOLLECTION
+        private MenuItemCollection mic; 
 
         //graphics resources
         internal protected SpriteFont menuFont;
         internal protected SpriteFont menuItemFont;
 
         //hardcoded defaults at 1280x720
+        //TODO: Parameterize this stuff.
         //private string menuTitle = "Debug Menu";//////////////////////
         private Vector2 menuTitlePosition = new Vector2(85, 30);
         private Color menuTitleColor = new Color(255, 255, 255);
@@ -69,7 +60,6 @@ namespace Gears.Navigation
                 }
             }
         }
-
         internal MenuState(string menuText, IMenuItem[] menuItemList)
         {
             mic = new MenuItemCollection(menuItemList);
@@ -79,7 +69,6 @@ namespace Gears.Navigation
         private void Initialize(string menuText)
         {
             MenuText = menuText;
-            base.SetName(MenuText);
         }
         private void LoadContent()
         {
@@ -94,10 +83,9 @@ namespace Gears.Navigation
         {
             OLD_ProcessKeyboard(gameTime);
         }
-
         protected internal void DrawMenu(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(menuFont, base.GetName(), menuTitlePosition, menuTitleColor);
+            spriteBatch.DrawString(menuFont, MenuText, menuTitlePosition, menuTitleColor);
 
             //for (int j = 0; j * maxRows <= numMenuItems; j++) //keep this CHRIS
             for (int j = 0; j < maxColumns; j++)
@@ -116,8 +104,6 @@ namespace Gears.Navigation
                 }
             }
         }
-
-
         protected internal void OLD_ProcessKeyboard(GameTime gameTime)//used to be virtual
         {
             //This is a terribly built input processor. 
@@ -125,11 +111,6 @@ namespace Gears.Navigation
 
             KeyboardState currentKeyboardState = Input.GetCurrentKeyboardState();
             KeyboardState oldKeyboardState = Input.GetOldKeyboardState();
-
-            //currently this keyboard processing is only built to run for the menu.
-            //DO NOT use it for the options. they should handle their own anyway
-            //oldKeyboardState = currentKeyboardState;
-            //currentKeyboardState = Keyboard.GetState();
 
             currentKeyboardState.GetPressedKeys();
 
@@ -168,7 +149,6 @@ namespace Gears.Navigation
                 }
             }
         }
-
         public virtual void ThrowPushEvent()
         {
 
