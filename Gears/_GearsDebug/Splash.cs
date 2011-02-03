@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 
 using Gears.Cloud;
+using GearsDebug.Navigation;
 
 namespace GearsDebug
 {
@@ -31,10 +32,8 @@ namespace GearsDebug
         private const int splashScreenExpirationSeconds = 5;
         private int splashScreenBegun;
 
-
         public Splash()
         {
-            base.SetName("Splash");
             Initialize();
             LoadContent();
         }

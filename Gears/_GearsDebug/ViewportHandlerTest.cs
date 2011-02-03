@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using Gears.Navigation;
 using Gears.Cloud;
 
 namespace GearsDebug
@@ -18,25 +19,42 @@ namespace GearsDebug
     /// <summary>
     /// ViewportHandlerTest is for testing via the debugger state menu ONLY.
     /// </summary>
-    sealed internal class ViewportHandlerTest : GameState
+    internal sealed class ViewportHandlerTest : GameState, IMenuItem
     {
         private static Rectangle safeArea;
         private static SpriteFont menuItemFont;
 
+        private string menuText;
+
+        public string MenuText
+        {
+            get { return menuText; }
+            set
+            {
+                //15 chars or less to fit release 2 of menu implementation
+                if (value.Length <= 15)
+                {
+                    menuText = value;
+                }
+                else
+                {
+                    //do nothing currently
+                }
+            }
+        }
         public ViewportHandlerTest()
         {
+            MenuText = "ViewportHandler";
             Initialize();
         }
-
         private void Initialize()
         {
             menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
-            
+            safeArea = ViewportHandler.GetViewport().TitleSafeArea;
         }
-
         protected internal override void Update(GameTime gameTime)
         {
-            safeArea = ViewportHandler.GetViewport().TitleSafeArea;
+
         }
         protected internal override void Draw(SpriteBatch spriteBatch)
         {
@@ -64,6 +82,10 @@ Center", new Vector2(safeArea.Center.X, safeArea.Center.Y), Color.White);
             spriteBatch.DrawString(menuItemFont, "+", new Vector2(safeArea.Left, safeAreBottom), Color.White);
             // Bottom Right
             spriteBatch.DrawString(menuItemFont, "+", new Vector2(safeAreaRight, safeAreBottom), Color.White);
+
+        }
+        public void ThrowPushEvent()
+        {
 
         }
     }

@@ -24,6 +24,26 @@ namespace Gears.Cloud
         private static bool _enabled = false;
         private static KeyboardState _keyState;
 
+
+        //
+        private static KeyboardState oldKeyboardState, currentKeyboardState;
+        private const int menuKeyMSDelay = 200; //200 milliseconds
+
+        //Jon, please feel free to destroy the crap out of these functions.
+        //They are temporary just so I can get the menu demos working.
+        internal static KeyboardState GetOldKeyboardState()
+        {
+            return oldKeyboardState;
+        }
+        internal static KeyboardState GetCurrentKeyboardState()
+        {
+            oldKeyboardState = currentKeyboardState;
+            currentKeyboardState = Keyboard.GetState();
+            return currentKeyboardState;
+        }
+        
+
+
         internal static bool KeyEnter()
         {
             return _keyState.IsKeyDown(Keys.Enter);

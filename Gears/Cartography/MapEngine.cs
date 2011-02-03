@@ -53,30 +53,22 @@ namespace Gears.Cartography
             map0.TILE_DATA = "439f8h,f309f,43f3fj34f,-34f349";
 
         }
-        
-             
-        
         public static void SerializeToXML(Map map)
         {
             using (TextWriter textWriter = new StreamWriter(SAVE_LOCATION))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Map));
-                //TextWriter textWriter = new StreamWriter(@"C:\movie.xml"); //change save location
                 serializer.Serialize(textWriter, map);
                 textWriter.Close();
             }
         }
         public static Map DeserializeFromXML()
         {
-            //throw new NotImplementedException(); // . . .
-            //STILL BROKEN GOTTA FIX IT!
-
             try
             {
                 using (TextReader textReader = new StreamReader(LOAD_LOCATION))
                 {
                     XmlSerializer deserializer = new XmlSerializer(typeof(Map));
-                    //TextReader textReader = new StreamReader(@"C:\movie.xml"); //change load location
                     Map map;
                     try
                     {
@@ -98,7 +90,6 @@ namespace Gears.Cartography
                         Debug.Out("##MapEngine.DeserializeFromXML(): An error has occurred. The XML file read from " + LOAD_LOCATION + " is of an incompatible format.");
                         Debug.Out(ioe.Message);
                     }
-
 
                     textReader.Close();
                     return null;
@@ -133,6 +124,7 @@ namespace Gears.Cartography
 
         }
     }
+    //TODO: Cleanup.
     public class Map
     {
         //ASSIGNMENTS ARE FOR TESTING PURPOSES ONLY!!!
@@ -161,6 +153,7 @@ namespace Gears.Cartography
 
 
     }
+    //TODO
     class MapLoader : Map
     {
         //strings instead of values. throw exception if not cool
