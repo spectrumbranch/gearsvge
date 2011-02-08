@@ -2,17 +2,19 @@
 using Gears.Cloud;
 using Gears.Navigation;
 
+using GearsDebug.Cartography;
+
 namespace GearsDebug.Navigation
 {
-    internal sealed class TestMenuData
+    internal sealed class DebugMenu
     {
         private IMenuItem[] imi;
         private IMenuItem[] submenu;
 
-        internal TestMenuData()
+        internal DebugMenu()
         {
             //create
-            imi = new IMenuItem[4];
+            imi = new IMenuItem[6];
             submenu = new IMenuItem[1];
             //populate
             imi[0] = new TestPlayState();
@@ -23,7 +25,9 @@ namespace GearsDebug.Navigation
             Menu testSubMenu = new Menu("Example Submenu", submenu);
 
             imi[2] = testSubMenu;
-            imi[3] = new HardExitGameState();
+            imi[3] = new PerformMapSerialize();
+            imi[4] = new PerformMapDeserialize();
+            imi[5] = new HardExitGameState();
 
             //insert into a MenuState
             Menu debugMenu = new Menu("Debugger Menu",imi);

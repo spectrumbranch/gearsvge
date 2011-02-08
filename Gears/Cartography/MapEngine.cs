@@ -10,37 +10,33 @@ using Gears.Cloud._Debug;
 namespace Gears.Cartography
 {
     //TODO: This needs to be refactored and parameterized.
-    sealed class MapEngine
+    internal sealed class MapEngine
     {
         private Map map0; //for testing purposes
 
+        //used for later stages.
+        private const string _VERSION = "0.1.0";
         private const string _KEY = @""; //some key
 
-        public static string SAVE_LOCATION = @"save4.xml"; //assignment is for testing only!!! replace with constructor param or something like that
-        //public static string SAVE_LOCATION = @"DEBUG_SPACE\save0.xml"; //assignment is for testing only!!! replace with constructor param or something like that
-        public static string LOAD_LOCATION = @"load0.xml"; //assignment is for testing only!!! replace with constructor param or something like that
         public MapEngine()
         {
 
         }
-        internal void DebugSerialize()
+        internal void DebugSerialize(string SAVE_LOCATION)
         {
             map0 = new Map();
             PopulateFields();
-            SerializeToXML(map0);
+            SerializeToXML(map0, SAVE_LOCATION);
         }
-        internal void DebugDeserialize()
+        internal void DebugDeserialize(string LOAD_LOCATION)
         {
-            //NOT YET FULLY IMPLEMENTED
-            map0 = new Map();
-            //PopulateFields();
-            DeserializeFromXML();
+            DeserializeFromXML(LOAD_LOCATION);
         }
 
         private void PopulateFields()
         {
             //debug values
-            map0.VERSION = "0.0.2";
+            map0.VERSION = "0.1.0";
 
             map0.BGM_FILE_LOC = "BGM_FILE_LOC DIRECTORY test";
             map0.FADE_IN_FILE_LOC = "FADE_IN_FILE_LOC DIRECTORY test";
@@ -53,7 +49,7 @@ namespace Gears.Cartography
             map0.TILE_DATA = "439f8h,f309f,43f3fj34f,-34f349";
 
         }
-        public static void SerializeToXML(Map map)
+        private static void SerializeToXML(Map map, string SAVE_LOCATION)
         {
             using (TextWriter textWriter = new StreamWriter(SAVE_LOCATION))
             {
@@ -62,7 +58,7 @@ namespace Gears.Cartography
                 textWriter.Close();
             }
         }
-        public static Map DeserializeFromXML()
+        private static Map DeserializeFromXML(string LOAD_LOCATION)
         {
             try
             {
@@ -154,12 +150,12 @@ namespace Gears.Cartography
 
     }
     //TODO
-    class MapLoader : Map
+    internal class MapLoader : Map
     {
         //strings instead of values. throw exception if not cool
     }
 
-    public class InvalidMapFileFormatException : System.IO.FileLoadException
+    internal class InvalidMapFileFormatException : System.IO.FileLoadException
     {
         public InvalidMapFileFormatException() { }
         public InvalidMapFileFormatException(string message) { }

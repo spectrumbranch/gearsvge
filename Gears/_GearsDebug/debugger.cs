@@ -34,7 +34,7 @@ namespace GearsDebug
         protected internal override void Update(GameTime gameTime)
         {
             //Throw our debug menu out into the world. It self-pushes.
-            TestMenuData tmd = new TestMenuData();
+            DebugMenu tmd = new DebugMenu();
         }
         protected internal override void Draw(SpriteBatch spriteBatch)
         {
