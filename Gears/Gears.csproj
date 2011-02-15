@@ -115,6 +115,7 @@
     <Compile Include="Playable\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_GearsDebug\debugger.cs" />
+    <Compile Include="_GearsDebug\Input\InputTest.cs" />
     <Compile Include="_GearsDebug\Navigation\MainMenu.cs" />
     <Compile Include="_GearsDebug\Navigation\TestMenuData.cs" />
     <Compile Include="_GearsDebug\Playable\EnemyUnit\TestUnit.cs" />

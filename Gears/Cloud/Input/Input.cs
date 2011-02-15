@@ -15,48 +15,66 @@ using Gears.Cloud._Debug;
 
 namespace Gears.Cloud
 {
-    //TODO: Build the core of this class.
-    internal static class Input
+    internal sealed class KeyboardInput //: BareInput
     {
-        //Global cooldown only applies to registered input.
-        private static TimeSpan _globalCooldown = new TimeSpan(0, 0, 0, 0, 100);
+       // internal static override KeyboardState GetOldState();
+        public TimeSpan _globalCooldown = new TimeSpan(0, 0, 0, 0, 100);
 
-        private static bool _enabled = false;
-        private static KeyboardState _keyState;
+        private bool _enabled;
+        public const int KeyMSDelay = 200;
 
-
-        //
-        private static KeyboardState oldKeyboardState, currentKeyboardState;
-        private const int menuKeyMSDelay = 200; //200 milliseconds
-
-        //Jon, please feel free to destroy the crap out of these functions.
-        //They are temporary just so I can get the menu demos working.
-        internal static KeyboardState GetOldKeyboardState()
-        {
-            return oldKeyboardState;
-        }
-        internal static KeyboardState GetCurrentKeyboardState()
-        {
-            oldKeyboardState = currentKeyboardState;
-            currentKeyboardState = Keyboard.GetState();
-            return currentKeyboardState;
-        }
+        private static KeyboardState oldState, currentState;
+        private static Keys[] pressedKeys;
         
+        public delegate void KeyStateEvent(Keys key);
+        public static event KeyStateEvent keyDown;
+        public static event KeyStateEvent keyUp;
 
-
-        internal static bool KeyEnter()
+        internal static KeyboardState GetOldState()
         {
-            return _keyState.IsKeyDown(Keys.Enter);
+            oldState = GetCurrentState();
+            return oldState;
         }
-        internal static bool GetInputFlag()
+
+        internal static KeyboardState GetCurrentState()
+        {
+            oldState = currentState;
+            currentState = Keyboard.GetState();
+            return currentState;
+        }
+
+        internal static void UpdateInput()
+        {
+            GetOldState();
+            pressedKeys = currentState.GetPressedKeys();
+            
+            foreach ( Keys keys in pressedKeys ) 
+            {
+                if(!oldState.Equals(keys))
+                {
+                    if (keyDown != null)
+                    {
+                        if(currentState.IsKeyDown(keys))
+                        keyDown(keys);
+                    }
+                    else if (keyUp != null)
+                    {
+                        if(currentState.IsKeyUp(keys))
+                        keyUp(keys);
+                    }
+                }
+            }
+        }
+
+        internal bool GetInputFlag()
         {
             return _enabled;
         }
-        internal static void EnableInput()
+        internal void EnableInput()
         {
             _enabled = true;
         }
-        internal static void DisableInput()
+        internal void DisableInput()
         {
             _enabled = false;
         }

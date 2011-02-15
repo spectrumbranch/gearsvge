@@ -26,7 +26,7 @@ namespace Gears.Navigation
         //graphics resources
         internal protected SpriteFont menuFont;
         internal protected SpriteFont menuItemFont;
-
+       
         //hardcoded defaults at 1280x720
         //TODO: Parameterize this stuff.
         //private string menuTitle = "Debug Menu";//////////////////////
@@ -68,8 +68,11 @@ namespace Gears.Navigation
         }
         private void Initialize(string menuText)
         {
+            KeyboardInput.keyDown += new KeyboardInput.KeyStateEvent(KeyDown);
             MenuText = menuText;
         }
+
+        
         private void LoadContent()
         {
             menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
@@ -79,9 +82,13 @@ namespace Gears.Navigation
         {
             DrawMenu(spriteBatch);
         }
-        protected internal override void Update(GameTime gameTime)
-        {
-            OLD_ProcessKeyboard(gameTime);
+
+       protected internal override void Update(GameTime gameTime)
+       {
+          // elapsedTime -= gameTime.ElapsedGameTime.Milliseconds;
+               KeyboardInput.UpdateInput();//TODO add input delay.
+               //OLD_ProcessKeyboard(gameTime);
+
         }
         protected internal void DrawMenu(SpriteBatch spriteBatch)
         {
@@ -104,51 +111,33 @@ namespace Gears.Navigation
                 }
             }
         }
-        protected internal void OLD_ProcessKeyboard(GameTime gameTime)//used to be virtual
+
+        internal void KeyDown(Keys key)
         {
-            //This is a terribly built input processor. 
-            //It MUST be redone.
-
-            KeyboardState currentKeyboardState = Input.GetCurrentKeyboardState();
-            KeyboardState oldKeyboardState = Input.GetOldKeyboardState();
-
-            currentKeyboardState.GetPressedKeys();
-
-            // TODO: currently the enter key can fire multiple times in one pressdown and should be fixed.
-            //      reproduce this by pressing the enter key and repeatedly pressing space, for example.
-            if (currentKeyboardState.IsKeyDown(Keys.Enter) &&
-                currentKeyboardState != oldKeyboardState)
+            switch (key)
             {
-                mic.PushIndex(activeMenuIndex); /////
-            }
-            else
-            {
-                if (currentKeyboardState.IsKeyDown(Keys.Down) &&
-                    activeMenuIndex != (mic.Length - 1) &&
-                    currentKeyboardState != oldKeyboardState)
-                {
-                    activeMenuIndex++;
-                }
-                if (currentKeyboardState.IsKeyDown(Keys.Up) &&
-                    activeMenuIndex != 0 &&
-                    currentKeyboardState != oldKeyboardState)
-                {
+                case Keys.Enter:
+                    mic.PushIndex(activeMenuIndex); /////
+                    break;
+                case Keys.Down:
+                    if (activeMenuIndex != (mic.Length - 1))
+                        activeMenuIndex++;
+                    break;
+                case Keys.Up:
+                    if (activeMenuIndex != 0)
                     activeMenuIndex--;
-                }
-                if (currentKeyboardState.IsKeyDown(Keys.Left) &&
-                    activeMenuIndex != 0 &&
-                    currentKeyboardState != oldKeyboardState)
-                {
+                    break;
+                case Keys.Left:
+                    if(activeMenuIndex != 0)
                     activeMenuIndex = (int)MathHelper.Clamp(activeMenuIndex - maxRows, 0, mic.Length - 1);
-                }
-                if (currentKeyboardState.IsKeyDown(Keys.Right) &&
-                    activeMenuIndex != (mic.Length - 1) &&
-                    currentKeyboardState != oldKeyboardState)
-                {
+                    break;
+                case Keys.Right:
+                    if(activeMenuIndex != (mic.Length - 1))
                     activeMenuIndex = (int)MathHelper.Clamp((int)(activeMenuIndex + maxRows), (int)0, (int)(mic.Length - 1));
-                }
+                    break;
             }
         }
+
         public virtual void ThrowPushEvent()
         {
 
