@@ -1,0 +1,9 @@
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\GearsVGE.dll.config
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\GearsVGE.dll
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\GearsVGE.pdb
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\obj\x86\Debug\GearsVGE.dll
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\obj\x86\Debug\GearsVGE.pdb
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\Content\Fonts\MenuFont.xnb
+C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\Content\Fonts\MenuItem.xnb
