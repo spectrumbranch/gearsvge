@@ -7,7 +7,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\Content\Fonts\MenuFont.xnb</Output>
+      <Output>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\bin\x86\Debug\Content\Fonts\MenuFont.xnb</Output>
       <Time>2011-01-25T21:20:37.5714256-05:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\Content\Fonts\MenuItem.xnb</Output>
+      <Output>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\bin\x86\Debug\Content\Fonts\MenuItem.xnb</Output>
       <Time>2011-01-25T21:20:37.5914268-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -24,10 +24,10 @@
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
