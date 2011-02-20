@@ -28,7 +28,7 @@ namespace Gears.Navigation
     /// Copyright 2011. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com
     /// </summary>
-    public abstract class MenuState : GameState, IMenuItem
+    public abstract class MenuState : MenuReadyGameState
     {
         private MenuItemCollection mic; 
 
@@ -52,23 +52,7 @@ namespace Gears.Navigation
         private int activeMenuIndex = 0; //0 = default
         private Color activeItemColor = new Color(200, 125, 125);
 
-        private string menuText;
-        public string MenuText
-        {
-            get { return menuText; }
-            set
-            {
-                //15 chars or less to fit release 2 of menu implementation
-                if (value.Length <= 15)
-                {
-                    menuText = value;
-                }
-                else
-                {
-                    //do nothing currently
-                }
-            }
-        }
+
         public MenuState(string menuText, IMenuItem[] menuItemList)
         {
             mic = new MenuItemCollection(menuItemList);
@@ -205,10 +189,6 @@ namespace Gears.Navigation
                     }
                 }
             }
-        }
-        public virtual void ThrowPushEvent()
-        {
-
         }
     }
 }
