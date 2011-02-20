@@ -1,7 +1,6 @@
 ﻿using Gears.Cloud;
-using Gears.Navigation;
 
-namespace Gears
+namespace Gears.Navigation
 {
     public sealed class HardExitGameState : IMenuItem
     {
