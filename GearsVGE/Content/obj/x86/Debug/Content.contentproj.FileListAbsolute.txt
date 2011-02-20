@@ -1,3 +1,0 @@
-C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\Gears\Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Branch\Documents\Visual Studio 2008\Projects\GearsVGE\GearsVGE\Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Branch\Documents\Visual Studio 2008\Projects\Gears\GearsVGE\Content\obj\x86\Debug\ResolveAssemblyReference.cache
