@@ -25,6 +25,10 @@ namespace Gears.Cloud
             _fonts = new Dictionary<int, SpriteFont>();
             _init = true;
         }
+        public static Game GetGame()
+        {
+            return _game;
+        }
 
         private static Dictionary<int, List<Texture2D>> _textures;
         private static Dictionary<int, List<SoundEffect>> _sounds;
@@ -72,7 +76,7 @@ namespace Gears.Cloud
             }
         }
 
-        internal static void loadFont(string fontName)
+        public static void loadFont(string fontName)
         {
             if (checkInit())
             {
@@ -87,7 +91,7 @@ namespace Gears.Cloud
                 throw new System.Exception("Content Manager not initialized!");
         }
 
-        internal static SpriteFont requestFont(int fontID)
+        public static SpriteFont requestFont(int fontID)
         {
             if (checkInit())
             {
@@ -97,7 +101,7 @@ namespace Gears.Cloud
             return _fontNull;
         }
 
-        internal static void loadTexture(int unitID, string texDir)
+        public static void loadTexture(int unitID, string texDir)
         {
             if (checkInit())
             {
@@ -111,7 +115,7 @@ namespace Gears.Cloud
             }
         }
 
-        internal static void loadTexture(int unitID, int resourceID, string texDir)
+        public static void loadTexture(int unitID, int resourceID, string texDir)
         {
             if (checkInit())
             {
@@ -187,7 +191,7 @@ namespace Gears.Cloud
             }
         }
 
-        internal static Texture2D requestTexture(int unitID, int bankID)
+        public static Texture2D requestTexture(int unitID, int bankID)
         {
             if (checkInit())
             {
@@ -215,10 +219,6 @@ namespace Gears.Cloud
             }
 
             return _musNull;
-        }
-        public static Game GetGame()
-        {
-            return _game;
         }
     }
 }
