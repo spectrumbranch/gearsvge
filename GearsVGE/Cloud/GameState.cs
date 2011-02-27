@@ -7,15 +7,20 @@ namespace Gears.Cloud
     {
         //IsOverlay is not used currently. (but will be)
         //HandlesInput is not used currently. (but might be)
-
+        
         protected internal bool _IsOverlay = false;
+        public bool IsOverlay
+        {
+            get { return _IsOverlay; }
+            set { if (_IsOverlay != false) _IsOverlay = value; }
+        }
         protected internal bool _HandlesInput = false;
         protected internal bool _StateIsActive = false;
 
-        internal bool IsOverlay()
-        {
-            return _IsOverlay;
-        }
+        //internal bool IsOverlay()
+        //{
+        //    return _IsOverlay;
+        //}
         internal bool HandlesInput()
         {
             return _HandlesInput;

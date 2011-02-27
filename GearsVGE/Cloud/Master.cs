@@ -43,7 +43,7 @@ namespace Gears.Cloud
             stack.Peek().Draw(spriteBatch);
 
             //it's an overlay. we are able to draw more than one layer if there's anything below
-            if (stack.Peek().IsOverlay())
+            if (stack.Peek().IsOverlay)
             {
                 if (list.Count != 0)
                 {
