@@ -37,6 +37,12 @@ namespace Gears.Cloud
         {
             return stack.Pop();
         }
+        /// <summary>
+        /// Master Draw call.
+        /// This should be the first and only interface from the main game
+        ///     "Draw" loop for this instance of the VGE.
+        /// </summary>
+        /// <param name="spriteBatch">The global-parameter sprite batch.</param>
         public static void Draw(SpriteBatch spriteBatch)
         {
             //no matter what, if draw is called, we are drawing the top stack item.
@@ -55,6 +61,12 @@ namespace Gears.Cloud
                  //since we are already drawing the top stack item, we dont need to do anything else.
             { }  //this is just here in case it is useful in the future.
         }
+        /// <summary>
+        /// Master Update call. 
+        /// This should be the first and only interface from the main game 
+        ///     "Update" loop for this instance of the VGE.
+        /// </summary>
+        /// <param name="gameTime">The time snapshot.</param>
         public static void Update(GameTime gameTime)
         {
             //global events
