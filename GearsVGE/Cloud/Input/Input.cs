@@ -16,15 +16,19 @@ using Gears.Cloud._Debug;
 namespace Gears.Cloud
 {
     /// <summary>
-    /// Input AKA Input State Machine     rev.002
+    /// Input AKA Input State Machine     rev.003
     /// 
     /// ***TODO:needs documentation***
     ///
+    ///     Changelog:
+    ///     - Make input class accessible outside of the core.
+    ///                 Jonathan Basniak(rev.003, 04/19/2011)
+    /// 
     /// By spectrum AKA Christopher Bebry, batchfile AKA Jonathan Basniak.
     /// Copyright 2011. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com
     /// </summary>
-    internal static class Input
+    public static class Input
     {
         //Global cooldown only applies to registered input. Not implemented as of yet.
         private static TimeSpan _globalCooldown = new TimeSpan(0, 0, 0, 0, 100);
@@ -50,7 +54,7 @@ namespace Gears.Cloud
             get { return currentKeyboardState; }
         }
 
-        internal static void Update(GameTime gameTime)
+        public static void Update(GameTime gameTime)
         {
             UpdateKeyboardStates();
 
@@ -84,24 +88,24 @@ namespace Gears.Cloud
             currentKeyboardState = Keyboard.GetState();
         }
 
-        internal static bool KeyEnter()
+        public static bool KeyEnter()
         {
             return _keyState.IsKeyDown(Keys.Enter);
         }
-        internal static bool GetInputFlag()
+        public static bool GetInputFlag()
         {
             return _enabled;
         }
-        internal static void EnableInput()
+        public static void EnableInput()
         {
             _enabled = true;
         }
-        internal static void DisableInput()
+        public static void DisableInput()
         {
             _enabled = false;
         }
 
-        internal static void ClearEventHandler()
+        public static void ClearEventHandler()
         {
             Input.keyDown = null;
             Input.keyUp = null;
