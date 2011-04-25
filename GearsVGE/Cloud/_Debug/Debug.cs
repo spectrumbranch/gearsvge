@@ -8,7 +8,7 @@ namespace Gears.Cloud._Debug
     /// <summary>
     /// A class to handle static debug functions.
     /// </summary>
-    internal static class Debug
+    public static class Debug
     {
         private const string _systemOut = @"Debug\DebugOut.log";
 
