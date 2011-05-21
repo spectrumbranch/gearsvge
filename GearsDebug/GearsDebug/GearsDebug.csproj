@@ -156,7 +156,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Gears\GearsVGE\GearsVGE.csproj">
+    <ProjectReference Include="..\..\GearsVGE\GearsVGE\GearsVGE.csproj">
       <Project>{B3F2860E-45F9-4BB3-B936-E749660F1969}</Project>
       <Name>GearsVGE</Name>
     </ProjectReference>
