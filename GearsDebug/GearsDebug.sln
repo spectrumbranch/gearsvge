@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearsDebug", "GearsDebug\GearsDebug.csproj", "{80256CA4-B727-468D-A9CA-6FB03C29CF50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearsVGE", "..\Gears\GearsVGE\GearsVGE.csproj", "{B3F2860E-45F9-4BB3-B936-E749660F1969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80256CA4-B727-468D-A9CA-6FB03C29CF50}.Debug|x86.ActiveCfg = Debug|x86
+		{80256CA4-B727-468D-A9CA-6FB03C29CF50}.Debug|x86.Build.0 = Debug|x86
+		{80256CA4-B727-468D-A9CA-6FB03C29CF50}.Release|x86.ActiveCfg = Release|x86
+		{80256CA4-B727-468D-A9CA-6FB03C29CF50}.Release|x86.Build.0 = Release|x86
+		{B3F2860E-45F9-4BB3-B936-E749660F1969}.Debug|x86.ActiveCfg = Debug|x86
+		{B3F2860E-45F9-4BB3-B936-E749660F1969}.Debug|x86.Build.0 = Debug|x86
+		{B3F2860E-45F9-4BB3-B936-E749660F1969}.Release|x86.ActiveCfg = Release|x86
+		{B3F2860E-45F9-4BB3-B936-E749660F1969}.Release|x86.Build.0 = Release|x86
+		{8D0E916D-7C37-4604-8397-BEAC514E51A0}.Debug|x86.ActiveCfg = Debug|x86
+		{8D0E916D-7C37-4604-8397-BEAC514E51A0}.Release|x86.ActiveCfg = Release|x86
+		{E8D47768-4E83-4122-877A-8FAFE33A2103}.Debug|x86.ActiveCfg = Debug|x86
+		{E8D47768-4E83-4122-877A-8FAFE33A2103}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
