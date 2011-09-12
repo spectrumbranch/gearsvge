@@ -26,7 +26,7 @@ namespace GearsDebug
 
             base.Register(_lFact.ToArray());
 
-            _lFact = null; //this probably isn't necessary, is it? LOL I understand scope you dummy.
+            _lFact = null; //this probably isn't necessary, is it?
         }
     }
 }
