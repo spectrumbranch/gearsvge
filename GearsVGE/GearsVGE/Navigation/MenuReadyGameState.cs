@@ -15,8 +15,8 @@ namespace Gears.Navigation
             get { return menuText; }
             set
             {
-                //15 chars or less to fit release 2 of menu implementation
-                if (value.Length <= 15)
+                //18 chars or less to fit release 2 of menu implementation
+                if (value.Length <= 18)
                 {
                     menuText = value;
                 }

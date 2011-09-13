@@ -27,7 +27,7 @@ namespace GearsDebug
         internal TestUnit()
             : base() { }
         internal TestUnit(Vector2 origin, Color color, float rotation, string textureFileName)
-            : base(origin, color, rotation, textureFileName) { }
+            : base(origin, color, rotation/*, textureFileName*/) { }
 
         //Put all updates for the specific unit in an override update function like so
         public override void Update(GameTime gameTime)

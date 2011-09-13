@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using Gears.Navigation;
 using GearsDebug.Cartography;
-using GearsDebug.Forms;
+using GearsDebug.Playable.PolarCoordinates;
 
 namespace GearsDebug.Navigation
 {
-    internal sealed class BatchfileDebugMenu
+    internal sealed class DevelopmentMenu
     {
         internal IMenuItem[] sub = new IMenuItem[4];
 
-        internal BatchfileDebugMenu()
+        internal DevelopmentMenu()
         {
             init();
         }
         private void init()
         {
-            sub[0] = new ViewportHandlerTest();
-            sub[1] = new TestWinForms();
+            sub[0] = new PolarCoordinates();
+            sub[1] = new ViewportHandlerTest();
             sub[2] = new HardExitGameState();
             sub[3] = new BackMenuOption();
         }
         internal Menu GetMenu()
         {
-            return new Menu("Batchfile Debug", sub);
+            return new Menu("Development", sub);
         }
     }
 }

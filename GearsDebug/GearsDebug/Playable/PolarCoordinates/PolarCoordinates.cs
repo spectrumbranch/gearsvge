@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Gears.Cloud;
-using Gears.Playable;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Gears.Navigation;
 
 namespace GearsDebug.Playable.PolarCoordinates
@@ -13,14 +9,22 @@ namespace GearsDebug.Playable.PolarCoordinates
     {
         public Zone1 zone1;
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public PolarCoordinates()
         {
-            throw new NotImplementedException();
+            MenuText = "Polar Coordinates";
+            Initialize();
         }
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        private void Initialize()
         {
-            throw new NotImplementedException();
+            zone1 = new Zone1();
         }
-        
+        public override void Update(GameTime gameTime)
+        {
+            zone1.Update(gameTime);
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            zone1.Draw(spriteBatch);
+        }
     }
 }

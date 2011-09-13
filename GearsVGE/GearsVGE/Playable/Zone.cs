@@ -33,7 +33,6 @@ namespace Gears.Playable
         //DEPRECATED -- but still might be used for the projectile manager until a change is made.
         private void LoadContent(Game game, string parentDir)
         {
-
             //?Load the content for each Manager in the Zone //THIS WILL CHANGE 
             //projectileManager.LoadContent(game, /*contentDir*/); //THIS CALL WILL BECOME INVALID
         }

@@ -29,7 +29,5 @@ namespace GearsDebug
 
             base.Register(_tum);
         }
-
-
     }
 }

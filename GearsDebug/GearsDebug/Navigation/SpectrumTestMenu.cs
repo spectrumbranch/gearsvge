@@ -3,11 +3,11 @@ using GearsDebug.Cartography;
 
 namespace GearsDebug.Navigation
 {
-    internal sealed class SpectrumMenuCollection
+    internal sealed class SpectrumTestMenu
     {
         internal IMenuItem[] sub = new IMenuItem[7];
 
-        internal SpectrumMenuCollection()
+        internal SpectrumTestMenu()
         {
             init();
         }
@@ -23,7 +23,7 @@ namespace GearsDebug.Navigation
         }
         internal Menu GetMenu()
         {
-            return new Menu("Spectrum Debug", sub);
+            return new Menu("Spectrum's Tests", sub);
         }
     }
 }
