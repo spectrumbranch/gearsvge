@@ -20,7 +20,7 @@ namespace GearsDebug.Playable.PolarCoordinates
     sealed internal class EnemyShipFactory : UnitTypeFactory
     {
         //TEMPORARY
-        Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth(), ViewportHandler.GetHeight());
+        Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth()/2, ViewportHandler.GetHeight()/2);
         
         private EnemyShip[] es;
 
