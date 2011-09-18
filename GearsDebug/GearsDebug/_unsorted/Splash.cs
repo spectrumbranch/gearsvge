@@ -54,11 +54,11 @@ namespace GearsDebug
             if (!_init)
             {
                 _init = true;
-                splashScreenBegun = gameTime.TotalRealTime.Seconds;
+                splashScreenBegun = gameTime.TotalGameTime.Seconds;
             }
             else // we have initialized our splash screen timer already.
             {
-                if (gameTime.TotalRealTime.Seconds - splashScreenBegun <= splashScreenExpirationSeconds)
+                if (gameTime.TotalGameTime.Seconds - splashScreenBegun <= splashScreenExpirationSeconds)
                 {
                     //still loading. this space intentionally left blank
                 }

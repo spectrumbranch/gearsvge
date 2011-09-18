@@ -45,14 +45,15 @@ namespace GearsDebug.Cartography
         }
         private void LoadTileset()
         {
-            //_texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
-            ContentButler.loadTexture(_tilesetIndex, "Pixelcat/brick_default");
-            ContentButler.loadTexture(_tilesetIndex+1, "Pixelcat/brick_break");
+            ContentButler.loadTexture(_tilesetIndex, @"Pixelcat\brick_default");
+            ContentButler.loadTexture(_tilesetIndex+1, @"Pixelcat\brick_break");
             //tt.SetData<Texture2D>(
 
             //
 
-            tr.TestAssignTex(ContentButler.requestTexture(_tilesetIndex, 0), ContentButler.requestTexture(_tilesetIndex+1,0));
+            //tr.TestAssignTex(ContentButler.requestTexture(_tilesetIndex, 0), ContentButler.requestTexture(_tilesetIndex+1,0));
+            
+            tr.TestAssignTex(ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default"), ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break"));
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {

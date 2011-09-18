@@ -27,7 +27,16 @@ namespace GearsDebug
         public GearsDebug()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = @"..\GearsDebugContent";
+            //Content.
+
+            //We currently only support Reach, not HiDef.
+            //Normally this is set in the project properties window, 
+            //             but this runtime code is here just in case.
+            if (graphics.GraphicsProfile != GraphicsProfile.Reach)
+            {
+                graphics.GraphicsProfile = GraphicsProfile.Reach;
+            }
         }
         
         protected override void Initialize()
@@ -85,8 +94,8 @@ namespace GearsDebug
         protected override void Draw(GameTime gameTime)
         {
             device.Clear(Master.GetClearColor());
-
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, ViewportHandler.GetScaleMatrix());
+            //spriteBatch.Begin(
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);//, SaveStateMode.None);//, ViewportHandler.GetScaleMatrix());
 
             Master.Draw(spriteBatch);
 

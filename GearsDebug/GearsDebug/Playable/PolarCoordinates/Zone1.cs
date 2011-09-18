@@ -25,7 +25,7 @@ namespace GearsDebug.Playable.PolarCoordinates
         {
             um = new Zone1UnitManager();
 
-            base.Register(um);//register should allow a vector or linked list for all manager types.
+            base.Register(um);//register should allow a vector or linked list (or IEnumerable) for all manager types.
         }
 
     }
