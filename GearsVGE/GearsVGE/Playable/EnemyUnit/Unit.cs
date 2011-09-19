@@ -59,14 +59,30 @@ namespace Gears.Playable
         }
         internal void LoadContent()
         {
-            if (TextureFileLocation != null)
+            try
             {
-                _texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
+                if (TextureFileLocation != null)
+                {
+                    _texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
+                }
+                else
+                {
+                    HandleTextureFileLocationError(true);
+                }
             }
-            else
+            catch
             {
-                Debug.Out("DEV.ERROR##Unit::TextureFileLocation not set properly.");
-                throw new Exception("DEV.ERROR##Unit::TextureFileLocation not set properly.");
+                HandleTextureFileLocationError(false);
+            }
+        }
+
+        private void HandleTextureFileLocationError(bool throwException)
+        {
+            string __ERROR = "DEV.ERROR##Unit::TextureFileLocation not set properly.\n\t[" + TextureFileLocation + "]";
+            Debug.Out(__ERROR);
+            if (throwException)
+            {
+                throw new Exception(__ERROR);
             }
         }
         //NOTE:  The inherited function must call this at the end or beginning of it's definition.

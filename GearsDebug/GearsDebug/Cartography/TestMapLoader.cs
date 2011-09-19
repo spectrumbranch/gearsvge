@@ -22,8 +22,10 @@ namespace GearsDebug.Cartography
         private const byte _tileSize = 64; //64 x 64
         private int _tilesetIndex = 100; //100 is default
 
-        private Texture2D tt;
+        //private Texture2D tt;
         private TiledRectangle tr;
+        private Texture2D brick_default;// = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default");
+        private Texture2D brick_break;// = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break");
 
 
         public TestMapLoader()
@@ -45,15 +47,16 @@ namespace GearsDebug.Cartography
         }
         private void LoadTileset()
         {
-            ContentButler.loadTexture(_tilesetIndex, @"Pixelcat\brick_default");
-            ContentButler.loadTexture(_tilesetIndex+1, @"Pixelcat\brick_break");
+           // ContentButler.loadTexture(_tilesetIndex, @"Pixelcat\brick_default");
+            //ContentButler.loadTexture(_tilesetIndex+1, @"Pixelcat\brick_break");
             //tt.SetData<Texture2D>(
-
+            brick_default = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default");
+            brick_break = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break");
             //
 
             //tr.TestAssignTex(ContentButler.requestTexture(_tilesetIndex, 0), ContentButler.requestTexture(_tilesetIndex+1,0));
-            
-            tr.TestAssignTex(ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default"), ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break"));
+
+            tr.TestAssignTex(brick_default, brick_break);
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {

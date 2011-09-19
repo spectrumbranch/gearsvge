@@ -27,7 +27,7 @@ namespace GearsDebug
         public GearsDebug()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = @"..\GearsDebugContent";
+            Content.RootDirectory = @"GearsDebugContent";
             //Content.
 
             //We currently only support Reach, not HiDef.

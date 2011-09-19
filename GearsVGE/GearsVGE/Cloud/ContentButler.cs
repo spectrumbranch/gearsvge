@@ -105,13 +105,25 @@ namespace Gears.Cloud
         {
             if (checkInit())
             {
-                Texture2D temp = _game.Content.Load<Texture2D>(texDir);
-
-                if (!_textures.Keys.Contains(unitID))
+                try
                 {
-                    _textures.Add(unitID, new List<Texture2D>());
+
+
+
+                    string st = _game.Content.RootDirectory.ToString();
+
+                    Texture2D temp = _game.Content.Load<Texture2D>(texDir);
+
+                    if (!_textures.Keys.Contains(unitID))
+                    {
+                        _textures.Add(unitID, new List<Texture2D>());
+                    }
+                    _textures[unitID].Add(temp);
                 }
-                _textures[unitID].Add(temp);
+                catch (ContentLoadException e)
+                {
+                    string st = e.Message;
+                }
             }
         }
 
