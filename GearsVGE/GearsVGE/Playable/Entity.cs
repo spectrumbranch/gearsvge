@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Gears.Playable
 {
-    public class Entity : ITrackable
+    public class Entity : Trackable
     {
     }
 }
