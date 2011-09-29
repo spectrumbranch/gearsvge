@@ -7,6 +7,11 @@ namespace Gears.Playable
 {
     public interface ITrackable
     {
-        public void CreateUUID() { }
+        public string getUUID()
+        {
+            return this.uuid_.ToString();
+        }
+
+        private Guid uuid_ = Guid.NewGuid();
     }
 }

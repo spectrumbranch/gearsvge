@@ -7,9 +7,5 @@ namespace Gears.Playable
 {
     public class Entity : ITrackable
     {
-        public void CreateUUID()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
