@@ -141,6 +141,8 @@
     <Compile Include="Playable\EnemyUnit\UnitManager.cs" />
     <Compile Include="Playable\EnemyUnit\UnitParameters.cs" />
     <Compile Include="Playable\EnemyUnit\UnitTypeFactory.cs" />
+    <Compile Include="Playable\Entity.cs" />
+    <Compile Include="Playable\ITrackable.cs" />
     <Compile Include="Playable\Player\Player.cs" />
     <Compile Include="Playable\Projectile\Projectile.cs" />
     <Compile Include="Playable\Projectile\ProjectileManager.cs" />

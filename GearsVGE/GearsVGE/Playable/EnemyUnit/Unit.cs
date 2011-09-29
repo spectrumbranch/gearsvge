@@ -18,7 +18,7 @@ using Gears.Cloud._Debug;
 
 namespace Gears.Playable
 {
-    public abstract class Unit
+    public abstract class Unit : Entity
     {
         protected internal Vector2 _position;
         protected internal Color _color;
