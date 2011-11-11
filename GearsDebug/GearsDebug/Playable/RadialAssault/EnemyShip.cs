@@ -19,7 +19,7 @@ namespace GearsDebug.Playable.PolarCoordinates
 {
     sealed internal class EnemyShip : Unit
     {
-        private string fileloc = @"Debug\Zone\Unit\enemyship";
+        private string fileloc = @"RadialAssault\spaceship";
         protected override string TextureFileLocation { get { return fileloc; } }
 
         //internal EnemyShip() { }

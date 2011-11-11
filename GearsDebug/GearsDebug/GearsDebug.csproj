@@ -122,11 +122,11 @@
     <Compile Include="GearsDebug.cs" />
     <Compile Include="Navigation\DevelopmentMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
-    <Compile Include="Playable\PolarCoordinates\EnemyShip.cs" />
-    <Compile Include="Playable\PolarCoordinates\EnemyShipFactory.cs" />
-    <Compile Include="Playable\PolarCoordinates\PolarCoordinates.cs" />
-    <Compile Include="Playable\PolarCoordinates\Zone1.cs" />
-    <Compile Include="Playable\PolarCoordinates\Zone1UnitManager.cs" />
+    <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
+    <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
+    <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />
+    <Compile Include="Playable\RadialAssault\Zone1.cs" />
+    <Compile Include="Playable\RadialAssault\Zone1UnitManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_main\Program.cs" />
     <Compile Include="_unsorted\debugger.cs" />
