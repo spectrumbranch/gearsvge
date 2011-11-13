@@ -1,15 +1,14 @@
-﻿/**
- *  Implementation of the class EntityTracker
- *  
- * This is a singleton that maintains a dictionary of unique id string to Trackable reference pairs. 
- * Global access and retrieval of contained Trackable instances from the dictionary is available.
- * Trackable instances are added implicitly to this class on construction and removed on destruction.
- * A Trackable object can also be removed from the internal dictionary by calling forgetEntity().
- * 
- * @author Steven E. Barbaro
- * @date November 13th, 2011
- * 
- */
+﻿/// <summary>
+///     Implementation of the class EntityTracker
+///      
+///     This is a singleton that maintains a dictionary of unique id string to Trackable reference pairs. 
+///     Global access and retrieval of contained Trackable instances from the dictionary is available.
+///     Trackable instances are added implicitly to this class on construction and removed on destruction.
+///     A Trackable object can also be removed from the internal dictionary by calling forgetEntity().
+///     
+///     @author Steven E. Barbaro
+///     @date November 13th, 2011
+/// </summary>
 
 using System;
 using System.Collections.Generic;
@@ -26,19 +25,14 @@ namespace Gears.Cloud
         private static Dictionary<string, Trackable> _entities = _entities = new Dictionary<string, Trackable>();
 
 
-        /**
-          * @fn public static void trackEntity(Trackable entity)
-          *
-          * @brief Adds a <string, Trackable> pair for the passed entity to the dictionary _entities. 
-          *
-          * If a pair already exists this method does nothing.
-          * 
-          * @author Steven E. Barbaro
-          *
-          * @param Trackable The entity to create the pair for. 
-          *
-          * @see getTrackedEntity() and forgetEntity()
-          */
+        /// <summary>
+        ///     Adds a string to Trackable pair for the passed entity to the dictionary _entities.
+        ///     
+        ///     If a pair already exists this method does nothing.
+        /// </summary>
+        /// <param name="entity">The entity to create the pair for.</param> 
+        /// <seealso cref="getTrackedEntity"/>  
+        /// <seealso cref="forgetEntity"/>
         public static void trackEntity(Trackable entity)
         {
             // If the entity is valid and not already present in the dictionary
@@ -49,17 +43,12 @@ namespace Gears.Cloud
             }
         }
 
-        /**
-         * @fn public static void forgetEntity(Trackable entity)
-         *
-         * @brief Removes the <string, Trackable> pair for the passed entity from the dictionary _entities.
-         *
-         * @author Steven E. Barbaro
-         *
-         * @param Trackable The entity reference to remove from the dictionary.
-         *
-         * @see getTrackedEntity() and trackEntity(). 
-         */
+        /// <summary>
+        ///     Removes the string to Trackable pair for the passed entity from the dictionary _entities.
+        /// </summary>
+        /// <param name="entity">The entity reference to remove from the dictionary.</param>
+        /// <seealso cref="getTrackedEntity"/>  
+        /// <seealso cref="trackEntity"/>
         public static void forgetEntity(Trackable entity)
         {
             // If the entity is valid
@@ -70,19 +59,13 @@ namespace Gears.Cloud
             }
         }
 
-        /**
-         * @fn public static Trackable getTrackedEntity(string id)
-         *
-         * @brief Returns a Trackable reference paired in the dictionary _entities with the passed id.
-         *
-         * If a match is not found this method returns null.
-         * 
-         * @author Steven E. Barbaro
-         *
-         * @param id The UUID string to search in the dictionary for the pair.
-         *
-         * @see forgetEntity() and trackEntity(). 
-         */
+        /// <summary>
+        ///     Returns a Trackable reference paired in the dictionary _entities with the passed id.
+        ///     If a match is not found this method returns null.
+        /// </summary>
+        /// <param name="id">The UUID string to search in the dictionary for the pair.</param>
+        /// <seealso cref="forgetEntity"/>  
+        /// <seealso cref="trackEntity"/>
         public static Trackable getTrackedEntity(string id)
         {
             // Default the return reference to null for fail case.
