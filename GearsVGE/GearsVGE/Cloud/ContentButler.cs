@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using Gears.Playable;
 
 namespace Gears.Cloud
 {
@@ -34,6 +35,7 @@ namespace Gears.Cloud
         private static Dictionary<int, List<SoundEffect>> _sounds;
         private static Dictionary<int, List<Song>> _music;
         private static Dictionary<int, SpriteFont> _fonts;
+       
         private static bool _songStart = false;
         private static Game _game;
         private static bool _init = false;
@@ -107,9 +109,6 @@ namespace Gears.Cloud
             {
                 try
                 {
-
-
-
                     string st = _game.Content.RootDirectory.ToString();
 
                     Texture2D temp = _game.Content.Load<Texture2D>(texDir);
