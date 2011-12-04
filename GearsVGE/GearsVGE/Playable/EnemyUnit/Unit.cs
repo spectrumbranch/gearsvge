@@ -21,6 +21,7 @@ namespace Gears.Playable
     public abstract class Unit : Entity
     {
         protected internal Vector2 _position;
+        protected internal Vector2 _imageOrigin;
         protected internal Color _color;
         protected internal float _rotation;
         protected internal float _scale = 1.0f; //may change!!!!! function it
@@ -43,11 +44,23 @@ namespace Gears.Playable
         //TODO: make unitparameters the primary constructor
         internal Unit(UnitParameters up) : this(up.Origin, up.Color, up.Rotation/*, up.TextureFileName*/) { }
         //TODO: make this constructor an alias constructor
-        public Unit(Vector2 origin, Color color, float rotation/*, string textureFileName*/)
+        public Unit(Vector2 startingPosition, Color color, float rotation/*, string textureFileName*/)
         {
-            _position = origin;
+            _position = startingPosition;
             _color = color;
             _rotation = rotation;
+            _imageOrigin = Vector2.Zero;//*
+            _textureFileName = TextureFileLocation;
+
+            Initialize();
+        }
+        //_texture, _position, _color, _rotation, Vector2.Zero, _scale, SpriteEffects.None, _depth
+        public Unit(Vector2 startingPosition, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
+        {
+            _position = startingPosition;
+            _color = color;
+            _rotation = rotation;
+            _imageOrigin = imageOrigin;
             _textureFileName = TextureFileLocation;
 
             Initialize();
@@ -104,7 +117,7 @@ namespace Gears.Playable
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, _position, null, _color, _rotation, Vector2.Zero, _scale, SpriteEffects.None, _depth);
+            spriteBatch.Draw(_texture, _position, null, _color, _rotation, _imageOrigin, _scale, SpriteEffects.None, _depth);
         }
 
         //event handlers

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Gears.Playable;
 
-namespace GearsDebug.Playable.PolarCoordinates
+namespace GearsDebug.Playable.RadialAssault
 {
     class Zone1 : Zone
     {

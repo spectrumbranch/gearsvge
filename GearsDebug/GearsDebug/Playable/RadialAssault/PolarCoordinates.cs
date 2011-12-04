@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Gears.Navigation;
 
-namespace GearsDebug.Playable.PolarCoordinates
+namespace GearsDebug.Playable.RadialAssault
 {
     class PolarCoordinates : MenuReadyGameState
     {

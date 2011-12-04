@@ -209,6 +209,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Splash\splash.tga" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

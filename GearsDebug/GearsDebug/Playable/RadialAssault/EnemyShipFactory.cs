@@ -15,24 +15,28 @@ using Gears.Cloud;
 using Gears.Navigation;
 using Gears.Playable;
 
-namespace GearsDebug.Playable.PolarCoordinates
+namespace GearsDebug.Playable.RadialAssault
 {
     sealed internal class EnemyShipFactory : UnitTypeFactory
     {
         //TEMPORARY
         Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth()/2, ViewportHandler.GetHeight()/2);
+        Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
+        Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32,32);//hardcoded, bad chris
         
-        private EnemyShip[] es;
+        private EnemyShip[] es; 
 
         internal EnemyShipFactory()
         {
+            //PLAYER_STARTING_LOCATION = new Vector2(WORMHOLE_COORDINATES.X, 1); //hardcode magic
+            PLAYER_STARTING_LOCATION = new Vector2(WORMHOLE_COORDINATES.X, WORMHOLE_COORDINATES.Y + (196 + PLAYER_IMAGE_ORIGIN.Y)); //hardcode magic
             Register();
         }
         private void Register()
         {
             es = new EnemyShip[1];      //hardcode magic
 
-            es[0] = new EnemyShip(WORMHOLE_COORDINATES,Color.Azure,0.0f);    //TODO: fix up constructor.
+            es[0] = new EnemyShip(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f, PLAYER_IMAGE_ORIGIN);    //TODO: fix up constructor.
                                         //note that this constructor is default for testing only. 
                                         //each unit will DEFINITELY have a different constructor.
 
