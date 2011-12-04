@@ -5,13 +5,13 @@ using Gears.Navigation;
 
 namespace GearsDebug.Playable.RadialAssault
 {
-    class PolarCoordinates : MenuReadyGameState
+    class RadialAssaultGame : MenuReadyGameState
     {
         public Zone1 zone1;
 
-        public PolarCoordinates()
+        public RadialAssaultGame()
         {
-            MenuText = "Polar Coordinates";
+            MenuText = "Radial Assault";
             Initialize();
         }
         private void Initialize()
