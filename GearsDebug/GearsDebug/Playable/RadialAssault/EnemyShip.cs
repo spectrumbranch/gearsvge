@@ -19,14 +19,28 @@ namespace GearsDebug.Playable.RadialAssault
 {
     sealed internal class EnemyShip : Unit
     {
+        //stuff to store outside of the CalculateMovement() function for use.
+        private Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
         private float theta = MathHelper.TwoPi;
+        private float imageOffset;
+        private float x = 0;
+        private float y = 0;
+        private float deltaScalar = MathHelper.PiOver4 / 32;
+        private float radius;
+
 
         private string fileloc = @"RadialAssault\spaceship";
         protected override string TextureFileLocation { get { return fileloc; } }
 
         //internal EnemyShip() { }
         internal EnemyShip(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
-            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) { }
+            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) { InitializeLocal(); }
+
+        private void InitializeLocal()
+        {
+            imageOffset = 196 + this._imageOrigin.Y;
+            radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
+        }       
 
         public override void onFrame()
         {
@@ -37,25 +51,14 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void CalculateMovement()
         {
-            //this._position;
-            Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
-            float imageOffset = 196 + this._imageOrigin.Y;
-            float radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
-            //float theta = MathHelper.PiOver2;
+            
+            theta -= deltaScalar; //- is clockwise, + is counterclockwise.
 
-            float deltaScalar = MathHelper.PiOver4 / 32;
-            theta -= deltaScalar;
+            float sinTheta = (float)Math.Sin(theta);
+            float cosTheta = (float)Math.Cos(theta);
 
-
-            float x = 0;
-            float y = 0;
-
-            float cachedSinTheta = (float)Math.Sin(theta);
-            float cachedCosTheta = (float)Math.Cos(theta);
-
-            x = imageOffset * cachedSinTheta + originOfCircle.X;
-            y = imageOffset * cachedCosTheta + originOfCircle.Y;
-
+            x = imageOffset * sinTheta + originOfCircle.X;
+            y = imageOffset * cosTheta + originOfCircle.Y;
 
             this._position.X = x;
             this._position.Y = y;

@@ -36,6 +36,7 @@ namespace GearsDebug
             {
                 graphics.GraphicsProfile = GraphicsProfile.Reach;
             }
+            IsFixedTimeStep = false;
         }
         
         protected override void Initialize()

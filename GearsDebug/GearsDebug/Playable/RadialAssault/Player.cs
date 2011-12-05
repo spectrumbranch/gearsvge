@@ -19,6 +19,7 @@ namespace GearsDebug.Playable.RadialAssault
 {
     internal sealed class Player
     {
+        private bool _playerHasControl;
         private Vector2 _position;
 
         internal Player(Vector2 origin)
