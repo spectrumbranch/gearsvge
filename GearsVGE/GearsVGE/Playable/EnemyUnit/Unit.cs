@@ -18,6 +18,9 @@ using Gears.Cloud._Debug;
 
 namespace Gears.Playable
 {
+    /// <summary>
+    /// TODO: Comments. Clean up. Refactor.
+    /// </summary>
     public abstract class Unit : Entity
     {
         protected internal Vector2 _position;

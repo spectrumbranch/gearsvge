@@ -11,20 +11,16 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using System.Text;
-using Gears.Playable;
 using Gears.Cloud;
 using Gears.Navigation;
+using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
-    internal sealed class Player
+    internal sealed class RAPlayerManager : PlayerManager
     {
-        private bool _playerHasControl;
-        private Vector2 _position;
 
-        internal Player(Vector2 origin)
-        {
-
-        }
+        public RAPlayerManager(Player[] players) : base(players) {  }
+        
     }
 }

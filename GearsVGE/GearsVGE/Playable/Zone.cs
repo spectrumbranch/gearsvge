@@ -11,23 +11,24 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-
 namespace Gears.Playable
 {
     public abstract class Zone
     {
         //Managers
         private UnitManager _uManager;
+        private PlayerManager _pManager;
+
         //private ProjectileManager projectileManager;
 
         public Zone()
         {
             //Initialize();
         }
+
         //This is currently not called.
         private void Initialize()
         {
-
             //projectileManager = new ProjectileManager();
         }
         //DEPRECATED -- but still might be used for the projectile manager until a change is made.
@@ -39,7 +40,14 @@ namespace Gears.Playable
         public void Update(GameTime gameTime)
         {
             //Update Units
-            _uManager.Update(gameTime);
+            if (_pManager != null)
+            {
+                _pManager.Update(gameTime);
+            }
+            if (_uManager != null)
+            {
+                _uManager.Update(gameTime);
+            }
 
             //Update Projectiles
             //projectileManager.Update(gameTime);
@@ -47,7 +55,14 @@ namespace Gears.Playable
         public void Draw(SpriteBatch spriteBatch)
         {
             //Draw Units
-            _uManager.Draw(spriteBatch);
+            if (_pManager != null)
+            {
+                _pManager.Draw(spriteBatch);
+            }
+            if (_uManager != null)
+            {
+                _uManager.Draw(spriteBatch);
+            }
 
             //Draw Projectiles
             //projectileManager.Draw(spriteBatch);
@@ -56,6 +71,10 @@ namespace Gears.Playable
         {
             _uManager = manager;
             //Initialize();
+        }
+        protected internal void RegisterPlayerManager(PlayerManager manager)
+        {
+            _pManager = manager;
         }
     }
 }
