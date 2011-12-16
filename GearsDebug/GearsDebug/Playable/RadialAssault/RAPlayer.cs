@@ -10,16 +10,15 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-
+using System.Text;
+using Gears.Playable;
 using Gears.Cloud;
 using Gears.Navigation;
-using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
-    sealed internal class EnemyShip : Unit
+    internal sealed class RAPlayer : Player
     {
-        //stuff to store outside of the CalculateMovement() function for use.
         private Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
         private float theta = MathHelper.TwoPi;
         private float imageOffset;
@@ -29,12 +28,19 @@ namespace GearsDebug.Playable.RadialAssault
         private float radius;
 
 
+
+        private bool _playerHasControl;
+        private bool _isAlive;
+        //private Vector2 _position;
+
         private string fileloc = @"RadialAssault\spaceship";
         protected override string TextureFileLocation { get { return fileloc; } }
 
-        //internal EnemyShip() { }
-        internal EnemyShip(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
-            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) { InitializeLocal(); }
+        internal RAPlayer(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
+            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) 
+        {
+            InitializeLocal(); 
+        }
 
         private void InitializeLocal()
         {
@@ -45,15 +51,31 @@ namespace GearsDebug.Playable.RadialAssault
         public override void onFrame()
         {
             base.onFrame();
-            //AI();
-            CalculateMovement();
+            //CalculateMovement();
+
+            MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
+        }
+        internal void MoveClockwise()
+        {
+            RotateAroundOrigin(true);
+        }
+        internal void MoveCounterClockwise()
+        {
+            RotateAroundOrigin(false);
         }
 
-        private void CalculateMovement()
+        private void RotateAroundOrigin(bool isClockwise)
         {
-            
-            theta -= deltaScalar; //- is clockwise, + is counterclockwise.
-
+            if (isClockwise)
+            {
+                theta -= deltaScalar; // - is clockwise
+                this._rotation += deltaScalar;// + is for clockwise
+            }
+            else //isCounterClockwise
+            {
+                theta += deltaScalar; // + is counterclockwise.
+                this._rotation -= deltaScalar;// - is for counterclockwise
+            }
             float sinTheta = (float)Math.Sin(theta);
             float cosTheta = (float)Math.Cos(theta);
 
@@ -62,14 +84,10 @@ namespace GearsDebug.Playable.RadialAssault
 
             this._position.X = x;
             this._position.Y = y;
-
-            this._rotation += deltaScalar;
         }
-
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
-
+        //public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+       // {
+        //    base.Update(gameTime);
+        //}
     }
 }

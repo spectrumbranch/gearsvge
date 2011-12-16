@@ -34,16 +34,30 @@ namespace Gears.Playable
         }
         public void Update(GameTime gameTime)
         {
-            foreach (Unit u in _units)
+            if (_units != null)
             {
-                u.Update(gameTime);
+                foreach (Unit u in _units)
+                {
+                    u.Update(gameTime);
+                }
+            }
+            else
+            {
+                throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
             }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Unit u in _units)
+            if (_units != null)
             {
-                u.Draw(spriteBatch);
+                foreach (Unit u in _units)
+                {
+                    u.Draw(spriteBatch);
+                }
+            }
+            else
+            {
+                throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
             }
         }
         protected internal void Register(Unit[] units)

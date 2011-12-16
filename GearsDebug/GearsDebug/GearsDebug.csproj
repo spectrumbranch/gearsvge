@@ -125,9 +125,10 @@
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
-    <Compile Include="Playable\RadialAssault\Player.cs" />
     <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />
     <Compile Include="Playable\RadialAssault\RadialAssaultGame.cs" />
+    <Compile Include="Playable\RadialAssault\RAPlayer.cs" />
+    <Compile Include="Playable\RadialAssault\RAPlayerManager.cs" />
     <Compile Include="Playable\RadialAssault\Zone1.cs" />
     <Compile Include="Playable\RadialAssault\Zone1UnitManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

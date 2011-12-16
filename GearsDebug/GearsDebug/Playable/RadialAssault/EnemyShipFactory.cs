@@ -34,13 +34,13 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void Register()
         {
-            es = new EnemyShip[1];      //hardcode magic
+            //es = new EnemyShip[1];      //hardcode magic
 
-            es[0] = new EnemyShip(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f, PLAYER_IMAGE_ORIGIN);    //TODO: fix up constructor.
+            // es[0] = new EnemyShip(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f, PLAYER_IMAGE_ORIGIN);    //TODO: fix up constructor.
                                         //note that this constructor is default for testing only. 
                                         //each unit will DEFINITELY have a different constructor.
 
-            base.Register(es);
+            //base.Register(es);
         }
     }
 }
