@@ -51,14 +51,15 @@ namespace GearsDebug.Playable.RadialAssault
         public override void onFrame()
         {
             base.onFrame();
+            //CalculateMovement();
+
             MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
         }
-        private void MoveClockwise()
+        internal void MoveClockwise()
         {
-
             RotateAroundOrigin(true);
         }
-        private void MoveCounterClockwise()
+        internal void MoveCounterClockwise()
         {
             RotateAroundOrigin(false);
         }
