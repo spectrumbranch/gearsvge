@@ -120,6 +120,7 @@
     <Compile Include="Cartography\TestMapLoader.cs" />
     <Compile Include="Cartography\TiledRectangle.cs" />
     <Compile Include="GearsDebug.cs" />
+    <Compile Include="Navigation\JoeTest.cs" />
     <Compile Include="Navigation\DevelopmentMenu.cs" />
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
