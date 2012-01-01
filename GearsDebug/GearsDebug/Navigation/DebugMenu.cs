@@ -12,17 +12,19 @@ namespace GearsDebug.Navigation
         private SpectrumTestMenu spectrum = new SpectrumTestMenu();
         private DevelopmentMenu unsorted = new DevelopmentMenu();
         private JoeTest tatltael = new JoeTest();
+        private SteveTest navi = new SteveTest();
 
         internal DebugMenu()
         {
             //create
-            imi = new IMenuItem[4];
+            imi = new IMenuItem[5];
 
             //populate
             imi[0] = unsorted.GetMenu();
             imi[1] = spectrum.GetMenu();
             imi[2] = tatltael.GetMenu();
-            imi[3] = new HardExitGameState();
+            imi[3] = navi.GetMenu();
+            imi[4] = new HardExitGameState();
 
             //insert into a MenuState
             Menu debugMenu = new Menu("Debugger Menu",imi);
