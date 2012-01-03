@@ -44,7 +44,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         public override void onFrame()
         {
-            base.onFrame();
+            //base.onFrame();
             //AI();
             CalculateMovement();
         }

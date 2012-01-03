@@ -125,6 +125,9 @@
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
     <Compile Include="Navigation\SteveTest.cs" />
+    <Compile Include="Playable\NPC\Steve Test\SteveUnit.cs" />
+    <Compile Include="Playable\NPC\Steve Test\SteveUnitManager.cs" />
+    <Compile Include="Playable\NPC\Steve Test\SteveUnitTypeFactory.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
     <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />

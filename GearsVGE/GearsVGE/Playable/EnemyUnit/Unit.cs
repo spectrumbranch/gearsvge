@@ -128,7 +128,7 @@ namespace Gears.Playable
         //Define them in the specific entity you want that event to act on
         //Also note, I can't implement the other events yet since no interface for their associated functionality exists in a concrete form yet.
 
-        //TODO: Make an interface which holds these prototypes
+        //TODO: Make an interface which holds these prototypes 
         public virtual void onFrame() { } //global event
         public virtual void onAnimEnd() { }//local event
         public virtual void onAnimStart() { }//local event
