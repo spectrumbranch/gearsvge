@@ -14,8 +14,7 @@ namespace GearsDebug.Navigation
         }
         private void init()
         {
-            sub[0] = new BackMenuOption();
-            //sub[0] = new JoeState();
+            sub[0] = new JoeState();
             sub[1] = new BackMenuOption();
             sub[2] = new HardExitGameState();
         }
