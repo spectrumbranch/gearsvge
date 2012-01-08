@@ -38,7 +38,7 @@ namespace GearsDebug
         //Controller for onFrame event.
         public override void onFrame()
         {
-            base.onFrame(); //necessary?
+            base.onFrame(); //necessary? Steve: For now, no.  If base.onFrame() ends up having functionality in the future, then yes.
             Movement();
         }
 
