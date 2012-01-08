@@ -124,11 +124,7 @@
     <Compile Include="Navigation\DevelopmentMenu.cs" />
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
-    <Compile Include="Playable\RadialAssault\Enemy1.cs" />
-    <Compile Include="Playable\RadialAssault\Enemy1Factory.cs" />
-    <Compile Include="Playable\RadialAssault\JoeZoneUnitManager.cs" />
-    <Compile Include="Playable\RadialAssault\JoeZone.cs" />
-    <Compile Include="Playable\RadialAssault\JoeState.cs" />
+    <Compile Include="Navigation\SteveTest.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
     <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />
