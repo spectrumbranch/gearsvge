@@ -125,11 +125,19 @@
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
     <Compile Include="Navigation\SteveTest.cs" />
+<<<<<<< HEAD
     <Compile Include="Playable\NPC\Steve Test\SteveUnit.cs" />
     <Compile Include="Playable\NPC\Steve Test\SteveUnitManager.cs" />
     <Compile Include="Playable\NPC\Steve Test\SteveUnitTypeFactory.cs" />
+=======
+    <Compile Include="Playable\RadialAssault\Enemy1.cs" />
+    <Compile Include="Playable\RadialAssault\Enemy1Factory.cs" />
+>>>>>>> 6bf154218a3a73effd81dec341d337253227037b
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
+    <Compile Include="Playable\RadialAssault\JoeState.cs" />
+    <Compile Include="Playable\RadialAssault\JoeZone.cs" />
+    <Compile Include="Playable\RadialAssault\JoeZoneUnitManager.cs" />
     <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />
     <Compile Include="Playable\RadialAssault\RadialAssaultGame.cs" />
     <Compile Include="Playable\RadialAssault\RAPlayer.cs" />

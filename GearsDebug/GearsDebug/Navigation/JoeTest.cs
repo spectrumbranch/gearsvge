@@ -1,11 +1,12 @@
 ﻿using Gears.Navigation;
 using GearsDebug.Cartography;
+using GearsDebug.Playable.RadialAssault;
 
 namespace GearsDebug.Navigation
 {
     internal sealed class JoeTest
     {
-        internal IMenuItem[] sub = new IMenuItem[2];
+        internal IMenuItem[] sub = new IMenuItem[3];
 
         internal JoeTest()
         {
@@ -13,8 +14,9 @@ namespace GearsDebug.Navigation
         }
         private void init()
         {
-            sub[0] = new BackMenuOption();
-            sub[1] = new HardExitGameState();
+            sub[0] = new JoeState();
+            sub[1] = new BackMenuOption();
+            sub[2] = new HardExitGameState();
         }
         internal Menu GetMenu()
         {
