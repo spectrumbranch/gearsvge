@@ -125,6 +125,12 @@
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
     <Compile Include="Navigation\SteveTest.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattMenu.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattState.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattZone.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattUnit.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattUnitManager.cs" />
+    <Compile Include="Playable\NPC\Matt Test\MattUnitTypeFactory.cs" />
     <Compile Include="Playable\NPC\Steve Test\SteveUnit.cs" />
     <Compile Include="Playable\NPC\Steve Test\SteveUnitManager.cs" />
     <Compile Include="Playable\NPC\Steve Test\SteveUnitTypeFactory.cs" />
