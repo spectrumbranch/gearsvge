@@ -6,7 +6,7 @@ using Gears.Cloud;
 namespace Gears.Navigation
 {
     /// <summary>
-    /// MenuState   rev.002a
+    /// MenuState   rev.003
     ///     Abstract class, intended to be inherited from and then instantiated
     ///     with constructor parameters. Every MenuState is a Menu, and contains
     ///     a MenuItemCollection, which is simply a collection of possible 
@@ -16,6 +16,14 @@ namespace Gears.Navigation
     ///     fonts or font sizes or window sizes. This is done on purpose and can
     ///     easily be refactored in on a later revision.
     ///     
+    /// 
+    ///     ---------------
+    ///     Changes in 003
+    ///     ---------------
+    ///     
+    ///     -Fixed a huge Input related bug. Now you should not be able to throw
+    ///      multiple inputs while the key is down by simply pressing another key.
+    /// 
     ///     ---------------
     ///     Changes in 002a
     ///     ---------------
@@ -25,7 +33,7 @@ namespace Gears.Navigation
     ///     -Refactored a lot of code into nice functions.
     /// 
     /// By spectrum AKA Christopher Bebry.
-    /// Copyright 2011. For use only within the Gears VGE and Spectrum Branch.
+    /// Copyright 2012. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com
     /// </summary>
     public abstract class MenuState : MenuReadyGameState
@@ -121,10 +129,8 @@ namespace Gears.Navigation
         /// <param name="oldKeyboardState">Passed from Input class.</param>
         internal void KeyDown(ref KeyboardState currentKeyboardState, ref KeyboardState oldKeyboardState)
         {
-            // TODO: currently any key can fire multiple times in one pressdown and should be fixed.
-            //      reproduce this by holding down the down arrow and repeatedly pressing space, for example.
             if (currentKeyboardState.IsKeyDown(Keys.Enter) &&
-                currentKeyboardState != oldKeyboardState)
+                currentKeyboardState.IsKeyDown(Keys.Enter) != oldKeyboardState.IsKeyDown(Keys.Enter))
             {
                 PushActiveMenuIndex();
             }
@@ -132,25 +138,25 @@ namespace Gears.Navigation
             {
                 if (currentKeyboardState.IsKeyDown(Keys.Down) &&
                     activeMenuIndex != (mic.Length - 1) &&
-                    currentKeyboardState != oldKeyboardState)
+                    currentKeyboardState.IsKeyDown(Keys.Down) != oldKeyboardState.IsKeyDown(Keys.Down))
                 {
                     activeMenuIndex++;
                 }
                 if (currentKeyboardState.IsKeyDown(Keys.Up) &&
                     activeMenuIndex != 0 &&
-                    currentKeyboardState != oldKeyboardState)
+                    currentKeyboardState.IsKeyDown(Keys.Up) != oldKeyboardState.IsKeyDown(Keys.Up))
                 {
                     activeMenuIndex--;
                 }
                 if (currentKeyboardState.IsKeyDown(Keys.Left) &&
                     activeMenuIndex != 0 &&
-                    currentKeyboardState != oldKeyboardState)
+                    currentKeyboardState.IsKeyDown(Keys.Left) != oldKeyboardState.IsKeyDown(Keys.Left))
                 {
                     activeMenuIndex = (int)MathHelper.Clamp(activeMenuIndex - maxRows, 0, mic.Length - 1);
                 }
                 if (currentKeyboardState.IsKeyDown(Keys.Right) &&
                     activeMenuIndex != (mic.Length - 1) &&
-                    currentKeyboardState != oldKeyboardState)
+                    currentKeyboardState.IsKeyDown(Keys.Right) != oldKeyboardState.IsKeyDown(Keys.Right))
                 {
                     activeMenuIndex = (int)MathHelper.Clamp((int)(activeMenuIndex + maxRows), (int)0, (int)(mic.Length - 1));
                 }
