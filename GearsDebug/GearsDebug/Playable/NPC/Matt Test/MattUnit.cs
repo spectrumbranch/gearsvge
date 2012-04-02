@@ -37,6 +37,7 @@ namespace GearsDebug.Playable.Matt
             : base(origin, color, rotation/*, textureFileName*/) 
         {
             theta = 360 * rand.NextDouble();
+            this._rotation = (float)(theta+90);
         }
 
         //Put all updates for the specific unit in an override update function like so
