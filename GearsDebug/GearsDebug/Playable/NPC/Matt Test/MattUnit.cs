@@ -32,10 +32,12 @@ namespace GearsDebug.Playable.Matt
 
         private int moveCounter = -150;
         
-        internal MattUnit()
-            : base() { }
+      
         internal MattUnit(Vector2 origin, Color color, float rotation, string textureFileName)
-            : base(origin, color, rotation/*, textureFileName*/) { }
+            : base(origin, color, rotation/*, textureFileName*/) 
+        {
+            theta = 360 * rand.NextDouble();
+        }
 
         //Put all updates for the specific unit in an override update function like so
         public override void Update(GameTime gameTime)
@@ -54,8 +56,8 @@ namespace GearsDebug.Playable.Matt
         private void Movement()
         {
             //The following takes the origin coordinates and adds the rotation matrix model to it
-            base._position.X += (float)(t*Math.Cos(60) - 10*Math.Sin(3*t)*Math.Sin(60));
-            base._position.Y += (float)(t * Math.Sin(60) + 10*Math.Sin(3*t) * Math.Cos(60));
+            base._position.X += (float)(t*Math.Cos(theta) - 5*Math.Sin(5*t)*Math.Sin(theta));
+            base._position.Y += (float)(t * Math.Sin(theta) + 5*Math.Sin(5*t) * Math.Cos(theta));
             t += .01;
             #region
             //this is just an example.
