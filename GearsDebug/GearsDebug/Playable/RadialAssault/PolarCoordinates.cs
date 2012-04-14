@@ -5,6 +5,7 @@ using Gears.Navigation;
 
 namespace GearsDebug.Playable.RadialAssault
 {
+    // Start to plan to remove this. RadialAssaultGame is taking this place, as this is literally a duplicate now.
     class PolarCoordinates : MenuReadyGameState
     {
         public Zone1 zone1;

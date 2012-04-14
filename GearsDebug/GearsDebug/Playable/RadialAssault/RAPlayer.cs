@@ -90,5 +90,12 @@ namespace GearsDebug.Playable.RadialAssault
        // {
         //    base.Update(gameTime);
         //}
+        
+        //not implemented appropriately 
+        public void getTexture2DSize()
+        {
+            int halfHeight = this._texture.Height / 2;
+            int halfWidth = this._texture.Width / 2;
+        }
     }
 }

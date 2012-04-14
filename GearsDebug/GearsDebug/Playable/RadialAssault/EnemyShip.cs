@@ -17,6 +17,7 @@ using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
+    // Change to Alien and give it a specific type
     sealed internal class EnemyShip : Unit
     {
         //stuff to store outside of the CalculateMovement() function for use.

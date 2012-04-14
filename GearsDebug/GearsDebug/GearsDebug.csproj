@@ -120,31 +120,37 @@
     <Compile Include="Cartography\TestMapLoader.cs" />
     <Compile Include="Cartography\TiledRectangle.cs" />
     <Compile Include="GearsDebug.cs" />
-    <Compile Include="Navigation\JoeTest.cs" />
     <Compile Include="Navigation\DevelopmentMenu.cs" />
+    <Compile Include="Navigation\JoeTestMenu.cs" />
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\SpectrumTestMenu.cs" />
-    <Compile Include="Navigation\SteveTest.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattMenu.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattState.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattZone.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattUnit.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattUnitManager.cs" />
-    <Compile Include="Playable\NPC\Matt Test\MattUnitTypeFactory.cs" />
-    <Compile Include="Playable\NPC\Steve Test\SteveUnit.cs" />
-    <Compile Include="Playable\NPC\Steve Test\SteveUnitManager.cs" />
-    <Compile Include="Playable\NPC\Steve Test\SteveUnitTypeFactory.cs" />
-    <Compile Include="Playable\RadialAssault\Enemy1.cs" />
-    <Compile Include="Playable\RadialAssault\Enemy1Factory.cs" />
+    <Compile Include="Navigation\SteveTestMenu.cs" />
+    <Compile Include="Playable\DevTestArea\Joe Test\Enemy1.cs" />
+    <Compile Include="Playable\DevTestArea\Joe Test\Enemy1Factory.cs" />
+    <Compile Include="Playable\DevTestArea\Joe Test\JoeState.cs" />
+    <Compile Include="Playable\DevTestArea\Joe Test\JoeZone.cs" />
+    <Compile Include="Playable\DevTestArea\Joe Test\JoeZoneUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattMenu.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattState.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattUnit.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattUnitTypeFactory.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattZone.cs" />
+    <Compile Include="Playable\DevTestArea\Steve Test\SteveUnit.cs" />
+    <Compile Include="Playable\DevTestArea\Steve Test\SteveUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Steve Test\SteveUnitTypeFactory.cs" />
+    <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnit.cs" />
+    <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitTypeFactory.cs" />
+    <Compile Include="Playable\RadialAssault\FiringStraightLineAlien.cs" />
+    <Compile Include="Playable\RadialAssault\SineAlien.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShipFactory.cs" />
-    <Compile Include="Playable\RadialAssault\JoeState.cs" />
-    <Compile Include="Playable\RadialAssault\JoeZone.cs" />
-    <Compile Include="Playable\RadialAssault\JoeZoneUnitManager.cs" />
     <Compile Include="Playable\RadialAssault\PolarCoordinates.cs" />
     <Compile Include="Playable\RadialAssault\RadialAssaultGame.cs" />
     <Compile Include="Playable\RadialAssault\RAPlayer.cs" />
     <Compile Include="Playable\RadialAssault\RAPlayerManager.cs" />
+    <Compile Include="Playable\RadialAssault\StraightLineAlien.cs" />
     <Compile Include="Playable\RadialAssault\Zone1.cs" />
     <Compile Include="Playable\RadialAssault\Zone1UnitManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,9 +162,6 @@
     <Compile Include="Cartography\PerformMapSerialize.cs" />
     <Compile Include="_unsorted\Splash.cs" />
     <Compile Include="_unsorted\TestPlayState.cs" />
-    <Compile Include="Playable\NPC\TestUnit.cs" />
-    <Compile Include="Playable\NPC\TestUnitManager.cs" />
-    <Compile Include="Playable\NPC\TestUnitTypeFactory.cs" />
     <Compile Include="_unsorted\TestZone.cs" />
     <Compile Include="_unsorted\ViewportHandlerTest.cs" />
     <Compile Include="_unsorted\XMLEngineExample.cs" />
@@ -226,9 +229,7 @@
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -17,6 +17,7 @@ using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
+    // Change to Alien and give it a specific type
     sealed internal class EnemyShipFactory : UnitTypeFactory
     {
         //TEMPORARY
