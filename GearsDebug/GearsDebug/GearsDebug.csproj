@@ -142,6 +142,9 @@
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnit.cs" />
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitManager.cs" />
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitTypeFactory.cs" />
+    <Compile Include="Playable\RadialAssault\StraightLineAlienFactory.cs" />
+    <Compile Include="Playable\RadialAssault\FiringStraightLineAlienFactory.cs" />
+    <Compile Include="Playable\RadialAssault\SineAlienFactory.cs" />
     <Compile Include="Playable\RadialAssault\FiringStraightLineAlien.cs" />
     <Compile Include="Playable\RadialAssault\SineAlien.cs" />
     <Compile Include="Playable\RadialAssault\EnemyShip.cs" />

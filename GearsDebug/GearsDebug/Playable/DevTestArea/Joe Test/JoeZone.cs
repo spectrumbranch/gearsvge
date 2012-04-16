@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Net;
-using Microsoft.Xna.Framework.Storage;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Gears.Playable;
 using Gears.Cloud;
-using Gears.Navigation;
 
 namespace GearsDebug.Playable.RadialAssault
 {
@@ -46,7 +33,7 @@ namespace GearsDebug.Playable.RadialAssault
         private void Register()
         {
             Player[] _p = new Player[1];
-            Player p1 = new RAPlayer(ENEMY_STARTING_LOCATION, Color.Azure, 0.0f, ENEMY_IMAGE_ORIGIN);//****
+            Player p1 = new RAPlayer(ENEMY_STARTING_LOCATION, Color.Azure, 0.0f/*, ENEMY_IMAGE_ORIGIN*/);//****
             _p[0] = p1;
 
             um = new JoeZoneUnitManager();

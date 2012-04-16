@@ -33,27 +33,57 @@ namespace GearsDebug.Playable.RadialAssault
         private bool _isAlive;
         //private Vector2 _position;
 
-        private string fileloc = @"RadialAssault\spaceship";
+        private string fileloc = @"RadialAssault\spaceship32shaded";
         protected override string TextureFileLocation { get { return fileloc; } }
 
-        internal RAPlayer(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
-            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) 
+        internal RAPlayer(Vector2 origin, Color color, float rotation/*, Vector2 imageOrigin/*, string textureFileName*/)
+            : base(origin, color, rotation/*, imageOrigin, textureFileName*/) 
         {
-            InitializeLocal(); 
+            InitializeLocal();
+            InitializeInputHooks();
         }
+
 
         private void InitializeLocal()
         {
-            imageOffset = 196 + this._imageOrigin.Y;
+            this._imageOrigin = getTextureOrigin();
+
+            imageOffset = 300 + this._imageOrigin.Y; //testing, but fits the screen nicely.
+            //imageOffset = 196 + this._imageOrigin.Y; //old, for 64x64
             radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
-        }       
+        }
+
+        private void InitializeInputHooks()
+        {
+            Input.ClearEventHandler();
+            Input.EnableInput();
+            Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
+        }
+
+        /// <summary>
+        /// Event based Input hook for RAPlayer.
+        /// </summary>
+        /// <param name="currentKeyboardState">Passed from Input class.</param>
+        /// <param name="oldKeyboardState">Passed from Input class.</param>
+        internal void KeyDown(ref KeyboardState currentKeyboardState, ref KeyboardState oldKeyboardState)
+        {
+            if (currentKeyboardState.IsKeyDown(Keys.Left))
+            {
+                MoveClockwise();
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Right))
+            {
+                MoveCounterClockwise();
+            }
+        }
 
         public override void onFrame()
         {
             //base.onFrame();
             //CalculateMovement();
+            
 
-            MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
+            //MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
         }
 
         internal void MoveClockwise()
@@ -91,11 +121,13 @@ namespace GearsDebug.Playable.RadialAssault
         //    base.Update(gameTime);
         //}
         
-        //not implemented appropriately 
-        public void getTexture2DSize()
+        //not implemented appropriately, just here temporarily.
+        public Vector2 getTextureOrigin()
         {
-            int halfHeight = this._texture.Height / 2;
-            int halfWidth = this._texture.Width / 2;
+            float halfHeight = this._texture.Height / 2.0f;
+            float halfWidth = this._texture.Width / 2.0f;
+
+            return new Vector2(halfWidth, halfHeight);
         }
     }
 }

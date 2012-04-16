@@ -47,15 +47,16 @@ namespace Gears.Playable
         //TODO: make unitparameters the primary constructor
         internal Unit(UnitParameters up) : this(up.Origin, up.Color, up.Rotation/*, up.TextureFileName*/) { }
         //TODO: make this constructor an alias constructor
-        public Unit(Vector2 startingPosition, Color color, float rotation/*, string textureFileName*/)
+        public Unit(Vector2 startingPosition, Color color, float rotation/*, string textureFileName*/) 
+            : this(startingPosition, color, rotation, Vector2.Zero)
         {
-            _position = startingPosition;
-            _color = color;
-            _rotation = rotation;
-            _imageOrigin = Vector2.Zero;//*
-            _textureFileName = TextureFileLocation;
+            //_position = startingPosition;
+           // _color = color;
+           // _rotation = rotation;
+           // _imageOrigin = Vector2.Zero;//*
+           // _textureFileName = TextureFileLocation;
 
-            Initialize();
+           // Initialize();
         }
         //_texture, _position, _color, _rotation, Vector2.Zero, _scale, SpriteEffects.None, _depth
         public Unit(Vector2 startingPosition, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
@@ -71,7 +72,7 @@ namespace Gears.Playable
 
         protected internal void Initialize()
         {
-
+            LoadContent();
         }
         internal void LoadContent()
         {

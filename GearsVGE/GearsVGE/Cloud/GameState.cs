@@ -25,7 +25,7 @@ namespace Gears.Cloud
         {
             return _HandlesInput;
         }
-        internal bool StateIsActive()
+        public bool StateIsActive()
         {
             return _StateIsActive;
         }

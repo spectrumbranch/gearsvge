@@ -24,10 +24,10 @@ namespace Gears.Playable
             {
                 _players = players;
 
-                foreach (Player player in _players) //******* Note that this should perhaps happen a little later instead of immediate on constructor.
-                {
-                    player.LoadContent();
-                }
+                //foreach (Player player in _players) //******* Note that this should perhaps happen a little later instead of immediate on constructor.
+                //{
+                //    player.LoadContent();
+                //}
             }
             else
             {

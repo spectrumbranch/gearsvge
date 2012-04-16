@@ -19,8 +19,8 @@ namespace Gears.Playable
     
     public abstract class Player : Unit
     {
-        public Player(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
-            : base(origin, color, rotation, imageOrigin/*, textureFileName*/) 
+        public Player(Vector2 origin, Color color, float rotation/*, Vector2 imageOrigin/*, string textureFileName*/)
+            : base(origin, color, rotation/*, imageOrigin, textureFileName*/) 
         {
             //InitializeLocal(); 
         }

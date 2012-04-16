@@ -23,14 +23,14 @@ namespace Gears.Playable
         }
         private void Initialize()
         {
-            LoadContent();
+            //LoadContent(); //once again the design pattern doesn't need this.
         }
         private void LoadContent()
         {
-            foreach (Unit u in _units)
-            {
-                u.LoadContent();
-            }
+            //foreach (Unit u in _units)
+            //{
+            //    u.LoadContent();
+            //}
         }
         public void Update(GameTime gameTime)
         {

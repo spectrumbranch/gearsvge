@@ -34,7 +34,7 @@ namespace GearsDebug.Playable.RadialAssault
         //move around a bit. some of these are just here temporarily
         Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
         Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
-        Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32, 32);//hardcoded, bad chris
+        Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(16, 16);//hardcoded, bad chris
 
         internal Zone1()
         {
@@ -49,7 +49,7 @@ namespace GearsDebug.Playable.RadialAssault
         private void Register()
         {
             Player[] _p = new Player[1];
-            Player p1 = new RAPlayer(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f, PLAYER_IMAGE_ORIGIN);//****
+            Player p1 = new RAPlayer(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f/*, PLAYER_IMAGE_ORIGIN*/);//****
             _p[0] = p1;
 
             pmTEST = new RAPlayerManager(_p);
