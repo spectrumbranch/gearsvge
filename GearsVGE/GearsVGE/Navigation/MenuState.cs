@@ -119,7 +119,7 @@ namespace Gears.Navigation
         /// <param name="gameTime"></param>
         private void UpdateInput(GameTime gameTime)
         {
-            Input.Update(gameTime);
+            
         }
 
         /// <summary>

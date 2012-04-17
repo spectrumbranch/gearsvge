@@ -40,7 +40,7 @@ namespace GearsDebug.Playable.RadialAssault
             : base(origin, color, rotation/*, imageOrigin, textureFileName*/) 
         {
             InitializeLocal();
-            InitializeInputHooks();
+            //InitializeInputHooks();
         }
 
 
@@ -53,29 +53,8 @@ namespace GearsDebug.Playable.RadialAssault
             radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
         }
 
-        private void InitializeInputHooks()
-        {
-            Input.ClearEventHandler();
-            Input.EnableInput();
-            Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
-        }
 
-        /// <summary>
-        /// Event based Input hook for RAPlayer.
-        /// </summary>
-        /// <param name="currentKeyboardState">Passed from Input class.</param>
-        /// <param name="oldKeyboardState">Passed from Input class.</param>
-        internal void KeyDown(ref KeyboardState currentKeyboardState, ref KeyboardState oldKeyboardState)
-        {
-            if (currentKeyboardState.IsKeyDown(Keys.Left))
-            {
-                MoveClockwise();
-            }
-            else if (currentKeyboardState.IsKeyDown(Keys.Right))
-            {
-                MoveCounterClockwise();
-            }
-        }
+
 
         public override void onFrame()
         {
@@ -128,6 +107,31 @@ namespace GearsDebug.Playable.RadialAssault
             float halfWidth = this._texture.Width / 2.0f;
 
             return new Vector2(halfWidth, halfHeight);
+        }
+
+        internal void Activate()
+        {
+            ActivateInputHooks();
+        }
+        private void ActivateInputHooks()
+        {
+            Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
+        }
+        /// <summary>
+        /// Event based Input hook for RAPlayer.
+        /// </summary>
+        /// <param name="currentKeyboardState">Passed from Input class.</param>
+        /// <param name="oldKeyboardState">Passed from Input class.</param>
+        internal void KeyDown(ref KeyboardState currentKeyboardState, ref KeyboardState oldKeyboardState)
+        {
+            if (currentKeyboardState.IsKeyDown(Keys.Left))
+            {
+                MoveClockwise();
+            }
+            if (currentKeyboardState.IsKeyDown(Keys.Right))
+            {
+                MoveCounterClockwise();
+            }
         }
     }
 }

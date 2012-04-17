@@ -27,5 +27,10 @@ namespace GearsDebug.Playable.RadialAssault
             base.Register(_lFact.ToArray());
             _lFact = null; //this probably isn't necessary, is it?
         }
+
+        internal void Activate()
+        {
+            //Keep bubbling down Activate calls
+        }
     }
 }

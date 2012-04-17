@@ -50,5 +50,7 @@ namespace Gears.Playable
                 player.Draw(spriteBatch);
             }
         }
+
+        public virtual void Activate() { }
     }
 }

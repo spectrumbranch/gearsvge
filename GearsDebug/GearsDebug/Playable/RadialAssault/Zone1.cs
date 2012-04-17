@@ -44,7 +44,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void Initialize()
         {
-            PLAYER_STARTING_LOCATION = new Vector2(WORMHOLE_COORDINATES.X, WORMHOLE_COORDINATES.Y + (196 + PLAYER_IMAGE_ORIGIN.Y)); //hardcode magic
+            PLAYER_STARTING_LOCATION = new Vector2(WORMHOLE_COORDINATES.X, WORMHOLE_COORDINATES.Y + (300 + PLAYER_IMAGE_ORIGIN.Y)); //hardcode magic
         }
         private void Register()
         {
@@ -59,5 +59,11 @@ namespace GearsDebug.Playable.RadialAssault
             //base.Register(um);//register should allow a vector or linked list (or IEnumerable) for all manager types.
         }
 
+
+        internal void Activate()
+        {
+            pmTEST.Activate();
+            um.Activate();
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace GearsDebug.Playable.RadialAssault
         /// <param name="gameTime"></param>
         private void UpdateInput(GameTime gameTime)
         {
-            Input.Update(gameTime);
+            //Input.Update(gameTime);
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes active.
@@ -52,7 +52,9 @@ namespace GearsDebug.Playable.RadialAssault
         {
             _StateIsActive = true;
             Input.ClearEventHandler();
+            Input.EnableInput();
             //Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
+            zone1.Activate();
         }
     }
 }

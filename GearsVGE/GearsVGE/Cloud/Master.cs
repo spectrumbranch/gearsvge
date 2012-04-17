@@ -72,6 +72,9 @@ namespace Gears.Cloud
             //global events
             CGlobalEvents.GFrameTrigger.Update();
 
+            //Input
+            Input.Update(gameTime);
+
             //only updating the top item, whether it is an overlay or just a regular state
             //there are no known cases where two items need to be updated at the same time
             stack.Peek().Update(gameTime);

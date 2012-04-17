@@ -21,6 +21,14 @@ namespace GearsDebug.Playable.RadialAssault
     {
 
         public RAPlayerManager(Player[] players) : base(players) {  }
-        
+
+
+        public override void Activate()
+        {
+            foreach (RAPlayer player in _players)
+            {
+                player.Activate();
+            }
+        }
     }
 }
