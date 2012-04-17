@@ -50,8 +50,8 @@ namespace GearsDebug.Cartography
            // ContentButler.loadTexture(_tilesetIndex, @"Pixelcat\brick_default");
             //ContentButler.loadTexture(_tilesetIndex+1, @"Pixelcat\brick_break");
             //tt.SetData<Texture2D>(
-            brick_default = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default");
-            brick_break = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break");
+            //REPLACE THIS LINE WITH OTHER CONTENT//brick_default = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_default");
+            //REPLACE THIS LINE WITH OTHER CONTENT//brick_break = ContentButler.GetGame().Content.Load<Texture2D>(@"Pixelcat\brick_break");
             //
 
             //tr.TestAssignTex(ContentButler.requestTexture(_tilesetIndex, 0), ContentButler.requestTexture(_tilesetIndex+1,0));
