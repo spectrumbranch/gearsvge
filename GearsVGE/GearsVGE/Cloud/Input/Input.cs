@@ -16,16 +16,12 @@ using Gears.Cloud._Debug;
 namespace Gears.Cloud
 {
     /// <summary>
-    /// Input AKA Input State Machine     rev.003
+    /// Input AKA Input Delegation/State Machine     rev.005
     /// 
     /// ***TODO:needs documentation***
     ///
-    ///     Changelog:
-    ///     - Make input class accessible outside of the core.
-    ///                 Jonathan Basniak(rev.003, 04/19/2011)
-    /// 
-    /// By spectrum AKA Christopher Bebry, batchfile AKA Jonathan Basniak.
-    /// Copyright 2011. For use only within the Gears VGE and Spectrum Branch.
+    /// By spectrum AKA Christopher Bebry
+    /// Copyright 2012. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com
     /// </summary>
     public static class Input
@@ -36,62 +32,39 @@ namespace Gears.Cloud
         private static bool _enabled = false;
         private static KeyboardState _keyState;
 
-        public delegate void KeyboardStateEvent(ref KeyboardState CurrentKeyboardState, ref KeyboardState OldKeyboardState);
-        public static event KeyboardStateEvent keyDown;
-        public static event KeyboardStateEvent keyUp;
+        public delegate void KeyboardStateEvent(ref KeyboardState CURRENT_KEYBOARD_STATE, ref KeyboardState OLD_KEYBOARD_STATE);
 
-        //
-        private static KeyboardState oldKeyboardState, currentKeyboardState;
+        private static event KeyboardStateEvent keyboardEventList;
+        
         private const int menuKeyMSDelay = 200; //200 milliseconds
 
-
+        private static KeyboardState _oldKeyboardState;
+        private static KeyboardState _currentKeyboardState;
         internal static KeyboardState OldKeyboardState
         {
-            get { return oldKeyboardState; }
+            get { return _oldKeyboardState; }
         }
         internal static KeyboardState CurrentKeyboardState
         {
-            get { return currentKeyboardState; }
+            get { return _currentKeyboardState; }
         }
 
         public static void Update(GameTime gameTime)
         {
             UpdateKeyboardStates();
 
-            Keys[] currentPressedKeys = CurrentKeyboardState.GetPressedKeys();
-
-            foreach (Keys keys in currentPressedKeys)
+            if (keyboardEventList != null)
             {
-                if (!OldKeyboardState.Equals(keys))
-                {
-                    if (keyDown != null)
-                    {
-                        if (CurrentKeyboardState.IsKeyDown(keys))
-                        {
-                            keyDown(ref currentKeyboardState, ref oldKeyboardState);
-                        }
-                    }
-                    else if (keyUp != null)
-                    {
-                        if (CurrentKeyboardState.IsKeyUp(keys))
-                        {
-                            keyUp(ref currentKeyboardState, ref oldKeyboardState);
-                        }
-                    }
-                }
+                keyboardEventList(ref _currentKeyboardState, ref _oldKeyboardState);
             }
         }
 
         private static void UpdateKeyboardStates()
         {
-            oldKeyboardState = currentKeyboardState;
-            currentKeyboardState = Keyboard.GetState();
+            _oldKeyboardState = _currentKeyboardState;
+            _currentKeyboardState = Keyboard.GetState();
         }
 
-        public static bool KeyEnter()
-        {
-            return _keyState.IsKeyDown(Keys.Enter);
-        }
         public static bool GetInputFlag()
         {
             return _enabled;
@@ -107,8 +80,11 @@ namespace Gears.Cloud
 
         public static void ClearEventHandler()
         {
-            Input.keyDown = null;
-            Input.keyUp = null;
+            Input.keyboardEventList = null;
+        }
+        public static void SubscribeInputHook(KeyboardStateEvent kse)
+        {
+            Input.keyboardEventList += kse;
         }
     }
 }

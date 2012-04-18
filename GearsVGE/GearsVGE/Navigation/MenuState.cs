@@ -86,7 +86,7 @@ namespace Gears.Navigation
         {
             _StateIsActive = true;
             Input.ClearEventHandler();
-            Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
+            Input.SubscribeInputHook(KeyDown);
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes inactive.

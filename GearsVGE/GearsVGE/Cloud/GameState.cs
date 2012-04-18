@@ -5,7 +5,6 @@ namespace Gears.Cloud
 {
     public abstract class GameState
     {
-        //IsOverlay is not used currently. (but will be)
         //HandlesInput is not used currently. (but might be)
         
         protected internal bool _IsOverlay = false;
@@ -17,10 +16,6 @@ namespace Gears.Cloud
         protected internal bool _HandlesInput = false;
         protected internal bool _StateIsActive = false;
 
-        //internal bool IsOverlay()
-        //{
-        //    return _IsOverlay;
-        //}
         internal bool HandlesInput()
         {
             return _HandlesInput;

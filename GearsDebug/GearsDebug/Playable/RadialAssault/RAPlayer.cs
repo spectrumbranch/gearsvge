@@ -115,7 +115,7 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void ActivateInputHooks()
         {
-            Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
+            Input.SubscribeInputHook(KeyDown);
         }
         /// <summary>
         /// Event based Input hook for RAPlayer.
@@ -133,5 +133,6 @@ namespace GearsDebug.Playable.RadialAssault
                 MoveCounterClockwise();
             }
         }
+        
     }
 }

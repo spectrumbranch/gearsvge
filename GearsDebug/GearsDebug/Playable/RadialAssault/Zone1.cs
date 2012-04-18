@@ -20,7 +20,7 @@ namespace GearsDebug.Playable.RadialAssault
     class Zone1 : Zone
     {
         //  The PlayerManager handles all player-related interfaces and components.
-        private PlayerManager pmTEST;
+        private RAPlayerManager pmTEST;
 
         //  The UnitManager handles the NPC units, including their spawning, death, and AI logic.
         private Zone1UnitManager um;
@@ -48,8 +48,8 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void Register()
         {
-            Player[] _p = new Player[1];
-            Player p1 = new RAPlayer(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f/*, PLAYER_IMAGE_ORIGIN*/);//****
+            RAPlayer[] _p = new RAPlayer[1];
+            RAPlayer p1 = new RAPlayer(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f/*, PLAYER_IMAGE_ORIGIN*/);//****
             _p[0] = p1;
 
             pmTEST = new RAPlayerManager(_p);
