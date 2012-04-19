@@ -10,12 +10,14 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using Gears.Cloud._Debug;
 
 namespace Gears.Playable
 {
     public abstract class Zone
     {
         //Managers
+        private List<IManager> _managers = new List<IManager>();
         private UnitManager _uManager;
         private PlayerManager _pManager;
 
@@ -39,7 +41,12 @@ namespace Gears.Playable
         }
         public void Update(GameTime gameTime)
         {
-            //Update Units
+            foreach (IManager manager in _managers)
+            {
+                manager.Update(gameTime);
+            }
+
+            //deprecated
             if (_pManager != null)
             {
                 _pManager.Update(gameTime);
@@ -49,12 +56,18 @@ namespace Gears.Playable
                 _uManager.Update(gameTime);
             }
 
+
             //Update Projectiles
             //projectileManager.Update(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Draw Units
+            foreach (IManager manager in _managers)
+            {
+                manager.Draw(spriteBatch);
+            }
+
+            //deprecated
             if (_pManager != null)
             {
                 _pManager.Draw(spriteBatch);
@@ -67,14 +80,37 @@ namespace Gears.Playable
             //Draw Projectiles
             //projectileManager.Draw(spriteBatch);
         }
+
+        protected internal void RegisterManager(IManager manager)
+        {
+            if (manager != null)
+            {
+                _managers.Add(manager);
+            }
+            else
+            {
+                Debug.Out("Null manager passed to Zone.RegisterManager(IManager).");
+            }
+        }
+
+        /// <summary>
+        /// DEPRECATED
+        /// </summary>
+        /// <param name="manager"></param>
         protected internal void Register(UnitManager manager)
         {
             _uManager = manager;
             //Initialize();
         }
+
+        /// <summary>
+        /// DEPRECATED
+        /// </summary>
+        /// <param name="manager"></param>
         protected internal void RegisterPlayerManager(PlayerManager manager)
         {
             _pManager = manager;
         }
+
     }
 }

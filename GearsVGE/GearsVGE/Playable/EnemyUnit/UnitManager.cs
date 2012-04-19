@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Gears.Playable
 {
-    public abstract class UnitManager
+    public abstract class UnitManager : IManager
     {
         private UnitTypeFactory[] _factories;
 

@@ -143,6 +143,7 @@
     <Compile Include="Playable\EnemyUnit\UnitParameters.cs" />
     <Compile Include="Playable\EnemyUnit\UnitTypeFactory.cs" />
     <Compile Include="Playable\Entity.cs" />
+    <Compile Include="Playable\IManager.cs" />
     <Compile Include="Playable\Player\PlayerManager.cs" />
     <Compile Include="Playable\Trackable.cs" />
     <Compile Include="Playable\Player\Player.cs" />
