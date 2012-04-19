@@ -19,11 +19,15 @@ namespace GearsDebug.Playable.RadialAssault
 {
     class Zone1 : Zone
     {
+        private Zone1LevelData _levelData;
+
         //  The PlayerManager handles all player-related interfaces and components.
         private RAPlayerManager pmTEST;
 
         //  The UnitManager handles the NPC units, including their spawning, death, and AI logic.
         private Zone1UnitManager um;
+
+        private HUDManager hud;
 
         //TODO: Need LevelManager, PlayerManager, MediaManager, and EffectsManager.
         //  The LevelManager handles background images, structure of the level, and so forth.
@@ -44,7 +48,9 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void Initialize()
         {
+            _levelData = new Zone1LevelData();
             PLAYER_STARTING_LOCATION = new Vector2(WORMHOLE_COORDINATES.X, WORMHOLE_COORDINATES.Y + (300 + PLAYER_IMAGE_ORIGIN.Y)); //hardcode magic
+        
         }
         private void Register()
         {
@@ -54,9 +60,15 @@ namespace GearsDebug.Playable.RadialAssault
 
             pmTEST = new RAPlayerManager(_p);
             um = new Zone1UnitManager();
+            hud = new HUDManager(_levelData);
 
-            base.RegisterPlayerManager(pmTEST);
+            base.RegisterManager(pmTEST);
+            base.RegisterManager(hud);
+
+            //base.RegisterPlayerManager(pmTEST);
             //base.Register(um);//register should allow a vector or linked list (or IEnumerable) for all manager types.
+        
+            
         }
 
 
@@ -65,5 +77,6 @@ namespace GearsDebug.Playable.RadialAssault
             pmTEST.Activate();
             um.Activate();
         }
+        
     }
 }

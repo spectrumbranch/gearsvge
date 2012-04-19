@@ -6,7 +6,7 @@ using Gears.Cloud;
 namespace Gears.Navigation
 {
     /// <summary>
-    /// MenuState   rev.003
+    /// MenuState   rev.005
     ///     Abstract class, intended to be inherited from and then instantiated
     ///     with constructor parameters. Every MenuState is a Menu, and contains
     ///     a MenuItemCollection, which is simply a collection of possible 
@@ -16,22 +16,6 @@ namespace Gears.Navigation
     ///     fonts or font sizes or window sizes. This is done on purpose and can
     ///     easily be refactored in on a later revision.
     ///     
-    /// 
-    ///     ---------------
-    ///     Changes in 003
-    ///     ---------------
-    ///     
-    ///     -Fixed a huge Input related bug. Now you should not be able to throw
-    ///      multiple inputs while the key is down by simply pressing another key.
-    /// 
-    ///     ---------------
-    ///     Changes in 002a
-    ///     ---------------
-    ///     
-    ///     -Inserted Input Update Hook.
-    ///     -Implemented Active/Inactive function calls for clean state switching.
-    ///     -Refactored a lot of code into nice functions.
-    /// 
     /// By spectrum AKA Christopher Bebry.
     /// Copyright 2012. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com

@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Gears.Playable
 {
-    public abstract class PlayerManager
+    public abstract class PlayerManager : IManager
     {
         protected Player[] _players;
 
@@ -35,7 +35,7 @@ namespace Gears.Playable
             }
         }
 
-        protected internal void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             foreach (Player player in _players)
             {
@@ -43,7 +43,7 @@ namespace Gears.Playable
             }
         }
 
-        protected internal void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Player player in _players)
             {
