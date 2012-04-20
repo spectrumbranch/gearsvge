@@ -19,6 +19,8 @@ namespace GearsDebug.Playable.RadialAssault
 {
     class Zone1 : Zone
     {
+        private DebugManager _DM;
+
         private Zone1LevelData _levelData;
 
         //  The PlayerManager handles all player-related interfaces and components.
@@ -62,8 +64,14 @@ namespace GearsDebug.Playable.RadialAssault
             um = new Zone1UnitManager();
             hud = new HUDManager(_levelData);
 
+            _DM = new DebugManager();
+
+            base.RegisterManager(_DM);
             base.RegisterManager(pmTEST);
             base.RegisterManager(hud);
+            base.RegisterManager(um);
+
+            _DM.CoupleUnitManager(um);
 
             //base.RegisterPlayerManager(pmTEST);
             //base.Register(um);//register should allow a vector or linked list (or IEnumerable) for all manager types.
@@ -74,6 +82,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         internal void Activate()
         {
+            _DM.Activate();
             pmTEST.Activate();
             um.Activate();
         }

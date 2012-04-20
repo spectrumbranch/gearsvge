@@ -15,7 +15,8 @@ namespace Gears.Playable
 {
     public abstract class UnitTypeFactory
     {
-        private Unit[] _units;
+        //private Unit[] _units; //phase this out
+        private List<Unit> _units;
 
         public UnitTypeFactory()
         {
@@ -41,10 +42,10 @@ namespace Gears.Playable
                     u.Update(gameTime);
                 }
             }
-            else
-            {
-                throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
-            }
+            //else
+            //{
+            //    throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
+            //}
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -55,12 +56,18 @@ namespace Gears.Playable
                     u.Draw(spriteBatch);
                 }
             }
-            else
-            {
-                throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
-            }
+            //else
+            //{
+            //    throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
+            //}
         }
+        //TODO: Phase this out!!
         protected internal void Register(Unit[] units)
+        {
+            _units = units.ToList();
+            Initialize();
+        }
+        protected internal void Register(List<Unit> units)
         {
             _units = units;
             Initialize();

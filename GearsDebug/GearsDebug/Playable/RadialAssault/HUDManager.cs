@@ -48,5 +48,6 @@ namespace GearsDebug.Playable.RadialAssault
             spriteBatch.DrawString(_scoreFont, _levelData.Score.ToString(), _scorePosition, _scoreColor);
 
         }
+
     }
 }

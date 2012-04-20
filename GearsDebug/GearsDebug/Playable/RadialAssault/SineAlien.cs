@@ -24,12 +24,18 @@ namespace GearsDebug.Playable.RadialAssault
         private int moveCounter = -150;
 
 
-        internal SineAlien(Vector2 origin, Color color, float rotation, string textureFileName)
-            : base(origin, color, rotation/*, textureFileName*/) 
+        internal SineAlien(Vector2 origin, Color color, float rotation)
+            : base(origin, color, rotation)
         {
             theta = 360 * rand.NextDouble();
-            this._rotation = (float)(theta+90);
+            this._rotation = (float)(theta + 90);
         }
+        //internal SineAlien(Vector2 origin, Color color, float rotation, string textureFileName)
+        //    : base(origin, color, rotation/*, textureFileName*/) 
+        //{
+        //    theta = 360 * rand.NextDouble();
+        //    this._rotation = (float)(theta+90);
+        //}
 
         //Put all updates for the specific unit in an override update function like so
         public override void Update(GameTime gameTime)

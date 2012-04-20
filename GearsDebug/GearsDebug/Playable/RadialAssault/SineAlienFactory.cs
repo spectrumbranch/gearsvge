@@ -17,7 +17,6 @@ using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
-    // Change to Alien and give it a specific type
     sealed internal class SineAlienFactory : UnitTypeFactory
     {
         //TEMPORARY
@@ -25,8 +24,9 @@ namespace GearsDebug.Playable.RadialAssault
         private Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
         private Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32, 32);//hardcoded, bad chris
         private Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
-        
-        private SineAlien[] enemies;
+
+        private List<Unit> _enemies = new List<Unit>();
+        //private SineAlien[] enemies;
 
         internal SineAlienFactory()
         {
@@ -36,12 +36,17 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void Register()
         {
-            enemies = new SineAlien[1];      //hardcode magic
+            //enemies = new SineAlien[1];      //hardcode magic
 
-            enemies[0] = new SineAlien(originOfCircle, Color.Red, 0.0f, "test");    //note that this constructor is default for testing only. 
+            //enemies[0] = new SineAlien(originOfCircle, Color.Red, 0.0f, "test");    //note that this constructor is default for testing only. 
             //each unit will DEFINITELY have a different constructor.
 
-            base.Register(enemies);
+            base.Register(_enemies);
+        }
+        public void Spawn()
+        {
+            _enemies.Add(new SineAlien(originOfCircle, Color.White, 0.0f));
+            Register();
         }
     }
 }
