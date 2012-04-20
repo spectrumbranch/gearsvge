@@ -4,45 +4,43 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace Gears.Collisions
+namespace Gears.Cloud.Collisions
 {
-    public class CHitSphere : CHitShape
+    class CHitSphere : CHitShape
     {
-        public CHitSphere(float radius, Vector2 position) 
-            : base(shapeTypes.CIRCLE, position)
+        public float radius;
+
+        public CHitSphere(float radius, Vector2 origin) :
+            base(shapeType.circle, origin)
         {
-            _radius = radius;
+            this.radius = radius;
         }
 
-        public override bool contains(CHitShape shape)
+        public override bool contains(CHitShape otherShape)
         {
-            if (shape.shapeType == shapeTypes.CIRCLE)
+            switch (otherShape.shape)
             {
-                float dist = 0;
-                float sum = 0;
-                CHitSphere temp = (CHitSphere)shape;
+                case shapeType.circle:
 
-                dist = (float)Math.Sqrt(Math.Pow(shape.position.X - position.X, 2) + Math.Pow(shape.position.Y - position.Y, 2));
-                sum = temp._radius + _radius;
+                    if ( (Math.Sqrt(Math.Pow(position.X - otherShape.position.X,2) + Math.Pow(position.Y - otherShape.position.Y,2))) <
+                        radius + ((CHitSphere)otherShape).radius)
+                    {
+                        return true;
+                    }
+                    break;
 
-                return (dist < sum);  
+                case shapeType.box:
+                    break;
             }
-
 
             return false;
         }
 
-        protected override void _scale(float percentage)
+        protected override void _scale(int percentage)
         {
-            percentage /= 100;
-            _radius *= percentage;
-        }
+            float percentAsDec = percentage * .01f;
 
-        protected override void _translate(Vector2 amount)
-        {
-            _position += amount;
+            radius *= percentAsDec;
         }
-
-        private float _radius;
     }
 }

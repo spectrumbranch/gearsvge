@@ -4,51 +4,48 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace Gears.Collisions
+namespace Gears.Cloud.Collisions
 {
 
-    enum shapeTypes
+    enum shapeType
     {
-        BOX = 0,
-        CIRCLE
+        circle = 0,
+        box
     }
-    abstract public class CHitShape
+
+    abstract class CHitShape
     {
-        protected CHitShape(shapeTypes type, Vector2 position)
+
+        protected shapeType _shape;
+        public Vector2 position;
+
+        public abstract bool contains(CHitShape otherShape);
+        protected abstract void _scale(int percentage);
+
+        protected CHitShape(shapeType shape, Vector2 position)
         {
-            _shapeType = type;
-            _position = position;
+            _shape = shape;
+            this.position = position;
         }
 
-        public abstract bool contains(CHitShape shape);
-        protected abstract void _scale(float percentage);
-        protected abstract void _translate(Vector2 amount);
-
-        public void transform(float percentage, Vector2 amount)
-        {
-            _scale(percentage);
-            _translate(amount);
-        }
-
-        public shapeTypes shapeType
+        public shapeType shape
         {
             get
             {
-                return _shapeType;
+                return _shape;
             }
         }
 
-        public Vector2 position
+        protected void _translate(Vector2 distance)
         {
-            get
-            {
-                return _position;
-            }
+            position += distance;
         }
 
-        private shapeTypes _shapeType;
-        protected Vector2 _position;
-
-        
+        public void transform(int scale, Vector2 distance)
+        {
+            _scale(scale);
+            _translate(distance);
+        }
+  
     }
 }
