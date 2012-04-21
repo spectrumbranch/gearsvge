@@ -36,11 +36,6 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void Register()
         {
-            //enemies = new SineAlien[1];      //hardcode magic
-
-            //enemies[0] = new SineAlien(originOfCircle, Color.Red, 0.0f, "test");    //note that this constructor is default for testing only. 
-            //each unit will DEFINITELY have a different constructor.
-
             base.Register(_enemies);
         }
         public void Spawn()

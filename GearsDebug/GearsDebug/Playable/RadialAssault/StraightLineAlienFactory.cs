@@ -17,15 +17,16 @@ using Gears.Playable;
 
 namespace GearsDebug.Playable.RadialAssault
 {
-    // Change to Alien and give it a specific type
     sealed internal class StraightLineAlienFactory : UnitTypeFactory
     {
         //TEMPORARY
         Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth()/2, ViewportHandler.GetHeight()/2);
         Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
         Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32,32);//hardcoded, bad chris
-        
-        private StraightLineAlien[] es;
+        private Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
+
+        private List<Unit> _enemies = new List<Unit>();
+        //private StraightLineAlien[] es;
 
         internal StraightLineAlienFactory()
         {
@@ -35,13 +36,12 @@ namespace GearsDebug.Playable.RadialAssault
         }
         private void Register()
         {
-            //es = new EnemyShip[1];      //hardcode magic
-
-            // es[0] = new EnemyShip(PLAYER_STARTING_LOCATION, Color.Azure, 0.0f, PLAYER_IMAGE_ORIGIN);    //TODO: fix up constructor.
-                                        //note that this constructor is default for testing only. 
-                                        //each unit will DEFINITELY have a different constructor.
-
-            //base.Register(es);
+            base.Register(_enemies);
+        }
+        public void Spawn()
+        {
+            _enemies.Add(new StraightLineAlien(originOfCircle, Color.White, 0.0f));
+            Register();
         }
     }
 }
