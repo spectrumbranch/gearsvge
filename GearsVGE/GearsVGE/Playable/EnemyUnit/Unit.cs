@@ -103,11 +103,20 @@ namespace Gears.Playable
             }
         }
         //NOTE:  The inherited function must call this at the end or beginning of it's definition.
-        internal virtual void CheckEvents()
+        internal virtual void CheckUpdateEvents()
         {
             if (CGlobalEvents.GFrameTrigger.getEvent(0).triggered == true)
             {
                 onFrame();
+            }
+            //I hope it's obvious that this will be a bunch of if statements to check each event :)
+        }
+        //NOTE:  The inherited function must call this at the end or beginning of it's definition.
+        internal virtual void CheckDrawEvents(SpriteBatch spriteBatch)
+        {
+            if (CGlobalEvents.GFrameTrigger.getEvent(0).triggered == true)
+            {
+                onDraw(spriteBatch);
             }
             //I hope it's obvious that this will be a bunch of if statements to check each event :)
         }
@@ -117,10 +126,11 @@ namespace Gears.Playable
         public virtual void Update(GameTime gameTime)
         {
             //movement and such here
-            CheckEvents();
+            CheckUpdateEvents();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            CheckDrawEvents(spriteBatch);
             spriteBatch.Draw(_texture, _position, null, _color, _rotation, _imageOrigin, _scale, SpriteEffects.None, _depth);
         }
 
@@ -131,6 +141,8 @@ namespace Gears.Playable
 
         //TODO: Make an interface which holds these prototypes 
         public virtual void onFrame() { } //global event
+        public virtual void onDraw(SpriteBatch spriteBatch) { } //global event'
+
         public virtual void onAnimEnd() { }//local event
         public virtual void onAnimStart() { }//local event
         public virtual void onMapStart() { }//global event //onLoad  ? -> global Trigger

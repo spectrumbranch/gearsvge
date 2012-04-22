@@ -145,6 +145,7 @@
     <Compile Include="Playable\Entity.cs" />
     <Compile Include="Playable\IManager.cs" />
     <Compile Include="Playable\Player\PlayerManager.cs" />
+    <Compile Include="Playable\Projectile\IProjectile.cs" />
     <Compile Include="Playable\Trackable.cs" />
     <Compile Include="Playable\Player\Player.cs" />
     <Compile Include="Playable\Projectile\Projectile.cs" />

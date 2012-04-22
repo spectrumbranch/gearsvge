@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using System.Text;
 using Gears.Playable;
+using Gears.Playable.Projectile;
 using Gears.Cloud;
 using Gears.Navigation;
 
@@ -27,7 +28,9 @@ namespace GearsDebug.Playable.RadialAssault
         private float deltaScalar = MathHelper.PiOver4 / 32;
         private float radius;
 
+        //IN IMPLEMENTATION
 
+        private List<IProjectile> _projectiles = new List<IProjectile>(); // in testing
 
         private bool _playerHasControl;
         private bool _isAlive;
@@ -60,9 +63,21 @@ namespace GearsDebug.Playable.RadialAssault
         {
             //base.onFrame();
             //CalculateMovement();
-            
+            //PROJECTILES?
 
             //MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
+        }
+
+        public override void onDraw(SpriteBatch spriteBatch)
+        {
+            //base.onDraw();
+            if (_projectiles != null)
+            {
+                foreach (IProjectile projectile in _projectiles)
+                {
+                    projectile.Draw(spriteBatch);
+                }
+            }
         }
 
         internal void MoveClockwise()
@@ -131,6 +146,11 @@ namespace GearsDebug.Playable.RadialAssault
             if (currentKeyboardState.IsKeyDown(Keys.Right))
             {
                 MoveCounterClockwise();
+            }
+            if (currentKeyboardState.IsKeyDown(Keys.Space) &&
+                currentKeyboardState.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
+            {
+                //Fire Lasers
             }
         }
         

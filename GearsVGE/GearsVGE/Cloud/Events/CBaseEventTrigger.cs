@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Gears.Cloud.Events
 {
     class CBaseEventTrigger
     {
+        protected List<CEvent> Events;
+
         public CBaseEventTrigger() 
         {
             Events = new List<CEvent>();
@@ -26,7 +25,5 @@ namespace Gears.Cloud.Events
         {
             Events.Add(ev);
         }
-
-        protected List<CEvent> Events;
     }
 }
