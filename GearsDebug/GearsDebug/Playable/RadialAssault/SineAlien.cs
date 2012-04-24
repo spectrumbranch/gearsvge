@@ -54,9 +54,9 @@ namespace GearsDebug.Playable.RadialAssault
         private void Movement()
         {
             //The following takes the origin coordinates and adds the rotation matrix model to it
-            base._position.X += (float)(t*Math.Cos(theta) - 5*Math.Sin(5*t)*Math.Sin(theta));
-            base._position.Y += (float)(t * Math.Sin(theta) + 5*Math.Sin(5*t) * Math.Cos(theta));
-            t += .01;
+            base._position.X += (float)(t*Math.Cos(theta) - (5*Math.Sin(3*t))*Math.Sin(theta));
+            base._position.Y += (float)(t * Math.Sin(theta) + (5 * Math.Sin(3* t)) * Math.Cos(theta));
+            t += .1;
         }
 
     }
