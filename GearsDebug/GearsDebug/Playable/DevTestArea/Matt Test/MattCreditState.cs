@@ -93,7 +93,9 @@ namespace GearsDebug.Playable.Matt
 
         private void LoadContent()
         {
-            _font = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            _font = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+
+
         }
 
 
