@@ -130,6 +130,7 @@
     <Compile Include="Playable\DevTestArea\Joe Test\JoeState.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeZone.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeZoneUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Matt Test\MattCreditState.cs" />
     <Compile Include="Playable\DevTestArea\Matt Test\MattMenu.cs" />
     <Compile Include="Playable\DevTestArea\Matt Test\MattState.cs" />
     <Compile Include="Playable\DevTestArea\Matt Test\MattUnit.cs" />
