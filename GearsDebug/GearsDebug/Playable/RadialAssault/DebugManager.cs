@@ -52,6 +52,7 @@ namespace GearsDebug.Playable.RadialAssault
                 currentKeyboardState.IsKeyDown(Keys.J) != oldKeyboardState.IsKeyDown(Keys.J))
             {
                 //Spawn Straight Line Alien
+                _unitManager.SpawnStraightLineAlien();
             }
 
             if (currentKeyboardState.IsKeyDown(Keys.K) &&

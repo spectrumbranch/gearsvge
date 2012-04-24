@@ -9,9 +9,10 @@ namespace GearsDebug.Playable.RadialAssault
 {
     class Zone1UnitManager : UnitManager
     {
-        private EnemyShipFactory esf;
+        //private EnemyShipFactory esf;
 
         private SineAlienFactory _sineAlienFactory;
+        private StraightLineAlienFactory _straightLineAlienFactory;
 
         internal Zone1UnitManager()
         {
@@ -21,11 +22,13 @@ namespace GearsDebug.Playable.RadialAssault
         private void Register()
         {
             _sineAlienFactory = new SineAlienFactory();
+            _straightLineAlienFactory = new StraightLineAlienFactory();
 
-            esf = new EnemyShipFactory();
+            //esf = new EnemyShipFactory();
             List<UnitTypeFactory> _lFact = new List<UnitTypeFactory>();
-            _lFact.Add(esf); //iterate this for each UnitTypeFactory
+            //_lFact.Add(esf); //iterate this for each UnitTypeFactory
             _lFact.Add(_sineAlienFactory);
+            _lFact.Add(_straightLineAlienFactory);
 
 
             base.Register(_lFact.ToArray());
@@ -40,6 +43,10 @@ namespace GearsDebug.Playable.RadialAssault
         internal void SpawnSineAlien()
         {
             _sineAlienFactory.Spawn();
+        }
+        internal void SpawnStraightLineAlien()
+        {
+            _straightLineAlienFactory.Spawn();
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 //IN DEVELOPMENT. NOT APPROVED FOR USE IN VERSION 0.1.0
-namespace Gears.Playable
+namespace Gears.Playable._INTRANSIT
 {
     //these enums need to be organized into a separate file at some point and refactored
     enum ProjectileType
