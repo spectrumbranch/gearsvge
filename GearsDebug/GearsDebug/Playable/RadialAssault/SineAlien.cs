@@ -32,10 +32,10 @@ namespace GearsDebug.Playable.RadialAssault
         }
 
         //Put all updates for the specific unit in an override update function like so
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
+        //public override void Update(GameTime gameTime)
+        //{
+        //    base.Update(gameTime);
+        //}
 
         //Controller for onFrame event.
         public override void onFrame()

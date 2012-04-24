@@ -22,10 +22,7 @@ namespace GearsDebug.Playable.RadialAssault
         public override void Update(GameTime gameTime)
         {
             zone1.Update(gameTime);
-            if (StateIsActive())
-            {
-                UpdateInput(gameTime);
-            }
+            if (StateIsActive())  { }
             else
             {
                 ActivateState();
@@ -35,14 +32,7 @@ namespace GearsDebug.Playable.RadialAssault
         {
             zone1.Draw(spriteBatch);
         }
-        /// <summary>
-        /// Only should be run if the state is active.
-        /// </summary>
-        /// <param name="gameTime"></param>
-        private void UpdateInput(GameTime gameTime)
-        {
-            //Input.Update(gameTime);
-        }
+
         /// <summary>
         /// Contains logic that should be fired every time the state becomes active.
         /// This should fire especially in cases where the state had become inactive
