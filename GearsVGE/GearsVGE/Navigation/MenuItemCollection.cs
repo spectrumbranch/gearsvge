@@ -24,8 +24,9 @@ namespace Gears.Navigation
             }
             else
             {
-                _mi[index].ThrowPushEvent();
+                //_mi[index].ThrowPushEvent();
             }
+            _mi[index].ThrowPushEvent();
         }
         internal string GetIndexMenuText(int index)
         {

@@ -52,7 +52,7 @@ namespace GearsDebug
             graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
             graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
             graphics.IsFullScreen = false;
-            graphics.ApplyChanges();      
+            graphics.ApplyChanges();
             
 
             #if DEBUG
