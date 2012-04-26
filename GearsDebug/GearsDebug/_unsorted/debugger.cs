@@ -1,22 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-
-
 using Gears.Cloud;
-
 using GearsDebug.Navigation; //debug menu
 
 namespace GearsDebug
 {
     class debugger : GameState
     {
-        /// <summary>
-        /// identifier is for data passage identification.
-        /// It is currently not used, but has potential future post-beta concepts for scripting.
-        /// </summary>
-        private const char identifier = 'd';
-
         /// <summary>
         /// The entry point for this class.
         /// </summary>

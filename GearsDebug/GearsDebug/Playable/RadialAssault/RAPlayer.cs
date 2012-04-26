@@ -39,8 +39,8 @@ namespace GearsDebug.Playable.RadialAssault
         private string fileloc = @"RadialAssault\spaceship32shaded";
         protected override string TextureFileLocation { get { return fileloc; } }
 
-        internal RAPlayer(Vector2 origin, Color color, float rotation/*, Vector2 imageOrigin/*, string textureFileName*/)
-            : base(origin, color, rotation/*, imageOrigin, textureFileName*/) 
+        internal RAPlayer(Vector2 origin, Color color, float rotation)
+            : base(origin, color, rotation) 
         {
             InitializeLocal();
             //InitializeInputHooks();
@@ -56,16 +56,10 @@ namespace GearsDebug.Playable.RadialAssault
             radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
         }
 
-
-
-
         public override void onFrame()
         {
             //base.onFrame();
-            //CalculateMovement();
-            //PROJECTILES?
-
-            //MoveClockwise(); //TODO: Hook this into input instead of doing it automatically.
+            //PROJECTILES
         }
 
         public override void onDraw(SpriteBatch spriteBatch)
@@ -110,10 +104,6 @@ namespace GearsDebug.Playable.RadialAssault
             this._position.X = x;
             this._position.Y = y;
         }
-        //public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-       // {
-        //    base.Update(gameTime);
-        //}
         
         //not implemented appropriately, just here temporarily.
         public Vector2 getTextureOrigin()
