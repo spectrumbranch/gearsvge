@@ -41,9 +41,9 @@ namespace GearsDebug.Playable.RadialAssault
         {
             imageOffset = 196 + this._imageOrigin.Y;
             radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
-        }       
+        }
 
-        public override void onFrame()
+        public override void onUpdate(GameTime gameTime)
         {
             //base.onFrame();
             //AI();

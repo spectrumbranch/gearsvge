@@ -25,7 +25,7 @@ namespace GearsDebug.Playable.Matt
         private Color _creditsColor = new Color(255, 0, 0);
 
        
-
+        //TODO: Add credit for art and font
         private String[] creditsData = {
             "Radial Assault",
             "\n",

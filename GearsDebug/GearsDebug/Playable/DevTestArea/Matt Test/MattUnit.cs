@@ -47,7 +47,7 @@ namespace GearsDebug.Playable.Matt
         }
 
         //Controller for onFrame event.
-        public override void onFrame()
+        public override void onUpdate(GameTime gameTime)
         {
             //base.onFrame(); //necessary? Steve: For now, no.  If base.onFrame() ends up having functionality in the future, then yes.
             Movement();

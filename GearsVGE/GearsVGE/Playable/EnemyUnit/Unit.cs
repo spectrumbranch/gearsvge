@@ -103,11 +103,11 @@ namespace Gears.Playable
             }
         }
         //NOTE:  The inherited function must call this at the end or beginning of it's definition.
-        internal virtual void CheckUpdateEvents()
+        internal virtual void CheckUpdateEvents(GameTime gameTime)
         {
             if (CGlobalEvents.GFrameTrigger.getEvent(0).triggered == true)
             {
-                onFrame();
+                onUpdate(gameTime);
             }
             //I hope it's obvious that this will be a bunch of if statements to check each event :)
         }
@@ -126,7 +126,7 @@ namespace Gears.Playable
         public virtual void Update(GameTime gameTime)
         {
             //movement and such here
-            CheckUpdateEvents();
+            CheckUpdateEvents(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -140,7 +140,7 @@ namespace Gears.Playable
         //Also note, I can't implement the other events yet since no interface for their associated functionality exists in a concrete form yet.
 
         //TODO: Make an interface which holds these prototypes 
-        public virtual void onFrame() { } //global event
+        public virtual void onUpdate(GameTime gameTime) { } //global event
         public virtual void onDraw(SpriteBatch spriteBatch) { } //global event'
 
         public virtual void onAnimEnd() { }//local event

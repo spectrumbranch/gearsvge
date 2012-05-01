@@ -35,7 +35,7 @@ namespace GearsDebug.Playable.RadialAssault
         }
 
         //Controller for onFrame event.
-        public override void onFrame()
+        public override void onUpdate(GameTime gameTime)
         {
             Movement();
             

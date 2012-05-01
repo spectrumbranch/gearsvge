@@ -38,9 +38,9 @@ namespace GearsDebug.Playable.RadialAssault
             gridModifierY = this._position.Y;
         }       
 
-        public override void onFrame()
+        public override void onUpdate(GameTime gameTime)
         {
-            base.onFrame();
+            base.onUpdate(gameTime);
             //AI();
             CalculateMovement();
         }

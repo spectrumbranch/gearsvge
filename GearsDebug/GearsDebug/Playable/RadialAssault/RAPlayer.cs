@@ -56,10 +56,16 @@ namespace GearsDebug.Playable.RadialAssault
             radius = (ViewportHandler.GetHeight() / 2) + imageOffset;// bad chris
         }
 
-        public override void onFrame()
+        public override void onUpdate(GameTime gameTime)
         {
             //base.onFrame();
-            //PROJECTILES
+            if (_projectiles != null)
+            {
+                foreach (IProjectile projectile in _projectiles)
+                {
+                    projectile.Update(gameTime);
+                }
+            }
         }
 
         public override void onDraw(SpriteBatch spriteBatch)
@@ -140,8 +146,15 @@ namespace GearsDebug.Playable.RadialAssault
             if (currentKeyboardState.IsKeyDown(Keys.Space) &&
                 currentKeyboardState.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
             {
-                //Fire Lasers
+                FireLasers();
             }
+        }
+
+        private void FireLasers()
+        {
+            //Fire two lasers, one from each cannon.
+            //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
+            //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
         }
         
     }
