@@ -70,11 +70,11 @@ namespace Gears.Playable
             Initialize();
         }
 
-        protected internal void Initialize()
+        private void Initialize()
         {
             LoadContent();
         }
-        internal void LoadContent()
+        private void LoadContent()
         {
             try
             {
@@ -114,10 +114,10 @@ namespace Gears.Playable
         //NOTE:  The inherited function must call this at the end or beginning of it's definition.
         internal virtual void CheckDrawEvents(SpriteBatch spriteBatch)
         {
-            if (CGlobalEvents.GFrameTrigger.getEvent(0).triggered == true)
-            {
+            //if (CGlobalEvents.GFrameTrigger.getEvent(0).triggered == true)
+            //{
                 onDraw(spriteBatch);
-            }
+            //}
             //I hope it's obvious that this will be a bunch of if statements to check each event :)
         }
 

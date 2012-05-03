@@ -155,6 +155,7 @@ namespace GearsDebug.Playable.RadialAssault
             //Fire two lasers, one from each cannon.
             //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
             //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
+            _projectiles.Add(new LaserBeam(this._position, new Vector2(2.0f), this));
         }
         
     }

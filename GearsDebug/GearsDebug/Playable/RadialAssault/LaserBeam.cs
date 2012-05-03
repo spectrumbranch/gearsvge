@@ -13,26 +13,71 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using Gears.Playable;
 using Gears.Playable.Projectile;
+using Gears.Cloud;
+using Gears.Cloud._Debug;
 
 namespace GearsDebug.Playable.RadialAssault
 {
     sealed class LaserBeam : IProjectile
     {
-        protected internal Vector2 _position;
-        protected internal Vector2 _imageOrigin;
-        protected internal Color _color;
-        protected internal float _rotation;
-        protected internal float _scale = 1.0f; //may change!!!!! function it
-        protected internal float _depth = 0.0f; //may change!!!!! function it
-        protected internal Texture2D _texture;
-        protected internal string _texFileLoc = null;
+        private Trackable _ownerEntity = null;
 
-        public LaserBeam(Vector2 startingPosition, Vector2 direction/*,,,*/)
+        private Vector2 _position;
+        private Vector2 _velocity;
+        private Vector2 _imageOrigin = new Vector2(0,0); //
+        private Color _color = new Color(100,0,0); //
+        private float _rotation = 0.0f;
+        private float _scale = 1.0f; //may change!!!!! function it
+        private float _depth = 0.0f; //may change!!!!! function it
+
+        private string _textureFileName;
+        private Texture2D _texture;
+
+        private string _texFileLoc = null;
+        private string fileloc = @"RadialAssault\laserproto";
+        private string TextureFileLocation { get { return fileloc; } }
+
+        public LaserBeam(Vector2 startingPosition, Vector2 velocity, Trackable ownerEntity)
         {
             _position = startingPosition;
+            _velocity = velocity;
+            _ownerEntity = ownerEntity;
 
+            Initialize();
         }
 
+        protected internal void Initialize()
+        {
+            LoadContent();
+        }
+        internal void LoadContent()
+        {
+            try
+            {
+                if (TextureFileLocation != null)
+                {
+                    _texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
+                }
+                else
+                {
+                    HandleTextureFileLocationError(true);
+                }
+            }
+            catch
+            {
+                HandleTextureFileLocationError(false);
+            }
+        }
+
+        private void HandleTextureFileLocationError(bool throwException)
+        {
+            string __ERROR = "DEV.ERROR##Unit::TextureFileLocation not set properly.\n\t[" + TextureFileLocation + "]";
+            Debug.Out(__ERROR);
+            if (throwException)
+            {
+                throw new Exception(__ERROR);
+            }
+        }
         public int GetTimeout()
         {
             return 10000; //milliseconds. IDK?
@@ -41,6 +86,8 @@ namespace GearsDebug.Playable.RadialAssault
         public void Update(GameTime gameTime)
         {
             //TODO
+            _position += _velocity;
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
