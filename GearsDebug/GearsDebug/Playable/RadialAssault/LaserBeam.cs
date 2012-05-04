@@ -18,13 +18,14 @@ using Gears.Cloud._Debug;
 
 namespace GearsDebug.Playable.RadialAssault
 {
+    //TODO: Refactor out framework components to an abstract superclass.
     sealed class LaserBeam : IProjectile
     {
         private Trackable _ownerEntity = null;
 
         private Vector2 _position;
         private Vector2 _velocity;
-        private Vector2 _imageOrigin = new Vector2(0,0); //
+        private Vector2 _imageOrigin = new Vector2(1,10); //
         private Color _color = new Color(100,0,0); //
         private float _rotation = 0.0f;
         private float _scale = 1.0f; //may change!!!!! function it
@@ -35,6 +36,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         private string _texFileLoc = null;
         private string fileloc = @"RadialAssault\laserproto";
+        //private string fileloc = @"RadialAssault\firingstraightlinealien";
         private string TextureFileLocation { get { return fileloc; } }
 
         public LaserBeam(Vector2 startingPosition, Vector2 velocity, Trackable ownerEntity)
@@ -43,14 +45,17 @@ namespace GearsDebug.Playable.RadialAssault
             _velocity = velocity;
             _ownerEntity = ownerEntity;
 
+
             Initialize();
         }
 
-        protected internal void Initialize()
+        private void Initialize()
         {
+            _rotation = (float)Math.Atan(_velocity.Y / _velocity.X) + MathHelper.ToRadians(90.0f);
+
             LoadContent();
         }
-        internal void LoadContent()
+        private void LoadContent()
         {
             try
             {
@@ -85,9 +90,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         public void Update(GameTime gameTime)
         {
-            //TODO
             _position += _velocity;
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -28,14 +28,15 @@ namespace GearsDebug.Playable.RadialAssault
         private float deltaScalar = MathHelper.PiOver4 / 32;
         private float radius;
 
-        //IN IMPLEMENTATION
-
-        private List<IProjectile> _projectiles = new List<IProjectile>(); // in testing
-
         private bool _playerHasControl;
         private bool _isAlive;
-        //private Vector2 _position;
 
+        //LASERS
+        private List<IProjectile> _projectiles = new List<IProjectile>(); // in testing
+        float laserSpeed = 7.5f;
+        float distanceToCannon = 15.0f;
+
+        //Texture stuff
         private string fileloc = @"RadialAssault\spaceship32shaded";
         protected override string TextureFileLocation { get { return fileloc; } }
 
@@ -43,7 +44,6 @@ namespace GearsDebug.Playable.RadialAssault
             : base(origin, color, rotation) 
         {
             InitializeLocal();
-            //InitializeInputHooks();
         }
 
 
@@ -153,9 +153,14 @@ namespace GearsDebug.Playable.RadialAssault
         private void FireLasers()
         {
             //Fire two lasers, one from each cannon.
-            //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
-            //_projectiles.Add(new LaserBeam(Vector2,Vector2,...));
-            _projectiles.Add(new LaserBeam(this._position, new Vector2(2.0f), this));
+
+            Vector2 velocity = new Vector2((float)Math.Cos(MathHelper.ToRadians(270.0f) + _rotation), (float)Math.Sin(MathHelper.ToRadians(270.0f) + _rotation));
+
+            Vector2 right = this._position + Vector2.Transform(velocity * distanceToCannon, Matrix.CreateRotationZ(MathHelper.ToRadians(30.0f)));
+            Vector2 left = this._position + Vector2.Transform(velocity * distanceToCannon, Matrix.CreateRotationZ(MathHelper.ToRadians(-30.0f)));
+
+            _projectiles.Add(new LaserBeam(right, velocity * laserSpeed, this));
+            _projectiles.Add(new LaserBeam(left, velocity * laserSpeed, this));
         }
         
     }
