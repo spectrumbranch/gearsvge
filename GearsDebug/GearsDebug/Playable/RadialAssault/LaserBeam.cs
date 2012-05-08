@@ -36,7 +36,6 @@ namespace GearsDebug.Playable.RadialAssault
 
         private string _texFileLoc = null;
         private string fileloc = @"RadialAssault\laserproto";
-        //private string fileloc = @"RadialAssault\firingstraightlinealien";
         private string TextureFileLocation { get { return fileloc; } }
 
         public LaserBeam(Vector2 startingPosition, Vector2 velocity, Trackable ownerEntity)
