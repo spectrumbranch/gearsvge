@@ -1,11 +1,12 @@
 ﻿using Gears.Navigation;
 using GearsDebug.Cartography;
+using GearsDebug.Media;
 
 namespace GearsDebug.Navigation
 {
     internal sealed class SpectrumTestMenu
     {
-        internal IMenuItem[] sub = new IMenuItem[7];
+        internal IMenuItem[] sub = new IMenuItem[8];
 
         internal SpectrumTestMenu()
         {
@@ -18,8 +19,9 @@ namespace GearsDebug.Navigation
             sub[2] = new TestMapLoader();
             sub[3] = new PerformMapSerialize();
             sub[4] = new PerformMapDeserialize();
-            sub[5] = new HardExitGameState();
-            sub[6] = new BackMenuOption();
+            sub[5] = new PlayTestMusic();
+            sub[6] = new HardExitGameState();
+            sub[7] = new BackMenuOption();
         }
         internal Menu GetMenu()
         {

@@ -17,7 +17,7 @@
     <XnaUpgrade>
     </XnaUpgrade>
     <XnaOutputType>Library</XnaOutputType>
-    <XnaProfile>HiDef</XnaProfile>
+    <XnaProfile>Reach</XnaProfile>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -124,6 +124,8 @@
     <Compile Include="Cloud\GameState.cs" />
     <Compile Include="Cloud\Input\Input.cs" />
     <Compile Include="Cloud\Master.cs" />
+    <Compile Include="Cloud\Sound\AudioPlayer.cs" />
+    <Compile Include="Cloud\Sound\sound.cs" />
     <Compile Include="Cloud\Utility\XMLEngine.cs">
       <SubType>Code</SubType>
     </Compile>

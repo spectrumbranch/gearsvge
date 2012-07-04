@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Gears.Cloud.Sound
 {
-    static class AudioPlayer
+    public static class AudioPlayer
     {
         
         private static ThreadStart _threadStarter = new ThreadStart(_playAudio);
@@ -26,17 +26,23 @@ namespace Gears.Cloud.Sound
             _audioThread.Start();
         }
 
+        public static void stop()
+        {
+            _audioThread.Abort();
+        }
+
         private static void _playAudio()
         {
             while (true)
             {
                 sound temp = _audioData.Take();
+                Type theType = temp.GetDataType();
 
-                if (temp.GetType() == typeof(SoundEffect))
+                if (theType == typeof(SoundEffect))
                 {
                     ((SoundEffect)temp.soundData).Play();
                 }
-                else if (temp.GetType() == typeof(Song))
+                else if (theType == typeof(Song))
                 {
                     MediaPlayer.Play((Song)temp.soundData);
                 }

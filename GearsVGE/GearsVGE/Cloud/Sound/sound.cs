@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Gears.Cloud.Sound
 {
-    class sound
+    public class sound
     {
         private object _data; //i'd rather this be generic, but it was too complicated
         private Type _type;
@@ -26,7 +26,10 @@ namespace Gears.Cloud.Sound
             _type = typeof(Song);
             this.loop = loop;
         }
-
+        public Type GetDataType()
+        {
+            return _type;
+        }
         public object soundData
         {
             get
