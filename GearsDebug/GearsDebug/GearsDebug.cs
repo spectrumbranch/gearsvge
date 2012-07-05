@@ -71,7 +71,7 @@ namespace GearsDebug
             #endif
 
 
-            Gears.Cloud.Sound.AudioPlayer.start();
+            Gears.Cloud.Media.AudioPlayer.start();
 
             base.Initialize();
         }
@@ -84,7 +84,7 @@ namespace GearsDebug
 
         protected override void UnloadContent()
         {
-            Gears.Cloud.Sound.AudioPlayer.stop();
+            Gears.Cloud.Media.AudioPlayer.stop();
         }
 
         protected override void Update(GameTime gameTime)

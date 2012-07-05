@@ -7,16 +7,16 @@ using System.Collections.Concurrent;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 
-namespace Gears.Cloud.Sound
+namespace Gears.Cloud.Media
 {
     public static class AudioPlayer
     {
         
         private static ThreadStart _threadStarter = new ThreadStart(_playAudio);
-        private static BlockingCollection<sound> _audioData = new BlockingCollection<sound>();
+        private static BlockingCollection<Sound> _audioData = new BlockingCollection<Sound>();
         private static Thread _audioThread = new Thread(_threadStarter);
 
-        public static void queueAudio(sound data)
+        public static void queueAudio(Sound data)
         {
             _audioData.Add(data);
         }
@@ -35,8 +35,8 @@ namespace Gears.Cloud.Sound
         {
             while (true)
             {
-                sound temp = _audioData.Take();
-                Type theType = temp.GetDataType();
+                Sound temp = _audioData.Take();
+                Type theType = temp.DataType;
 
                 if (theType == typeof(SoundEffect))
                 {

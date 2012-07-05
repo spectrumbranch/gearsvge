@@ -5,7 +5,7 @@ using System.Text;
 using Gears.Cloud;
 using Gears.Navigation;
 using Microsoft.Xna.Framework.Audio;
-using Gears.Cloud.Sound;
+using Gears.Cloud.Media;
 using Microsoft.Xna.Framework.Media;
 
 namespace GearsDebug.Media
@@ -16,10 +16,9 @@ namespace GearsDebug.Media
 
         public override void ThrowPushEvent()
         {
-            sound sound = new sound(@ContentButler.GetGame().Content.Load<Song>("Music/louchris monosynthlite"));
+            Sound sound = new Sound(ContentButler.GetGame().Content.Load<Song>(@"Music/louchris monosynthlite"));
 
             AudioPlayer.queueAudio(sound);
-            //ContentButler.GetGame().Exit();
         }
     }
 }

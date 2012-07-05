@@ -6,29 +6,32 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
-namespace Gears.Cloud.Sound
+namespace Gears.Cloud.Media
 {
-    public class sound
+    public class Sound
     {
         private object _data; //i'd rather this be generic, but it was too complicated
         private Type _type;
         public bool loop = false;
 
-        public sound(SoundEffect data)
+        public Sound(SoundEffect data)
         {
             _data = data;
             _type = typeof(SoundEffect);
         }
 
-        public sound(Song data, bool loop = false)
+        public Sound(Song data, bool loop = false)
         {
             _data = data;
             _type = typeof(Song);
             this.loop = loop;
         }
-        public Type GetDataType()
+        public Type DataType
         {
-            return _type;
+            get
+            {
+                return _type;
+            }
         }
         public object soundData
         {
@@ -37,14 +40,5 @@ namespace Gears.Cloud.Sound
                 return _data;
             }
         }
-
-        public Type songOrEffect
-        {
-            get
-            {
-                return _type;
-            }
-        }
-
     }
 }
