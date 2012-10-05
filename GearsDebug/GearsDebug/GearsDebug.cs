@@ -73,6 +73,7 @@ namespace GearsDebug
 
             Gears.Cloud.Media.AudioPlayer.start();
 
+            Gears.Cloud.Master.Initialize();
             base.Initialize();
         }
 

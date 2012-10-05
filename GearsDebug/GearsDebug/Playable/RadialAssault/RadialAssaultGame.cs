@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Gears.Navigation;
 using Gears.Cloud;
+using Gears.Cloud.Input;
 
 namespace GearsDebug.Playable.RadialAssault
 {
@@ -41,8 +42,8 @@ namespace GearsDebug.Playable.RadialAssault
         private void ActivateState()
         {
             _StateIsActive = true;
-            Input.ClearEventHandler();
-            Input.EnableInput();
+            DefaultInput.ClearEventHandler();
+            DefaultInput.EnableInput();
             //Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
             zone1.Activate();
         }

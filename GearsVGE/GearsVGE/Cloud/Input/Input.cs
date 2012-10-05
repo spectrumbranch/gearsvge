@@ -12,8 +12,9 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 using Gears.Cloud._Debug;
+using Gears.Cloud.Input;
 
-namespace Gears.Cloud
+namespace Gears.Cloud.Input
 {
     /// <summary>
     /// Input AKA Input Delegation/State Machine     rev.005
@@ -24,7 +25,7 @@ namespace Gears.Cloud
     /// Copyright 2012. For use only within the Gears VGE and Spectrum Branch.
     /// http://www.spectrumbranch.com
     /// </summary>
-    public static class Input
+    public static class DefaultInput //: IInput
     {
         //Global cooldown only applies to registered input. Not implemented as of yet.
         private static TimeSpan _globalCooldown = new TimeSpan(0, 0, 0, 0, 100);
@@ -80,11 +81,11 @@ namespace Gears.Cloud
 
         public static void ClearEventHandler()
         {
-            Input.keyboardEventList = null;
+            DefaultInput.keyboardEventList = null;
         }
         public static void SubscribeInputHook(KeyboardStateEvent kse)
         {
-            Input.keyboardEventList += kse;
+            DefaultInput.keyboardEventList += kse;
         }
     }
 }

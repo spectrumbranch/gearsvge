@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 
 using Gears.Cloud._Debug;
 using Gears.Cloud.Events;
+using Gears.Cloud.Input;
 
 namespace Gears.Cloud
 {
@@ -24,6 +25,23 @@ namespace Gears.Cloud
 
         private static Stack<GameState> stack = new Stack<GameState>();
         private static LinkedList<GameState> list = new LinkedList<GameState>();
+
+
+        private static InputManager inputManager;
+
+
+
+
+
+
+
+
+        public static void Initialize()
+        {
+            inputManager = new InputManager();
+        }
+
+
         //temp top to list 
         public static void Push(GameState gameState)
         {
@@ -73,7 +91,7 @@ namespace Gears.Cloud
             CGlobalEvents.GFrameTrigger.Update();
 
             //Input
-            Input.Update(gameTime);
+            DefaultInput.Update(gameTime);
 
             //only updating the top item, whether it is an overlay or just a regular state
             //there are no known cases where two items need to be updated at the same time

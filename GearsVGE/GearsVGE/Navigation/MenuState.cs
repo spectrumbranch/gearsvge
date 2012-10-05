@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Gears.Cloud;
+using Gears.Cloud.Input;
 
 namespace Gears.Navigation
 {
@@ -69,8 +70,8 @@ namespace Gears.Navigation
         private void ActivateState()
         {
             _StateIsActive = true;
-            Input.ClearEventHandler();
-            Input.SubscribeInputHook(KeyDown);
+            DefaultInput.ClearEventHandler();
+            DefaultInput.SubscribeInputHook(KeyDown);
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes inactive.
@@ -79,7 +80,7 @@ namespace Gears.Navigation
         /// </summary>
         private void InactivateState()
         {
-            Input.ClearEventHandler();
+            DefaultInput.ClearEventHandler();
             _StateIsActive = false;
         }
         public override void Draw(SpriteBatch spriteBatch)

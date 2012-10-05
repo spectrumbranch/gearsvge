@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 using System.Text;
 using Gears.Playable;
 using Gears.Cloud;
+using Gears.Cloud.Input;
 using Gears.Navigation;
 
 namespace GearsDebug.Playable.RadialAssault
@@ -38,7 +39,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void ActivateInputHooks()
         {
-            Input.SubscribeInputHook(KeyDown);
+            DefaultInput.SubscribeInputHook(KeyDown);
         }
 
         /// <summary>
