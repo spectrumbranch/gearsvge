@@ -122,8 +122,8 @@
     <Compile Include="Cloud\Events\CGlobalEvents.cs" />
     <Compile Include="Cloud\Events\Triggers\CFrameTrigger.cs" />
     <Compile Include="Cloud\GameState.cs" />
-    <Compile Include="Cloud\Input\IInput.cs" />
-    <Compile Include="Cloud\Input\Input.cs" />
+    <Compile Include="Cloud\Input\DefaultInput.cs" />
+    <Compile Include="Cloud\Input\InputHandler.cs" />
     <Compile Include="Cloud\Input\InputManager.cs" />
     <Compile Include="Cloud\Master.cs" />
     <Compile Include="Cloud\Media\AudioPlayer.cs" />

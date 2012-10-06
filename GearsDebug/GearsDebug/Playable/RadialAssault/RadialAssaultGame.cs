@@ -42,8 +42,11 @@ namespace GearsDebug.Playable.RadialAssault
         private void ActivateState()
         {
             _StateIsActive = true;
-            DefaultInput.ClearEventHandler();
-            DefaultInput.EnableInput();
+            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
+            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).EnableInput();
+            //DefaultInput_old.ClearEventHandler();
+            //DefaultInput_old.EnableInput();
+
             //Input.keyDown += new Input.KeyboardStateEvent(KeyDown);
             zone1.Activate();
         }

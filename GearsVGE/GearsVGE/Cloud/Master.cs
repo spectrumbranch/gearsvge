@@ -27,18 +27,21 @@ namespace Gears.Cloud
         private static LinkedList<GameState> list = new LinkedList<GameState>();
 
 
-        private static InputManager inputManager;
+        private static InputManager inputManager = new InputManager();
 
 
 
+        public static InputManager GetInputManager()
+        {
+            return inputManager;
+        }
 
 
 
-
-
+        //?
         public static void Initialize()
         {
-            inputManager = new InputManager();
+            
         }
 
 
@@ -91,7 +94,11 @@ namespace Gears.Cloud
             CGlobalEvents.GFrameTrigger.Update();
 
             //Input
-            DefaultInput.Update(gameTime);
+            //new
+            GetInputManager().Update(gameTime);
+            //old
+            //DefaultInput_old.Update(gameTime);
+
 
             //only updating the top item, whether it is an overlay or just a regular state
             //there are no known cases where two items need to be updated at the same time

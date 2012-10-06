@@ -70,8 +70,11 @@ namespace Gears.Navigation
         private void ActivateState()
         {
             _StateIsActive = true;
-            DefaultInput.ClearEventHandler();
-            DefaultInput.SubscribeInputHook(KeyDown);
+
+            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
+            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).SubscribeInputHook(KeyDown);
+            //DefaultInput_old.ClearEventHandler();
+            //DefaultInput_old.SubscribeInputHook(KeyDown);
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes inactive.
@@ -80,7 +83,8 @@ namespace Gears.Navigation
         /// </summary>
         private void InactivateState()
         {
-            DefaultInput.ClearEventHandler();
+            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
+            //DefaultInput_old.ClearEventHandler();
             _StateIsActive = false;
         }
         public override void Draw(SpriteBatch spriteBatch)
