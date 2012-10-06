@@ -15,6 +15,12 @@ namespace Gears.Cloud.Input
             this._inputs.Push(new DefaultInput());
         }
 
+        public void AddInputHandler(InputHandler newInput)
+        {
+            _inputs.Clear();
+            _inputs.Push(newInput);
+        }
+
         public InputHandler GetCurrentInputHandler()
         {
             return _inputs.Peek();
