@@ -17,7 +17,8 @@ OS Requirements
 
 Gears has been known to be able to compile in Windows XP, Windows Vista, and Windows 7. All other versions have not been tested. Gears is not tested to be compiled or ran on any other OS, including but not limited to MAC OSX, or any flavor of Unix/Linux, even with Mono.
 
-h3. Software Requirements
+Software Requirements
+--------
 
 Make sure you have all of the required parts:
 
@@ -27,6 +28,7 @@ Make sure you have all of the required parts:
 * "This font":http://project.spectrumbranch.com/attachments/download/4/RosesareFF0000_0.ttf installed
 
 Visual Studios Tweaks
+--------
 
 Certain configurations may need to be made in Visual Studios if errors are encountered, especially directly after obtaining the source code.
 
@@ -35,4 +37,5 @@ Certain configurations may need to be made in Visual Studios if errors are encou
 If you are still having issues, please send an email to spectrum@spectrumbranch.com including the Visual Studio error details in full, with also the information of what version/branch you are trying to compile. The more information, the better chance we have of helping you.
 
 gearsvge/GearsVGE/  	#Engine
+
 gearsvge/GearsDebug/	#Testbed
