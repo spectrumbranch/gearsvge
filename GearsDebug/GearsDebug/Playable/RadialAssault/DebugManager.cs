@@ -39,8 +39,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void ActivateInputHooks()
         {
-            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).SubscribeInputHook(KeyDown);
-            //DefaultInput_old.SubscribeInputHook(KeyDown);
+            Master.GetInputManager().GetCurrentInputHandler().SubscribeInputHook(KeyDown);
         }
 
         /// <summary>

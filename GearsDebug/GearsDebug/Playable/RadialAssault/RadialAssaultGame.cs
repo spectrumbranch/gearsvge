@@ -42,7 +42,8 @@ namespace GearsDebug.Playable.RadialAssault
         private void ActivateState()
         {
             _StateIsActive = true;
-            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
+            Master.GetInputManager().GetCurrentInputHandler().ClearEventHandler();
+            //(Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
             (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).EnableInput();
             //DefaultInput_old.ClearEventHandler();
             //DefaultInput_old.EnableInput();

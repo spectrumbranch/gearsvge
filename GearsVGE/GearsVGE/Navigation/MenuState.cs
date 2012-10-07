@@ -16,10 +16,6 @@ namespace Gears.Navigation
     ///     To avoid feature creep, this revision does not include parameterized
     ///     fonts or font sizes or window sizes. This is done on purpose and can
     ///     easily be refactored in on a later revision.
-    ///     
-    /// By spectrum AKA Christopher Bebry.
-    /// Copyright 2012. For use only within the Gears VGE and Spectrum Branch.
-    /// http://www.spectrumbranch.com
     /// </summary>
     public abstract class MenuState : MenuReadyGameState
     {
@@ -71,10 +67,8 @@ namespace Gears.Navigation
         {
             _StateIsActive = true;
 
-            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
-            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).SubscribeInputHook(KeyDown);
-            //DefaultInput_old.ClearEventHandler();
-            //DefaultInput_old.SubscribeInputHook(KeyDown);
+            Master.GetInputManager().GetCurrentInputHandler().ClearEventHandler();
+            Master.GetInputManager().GetCurrentInputHandler().SubscribeInputHook(KeyDown);
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes inactive.
@@ -83,8 +77,7 @@ namespace Gears.Navigation
         /// </summary>
         private void InactivateState()
         {
-            (Master.GetInputManager().GetCurrentInputHandler() as DefaultInput).ClearEventHandler();
-            //DefaultInput_old.ClearEventHandler();
+            Master.GetInputManager().GetCurrentInputHandler().ClearEventHandler();
             _StateIsActive = false;
         }
         public override void Draw(SpriteBatch spriteBatch)
