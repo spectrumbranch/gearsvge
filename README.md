@@ -1,4 +1,5 @@
 ![Gears logo](http://devcloud.spectrumbranch.com/components/gearsmain/img/gears_logoA.png)
+
 Copyright (C) 2012 Spectrum Branch
 
 License info can be found in LICENSE
@@ -25,7 +26,8 @@ Make sure you have all of the required parts:
 * Visual Studios 2010 for C# (Express edition is fine)
 * XNA 4.0
 * .NET Framework 4.0
-* "This font":http://project.spectrumbranch.com/attachments/download/4/RosesareFF0000_0.ttf installed
+* The following font installed: https://github.com/spectrumbranch/gearsvge/blob/master/_DUMP/RosesareFF0000_0.ttf
+* * Looking to remove the dependency of the font.
 
 Visual Studios Tweaks
 --------
@@ -34,7 +36,8 @@ Certain configurations may need to be made in Visual Studios if errors are encou
 
 * Check to make sure Solution Platform is x86, NOT Any CPU or x64.
 
-If you are still having issues, please send an email to spectrum@spectrumbranch.com including the Visual Studio error details in full, with also the information of what version/branch you are trying to compile. The more information, the better chance we have of helping you.
+
+---
 
 gearsvge/GearsVGE/  	#Engine
 
