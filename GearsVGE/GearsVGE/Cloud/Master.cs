@@ -41,7 +41,7 @@ namespace Gears.Cloud
         //?
         public static void Initialize()
         {
-            
+
         }
 
 
@@ -79,7 +79,7 @@ namespace Gears.Cloud
                 }
             }
             else //it's not an overlay. 
-                 //since we are already drawing the top stack item, we dont need to do anything else.
+            //since we are already drawing the top stack item, we dont need to do anything else.
             { }  //this is just here in case it is useful in the future.
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace Gears.Cloud
 
             //NOTE: Only do this for the frame event!!!
             CGlobalEvents.GFrameTrigger.getEvent(0).triggered = false;
-            
+
         }
         private static void PopToList()
         {
@@ -149,6 +149,10 @@ namespace Gears.Cloud
         public static Color GetClearColor()
         {
             return clearColor;
+        }
+        public static void SetClearColor(Color color)
+        {
+            clearColor = color;
         }
     }
 }
