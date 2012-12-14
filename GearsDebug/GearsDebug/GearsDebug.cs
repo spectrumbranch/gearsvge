@@ -42,10 +42,10 @@ namespace GearsDebug
         protected override void Initialize()
         {
             //GEARSDEBUG VERSION. This is the version of the game module, not the VGE.
-            VersionManager.Version = "0.1.0";
+            VersionManager.Version = "ALPHA";
 
-            //Register our ContentManager
-            ContentButler.setGame(this);
+            //Register our Game to Master
+            Master.Initialize(this);
 
             //Setup screen display/graphics device
             ViewportHandler.SetScreen(ScreenWidth, ScreenHeight);
@@ -74,7 +74,6 @@ namespace GearsDebug
             Gears.Cloud.Media.AudioPlayer.start();
 
             //Master.GetInputManager().GetCurrentInputHandler()
-            //Gears.Cloud.Master.Initialize();
             base.Initialize();
         }
 
@@ -95,7 +94,6 @@ namespace GearsDebug
             base.Update(gameTime);
         }
 
-
         protected override void Draw(GameTime gameTime)
         {
             device.Clear(Master.GetClearColor());
@@ -109,7 +107,5 @@ namespace GearsDebug
             base.Draw(gameTime);
         }
 
-
-    };
-
+    }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 using Gears.Playable;
 
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     sealed internal class MattUnitManager : UnitManager
     {

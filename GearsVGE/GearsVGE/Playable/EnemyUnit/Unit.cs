@@ -80,7 +80,7 @@ namespace Gears.Playable
             {
                 if (TextureFileLocation != null)
                 {
-                    _texture = ContentButler.GetGame().Content.Load<Texture2D>(TextureFileLocation);
+                    _texture = Master.GetGame().Content.Load<Texture2D>(TextureFileLocation);
                 }
                 else
                 {

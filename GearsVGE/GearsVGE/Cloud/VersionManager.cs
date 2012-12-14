@@ -7,7 +7,7 @@ namespace Gears.Cloud
 {
     public static class VersionManager
     {
-        private static string _GearsVGEVersion = "0.1.0";
+        private static string _GearsVGEVersion = "ALPHA";
         private static string _version;
         public static string Version
         {

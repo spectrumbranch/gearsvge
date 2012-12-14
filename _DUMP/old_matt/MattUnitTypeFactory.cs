@@ -7,7 +7,7 @@ using Gears.Cloud;
 
 using Gears.Playable;
 
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     sealed internal class MattUnitTypeFactory : UnitTypeFactory
     {

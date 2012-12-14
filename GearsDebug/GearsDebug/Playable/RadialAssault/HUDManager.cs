@@ -35,7 +35,7 @@ namespace GearsDebug.Playable.RadialAssault
 
         private void LoadContent()
         {
-            _scoreFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            _scoreFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
             
         }
         public void Update(GameTime gameTime)

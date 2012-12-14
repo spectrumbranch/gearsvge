@@ -46,8 +46,8 @@ namespace GearsDebug.Navigation
         }
         private void LoadContent()
         {
-            menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
-            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            menuFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            menuItemFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

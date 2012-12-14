@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Gears.Cloud;
 using Gears.Cloud.Input;
+using System.Collections.Generic;
 
 namespace Gears.Navigation
 {
@@ -48,6 +49,12 @@ namespace Gears.Navigation
             Initialize(menuText);
             LoadContent();
         }
+        public MenuState(string menuText, List<IMenuItem> menuItemList)
+        {
+            mic = new MenuItemCollection(menuItemList);
+            Initialize(menuText);
+            LoadContent();
+        }
         private void Initialize(string menuText)
         {
             base._HandlesInput = true;
@@ -55,8 +62,8 @@ namespace Gears.Navigation
         }
         private void LoadContent()
         {
-            menuFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
-            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            menuFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuFont");
+            menuItemFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
         /// <summary>
         /// Contains logic that should be fired every time the state becomes active.

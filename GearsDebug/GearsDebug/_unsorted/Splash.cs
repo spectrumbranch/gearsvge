@@ -43,7 +43,7 @@ namespace GearsDebug
         }
         private void LoadContent()
         {
-            splashBackgroundTexture = ContentButler.GetGame().Content.Load<Texture2D>(@"Splash\splash");
+            splashBackgroundTexture = Master.GetGame().Content.Load<Texture2D>(@"Splash\splash");
         }
         public override void Draw(SpriteBatch spriteBatch)
         {

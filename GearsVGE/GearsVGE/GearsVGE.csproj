@@ -115,7 +115,6 @@
   <ItemGroup>
     <Compile Include="Cartography\MapEngine.cs" />
     <Compile Include="Cloud\CollisionManager.cs" />
-    <Compile Include="Cloud\ContentButler.cs" />
     <Compile Include="Cloud\EntityTracker.cs" />
     <Compile Include="Cloud\Events\CBaseEventTrigger.cs" />
     <Compile Include="Cloud\Events\CEvent.cs" />

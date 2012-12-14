@@ -35,7 +35,7 @@ namespace GearsDebug.Cartography
             {
                 for (int j = 0; j < (int)_dimensions.Y; j++)
                 {
-                    txt[i,j] = new Texture2D(ContentButler.GetGame().GraphicsDevice, _tileSide, _tileSide);
+                    txt[i,j] = new Texture2D(Master.GetGame().GraphicsDevice, _tileSide, _tileSide);
                 }
             }
         }

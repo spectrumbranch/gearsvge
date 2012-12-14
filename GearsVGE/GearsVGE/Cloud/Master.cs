@@ -28,24 +28,15 @@ namespace Gears.Cloud
 
 
         private static InputManager inputManager = new InputManager();
+        private static Game game;
 
 
-
-        public static InputManager GetInputManager()
+        public static void Initialize(Game _game)
         {
-            return inputManager;
+            game = _game;
         }
 
 
-
-        //?
-        public static void Initialize()
-        {
-
-        }
-
-
-        //temp top to list 
         public static void Push(GameState gameState)
         {
             stack.Push(gameState);
@@ -153,6 +144,14 @@ namespace Gears.Cloud
         public static void SetClearColor(Color color)
         {
             clearColor = color;
+        }
+        public static Game GetGame()
+        {
+            return game;
+        }
+        public static InputManager GetInputManager()
+        {
+            return inputManager;
         }
     }
 }

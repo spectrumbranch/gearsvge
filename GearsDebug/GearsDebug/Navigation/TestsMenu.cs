@@ -4,11 +4,11 @@ using GearsDebug.Media;
 
 namespace GearsDebug.Navigation
 {
-    internal sealed class SpectrumTestMenu
+    internal sealed class TestsMenu
     {
         internal IMenuItem[] sub = new IMenuItem[8];
 
-        internal SpectrumTestMenu()
+        internal TestsMenu()
         {
             init();
         }
@@ -25,7 +25,7 @@ namespace GearsDebug.Navigation
         }
         internal Menu GetMenu()
         {
-            return new Menu("Spectrum's Tests", sub);
+            return new Menu("Tests", sub);
         }
     }
 }

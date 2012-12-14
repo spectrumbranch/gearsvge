@@ -8,7 +8,7 @@ namespace Gears.Navigation
 
         public override void ThrowPushEvent()
         {
-            ContentButler.GetGame().Exit();
+            Master.GetGame().Exit();
         }
     }
 }

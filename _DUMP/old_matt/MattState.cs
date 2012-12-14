@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Gears.Navigation;
 
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     class MattState : MenuReadyGameState
     {

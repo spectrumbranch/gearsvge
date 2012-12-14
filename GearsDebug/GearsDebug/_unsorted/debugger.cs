@@ -5,6 +5,9 @@ using GearsDebug.Navigation; //debug menu
 
 namespace GearsDebug
 {
+    /// <summary>
+    /// The debug bootstrapper for GearsDebug.
+    /// </summary>
     class debugger : GameState
     {
         /// <summary>
@@ -15,22 +18,14 @@ namespace GearsDebug
             Initialize();
             LoadContent();
         }
-        private void Initialize()
-        {
+        private void Initialize() {  }
+        private void LoadContent() {  }
 
-        }
-        private void LoadContent()
-        {
-
-        }
         public override void Update(GameTime gameTime)
         {
             //Throw our debug menu out into the world. It self-pushes.
             DebugMenu tmd = new DebugMenu();
         }
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-
-        }
+        public override void Draw(SpriteBatch spriteBatch) { }
     };
 }

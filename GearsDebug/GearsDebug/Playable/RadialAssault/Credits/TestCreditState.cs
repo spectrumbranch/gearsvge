@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Gears.Navigation;
 using Gears.Cloud;
 
-
-
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     public delegate void CreditsHaveCompletedEventHandler();
 
-    public class MattCreditState : MenuReadyGameState
+    public class TestCreditState : MenuReadyGameState
     {
         public event CreditsHaveCompletedEventHandler Completed;
         private bool eventThrown = false;
@@ -31,25 +28,21 @@ namespace GearsDebug.Playable.Matt
             "\n",
             "\n",
             "Produced by Spectrum Branch",
-            "and the Gears R&D Team",
             "\n",
             "Lead Software/Systems Engineer",
             "Christopher Bebry",
             "\n",
-            "Gears R&D Lead Software Engineers",
+            "Lead Software Engineers",
             "Steven Calandra",
             "Steven Barbaro",
             "\n",
-            "Gears R&D Software Dev Interns",
+            "Other contributions",
             "Matt Vegh",
             "Joseph Bebry",
             "\n",
-            "Radial Assault Concept Development",
-            "Eric Steinsdoerfer",
-            "\n",
             "\n",
             "Thanks for playing",
-            "Brought to you from the Gears R&D Team",
+            "Brought to you from the Spectrum Branch",
             "\n",
             "Copyright 2009-2012",
             "\n" 
@@ -64,7 +57,7 @@ namespace GearsDebug.Playable.Matt
 
      
      
-        public MattCreditState()
+        public TestCreditState()
         {
             int y = ViewportHandler.GetWidth();
             int x = ViewportHandler.GetHeight();
@@ -77,13 +70,13 @@ namespace GearsDebug.Playable.Matt
                 Credits[Credits.Count() - 1].position.Y = y / 2;
                 y += 100;
             }
-            MenuText = "Matt's Credit Menu";
+            MenuText = "Credit Test";
             LoadContent();
         }
 
         private void LoadContent()
         {
-            _font = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            _font = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
         }
 
 

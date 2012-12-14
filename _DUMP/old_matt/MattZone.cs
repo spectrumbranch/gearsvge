@@ -15,7 +15,7 @@ using Gears.Playable;
 using Gears.Cloud;
 using Gears.Navigation;
 
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     class MattZone : Zone
     {

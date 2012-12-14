@@ -15,7 +15,7 @@ using Gears.Cloud;
 using Gears.Navigation;
 using Gears.Playable;
 
-namespace GearsDebug.Playable.Matt
+namespace GearsDebug.Playable.RadialAssault.Credits
 {
     sealed internal class MattUnit : Unit
     {

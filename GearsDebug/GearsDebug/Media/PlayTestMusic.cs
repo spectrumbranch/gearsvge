@@ -16,7 +16,7 @@ namespace GearsDebug.Media
 
         public override void ThrowPushEvent()
         {
-            Sound sound = new Sound(ContentButler.GetGame().Content.Load<Song>(@"Music/louchris monosynthlite"));
+            Sound sound = new Sound(Master.GetGame().Content.Load<Song>(@"Music/louchris monosynthlite"));
 
             AudioPlayer.queueAudio(sound);
         }

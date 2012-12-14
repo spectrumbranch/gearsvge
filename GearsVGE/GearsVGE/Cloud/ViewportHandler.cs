@@ -67,7 +67,7 @@ namespace Gears.Cloud
                 _mode = mode;
             }
 
-            if (ContentButler.GetGame().GraphicsDevice.PresentationParameters.IsFullScreen)
+            if (Master.GetGame().GraphicsDevice.PresentationParameters.IsFullScreen)
             {
 #if DEBUG
                 Gears.Cloud._Debug.Debug.Out("Setting resolution to native resolution: " + _mode.Width + "," + _mode.Height);
@@ -112,7 +112,7 @@ namespace Gears.Cloud
             {
                 SetWidth(w);
                 SetHeight(h);
-                SetViewport(ContentButler.GetGame().GraphicsDevice.Viewport);
+                SetViewport(Master.GetGame().GraphicsDevice.Viewport);
                 SetScaleMatrix(w, h);
             }
             else

@@ -1,4 +1,5 @@
 ﻿using Gears.Cloud;
+using System.Collections.Generic;
 
 namespace Gears.Navigation
 {
@@ -13,6 +14,10 @@ namespace Gears.Navigation
         internal MenuItemCollection(IMenuItem[] menuItems)
         {
             _mi = menuItems;
+        }
+        internal MenuItemCollection(List<IMenuItem> menuItems)
+        {
+            _mi = menuItems.ToArray();
         }
         internal void PushIndex(int index)
         {

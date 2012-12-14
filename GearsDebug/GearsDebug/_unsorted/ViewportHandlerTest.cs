@@ -49,7 +49,7 @@ namespace GearsDebug
         }
         private void Initialize()
         {
-            menuItemFont = ContentButler.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
+            menuItemFont = Master.GetGame().Content.Load<SpriteFont>(@"Fonts\MenuItem");
             safeArea = ViewportHandler.GetViewport().TitleSafeArea;
         }
         public override void Update(GameTime gameTime)
