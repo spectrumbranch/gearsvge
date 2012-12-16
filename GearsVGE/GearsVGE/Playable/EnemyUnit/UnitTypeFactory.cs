@@ -65,12 +65,17 @@ namespace Gears.Playable
         protected internal void Register(Unit[] units)
         {
             _units = units.ToList();
-            Initialize();
+            //Initialize();
         }
-        protected internal void Register(List<Unit> units)
+        //protected internal void Register(List<Unit> units)
+        //{
+        //    _units = units;
+        //    //Initialize();
+        //}
+        protected internal void Register(IEnumerable<Unit> units)
         {
-            _units = units;
-            Initialize();
+            _units = units.ToList();
+            //Initialize();
         }
     }
 }

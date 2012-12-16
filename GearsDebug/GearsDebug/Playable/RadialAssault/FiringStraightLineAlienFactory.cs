@@ -18,6 +18,7 @@ using Gears.Playable;
 namespace GearsDebug.Playable.RadialAssault
 {
     // Change to Alien and give it a specific type
+    //TODO: This alien is not setup completely.
     sealed internal class FiringStraightLineAlienFactory : UnitTypeFactory
     {
         //TEMPORARY
@@ -25,7 +26,7 @@ namespace GearsDebug.Playable.RadialAssault
         Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
         Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32,32);//hardcoded, bad chris
         
-        private EnemyShip[] es;
+        //private EnemyShip[] es;
 
         internal FiringStraightLineAlienFactory()
         {

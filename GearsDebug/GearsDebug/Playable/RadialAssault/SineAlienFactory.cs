@@ -25,7 +25,7 @@ namespace GearsDebug.Playable.RadialAssault
         private Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(32, 32);//hardcoded, bad chris
         private Vector2 originOfCircle = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
 
-        private List<Unit> _enemies = new List<Unit>();
+        private List<SineAlien> _enemies = new List<SineAlien>();
         //private SineAlien[] enemies;
 
         internal SineAlienFactory()

@@ -93,6 +93,14 @@ namespace Gears.Playable
             }
         }
 
+        //TODO
+        protected void CalculateBoundingBox()
+        {
+            //Rectangle.
+            //BoundingBox.CreateFromPoints
+            //BoundingBox bb = new BoundingBox(
+        }
+
         private void HandleTextureFileLocationError(bool throwException)
         {
             string __ERROR = "DEV.ERROR##Unit::TextureFileLocation not set properly.\n\t[" + TextureFileLocation + "]";
