@@ -38,9 +38,9 @@ namespace GearsDebug.Playable.RadialAssault
 
 
         //move around a bit. some of these are just here temporarily
-        Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
-        Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
-        Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(16, 16);//hardcoded, bad chris
+        private Vector2 WORMHOLE_COORDINATES = new Vector2(ViewportHandler.GetWidth() / 2, ViewportHandler.GetHeight() / 2);
+        private Vector2 PLAYER_STARTING_LOCATION;//move to playermanager
+        private Vector2 PLAYER_IMAGE_ORIGIN = new Vector2(16, 16);//hardcoded, bad chris
 
         internal Zone1()
         {
@@ -72,11 +72,6 @@ namespace GearsDebug.Playable.RadialAssault
             base.RegisterManager(um);
 
             _DM.CoupleUnitManager(um);
-
-            //base.RegisterPlayerManager(pmTEST);
-            //base.Register(um);//register should allow a vector or linked list (or IEnumerable) for all manager types.
-        
-            
         }
 
 

@@ -36,9 +36,6 @@ namespace Gears.Playable
         protected internal string _texFileLoc = null;
         protected abstract string TextureFileLocation { get; }
 
-        //protected internal const string _unitDir = @"Unit";
-
-
         /// <summary>
         /// This defaulted constructor is for debugging/testing purposes only.
         /// It is required in a regular game to use a parameterized constructor instead.
@@ -48,16 +45,7 @@ namespace Gears.Playable
         internal Unit(UnitParameters up) : this(up.Origin, up.Color, up.Rotation/*, up.TextureFileName*/) { }
         //TODO: make this constructor an alias constructor
         public Unit(Vector2 startingPosition, Color color, float rotation/*, string textureFileName*/) 
-            : this(startingPosition, color, rotation, Vector2.Zero)
-        {
-            //_position = startingPosition;
-           // _color = color;
-           // _rotation = rotation;
-           // _imageOrigin = Vector2.Zero;//*
-           // _textureFileName = TextureFileLocation;
-
-           // Initialize();
-        }
+            : this(startingPosition, color, rotation, Vector2.Zero) { }
         //_texture, _position, _color, _rotation, Vector2.Zero, _scale, SpriteEffects.None, _depth
         public Unit(Vector2 startingPosition, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
         {

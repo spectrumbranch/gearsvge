@@ -24,6 +24,13 @@ namespace Gears.Playable
         {
             //InitializeLocal(); 
         }
+        public Player(Vector2 origin, Color color, float rotation, Vector2 imageOrigin/*, string textureFileName*/)
+            : base(origin, color, rotation, imageOrigin/*, textureFileName*/)
+        {
+            //InitializeLocal(); 
+        }
+
+        public virtual void Activate() { }
     }
 
 

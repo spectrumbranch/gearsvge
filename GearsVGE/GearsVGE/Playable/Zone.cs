@@ -29,16 +29,16 @@ namespace Gears.Playable
         }
 
         //This is currently not called.
-        private void Initialize()
-        {
-            //projectileManager = new ProjectileManager();
-        }
+        //private void Initialize()
+        //{
+        //    //projectileManager = new ProjectileManager();
+        //}
         //DEPRECATED -- but still might be used for the projectile manager until a change is made.
-        private void LoadContent(Game game, string parentDir)
-        {
-            //?Load the content for each Manager in the Zone //THIS WILL CHANGE 
-            //projectileManager.LoadContent(game, /*contentDir*/); //THIS CALL WILL BECOME INVALID
-        }
+        //private void LoadContent(Game game, string parentDir)
+        //{
+        //    //?Load the content for each Manager in the Zone //THIS WILL CHANGE 
+        //    //projectileManager.LoadContent(game, /*contentDir*/); //THIS CALL WILL BECOME INVALID
+        //}
         public void Update(GameTime gameTime)
         {
             foreach (IManager manager in _managers)
@@ -80,7 +80,7 @@ namespace Gears.Playable
             //Draw Projectiles
             //projectileManager.Draw(spriteBatch);
         }
-
+        //TODO: register should allow an IEnumerable
         protected internal void RegisterManager(IManager manager)
         {
             if (manager != null)
@@ -94,7 +94,8 @@ namespace Gears.Playable
         }
 
         /// <summary>
-        /// DEPRECATED
+        /// TODO
+        /// DEPRECATED, SLATED FOR REMOVAL NEXT CLEANUP
         /// </summary>
         /// <param name="manager"></param>
         protected internal void Register(UnitManager manager)
@@ -103,14 +104,14 @@ namespace Gears.Playable
             //Initialize();
         }
 
-        /// <summary>
-        /// DEPRECATED
-        /// </summary>
-        /// <param name="manager"></param>
-        protected internal void RegisterPlayerManager(PlayerManager manager)
-        {
-            _pManager = manager;
-        }
+        ///// <summary>
+        ///// DEPRECATED
+        ///// </summary>
+        ///// <param name="manager"></param>
+        //protected internal void RegisterPlayerManager(PlayerManager manager)
+        //{
+        //    _pManager = manager;
+        //}
 
     }
 }

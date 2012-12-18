@@ -18,6 +18,8 @@ namespace Gears.Playable
     {
         protected Player[] _players;
 
+        public PlayerManager() { }
+
         public PlayerManager(Player[] players)
         {
             if (players != null)
@@ -35,7 +37,7 @@ namespace Gears.Playable
             }
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             foreach (Player player in _players)
             {
@@ -43,7 +45,7 @@ namespace Gears.Playable
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             foreach (Player player in _players)
             {

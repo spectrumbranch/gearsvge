@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using Gears.Playable;
 using Microsoft.Xna.Framework;
+using Gears.Cloud;
 
 namespace GearsDebug.Playable.DevTestArea.Collision
 {
     class CollisionTestZone : Zone
     {
-        private CollisionTestUnitManager um;
         private CollisionTestController tc;
+        private CollisionTestPlayerManager pm;
 
         internal CollisionTestZone() { Initialize(); }
 
@@ -20,19 +21,19 @@ namespace GearsDebug.Playable.DevTestArea.Collision
         }
         private void Register()
         {
-            um = new CollisionTestUnitManager();
             tc = new CollisionTestController();
+            pm = new CollisionTestPlayerManager();
 
             base.RegisterManager(tc);
-            base.RegisterManager(um);
+            base.RegisterManager(pm);
 
-            tc.CoupleUnitManager(um);
+            tc.CouplePlayerManager(pm);
         }
 
         internal void Activate()
         {
             tc.Activate();
-            um.Activate();
+            pm.Activate();
         }
     }
 }

@@ -125,13 +125,12 @@
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\TestsMenu.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestController.cs" />
+    <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestPlayerManager.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestState.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitA.cs" />
-    <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitAFactory.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitB.cs" />
-    <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitBFactory.cs" />
-    <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitManager.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestZone.cs" />
+    <Compile Include="Playable\DevTestArea\Collision Test Area\Direction.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\Enemy1.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\Enemy1Factory.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeState.cs" />
