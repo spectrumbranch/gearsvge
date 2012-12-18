@@ -131,6 +131,7 @@
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestUnitB.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestZone.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\Direction.cs" />
+    <Compile Include="Playable\DevTestArea\Collision Test Area\HUDManager.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\Enemy1.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\Enemy1Factory.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeState.cs" />

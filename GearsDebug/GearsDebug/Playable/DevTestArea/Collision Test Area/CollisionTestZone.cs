@@ -12,6 +12,7 @@ namespace GearsDebug.Playable.DevTestArea.Collision
     {
         private CollisionTestController tc;
         private CollisionTestPlayerManager pm;
+        private HUDManager hm;
 
         internal CollisionTestZone() { Initialize(); }
 
@@ -23,9 +24,11 @@ namespace GearsDebug.Playable.DevTestArea.Collision
         {
             tc = new CollisionTestController();
             pm = new CollisionTestPlayerManager();
+            hm = new HUDManager();
 
             base.RegisterManager(tc);
             base.RegisterManager(pm);
+            base.RegisterManager(hm);
 
             tc.CouplePlayerManager(pm);
         }
@@ -34,6 +37,7 @@ namespace GearsDebug.Playable.DevTestArea.Collision
         {
             tc.Activate();
             pm.Activate();
+            hm.Activate();
         }
     }
 }
