@@ -16,6 +16,9 @@ namespace GearsDebug.Playable.DevTestArea.Collision
         private bool drawLines = true;
         private Texture2D blank = null;
 
+        private int gridBoxesHorizontal = 10;
+        private int gridBoxesVertical = 10;
+
         public HUDManager() { InitializeLocal(); }
 
         private void InitializeLocal()
@@ -23,21 +26,33 @@ namespace GearsDebug.Playable.DevTestArea.Collision
             blank = new Texture2D(Master.GetGame().GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             blank.SetData(new[] { Color.White });
 
-            this.AddLine(1, Color.White, new Vector2(100, 100), new Vector2(300, 300));
-            this.AddLine(1, Color.White, new Vector2(200, 200), new Vector2(500, 200));
+            this.ClearLines();
+            this.CreateGrid();
         }
 
         public void Activate()
         {
-            
+
         }
 
-        private void DrawLine(SpriteBatch spriteBatch, float width, Color color, Vector2 point1, Vector2 point2)
+        private void CreateGrid()
         {
-            //float angle = (float)Math.Atan2(point2.Y - point1.Y, point2.X - point1.X);
-            //float length = Vector2.Distance(point1, point2);
-            //spriteBatch.Draw(blank, point1, null, color, angle, Vector2.Zero, new Vector2(length, width), SpriteEffects.None, 0);
+            int screenWidth = ViewportHandler.GetWidth();
+            int screenHeight = ViewportHandler.GetHeight();
+            
+            int boxWidth = screenWidth / gridBoxesHorizontal;
+            int boxHeight = screenHeight / gridBoxesVertical;
+
+            for (int x = 0; x <= screenWidth; x += boxWidth)
+            {
+                this.AddLine(1, Color.White, new Vector2(x, 0), new Vector2(x, screenHeight));
+            }
+            for (int y = 0; y <= screenHeight; y += boxHeight)
+            {
+                this.AddLine(1, Color.White, new Vector2(0, y), new Vector2(screenWidth, y));
+            }
         }
+
         private void DrawLines(SpriteBatch spriteBatch)
         {
             foreach (LineSegment line in this.lines)
@@ -78,10 +93,10 @@ namespace GearsDebug.Playable.DevTestArea.Collision
 
     struct LineSegment
     {
-        private float angle;// = 0.0f;
-        private Vector2 origin;// = new Vector2();
-        private Color color;// = new Color();
-        private Vector2 scale;// = new Vector2();
+        private float angle;
+        private Vector2 origin;
+        private Color color;
+        private Vector2 scale;
 
         public float GetAngle()
         {
