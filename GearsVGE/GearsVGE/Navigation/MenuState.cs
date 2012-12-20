@@ -35,12 +35,12 @@ namespace Gears.Navigation
         private Vector2 menuItemOriginPosition = new Vector2(35, 134);
         private Vector2 menuItemVerticalOffset = new Vector2(0, 46);
         private Vector2 menuItemHorizontalOffset = new Vector2(247, 0);
-        private Color menuItemColor = new Color(225, 225, 225);
+        private Color defaultMenuItemColor = new Color(225, 225, 225);
         private uint maxRows = 10;
         private uint maxColumns = 3;
 
         private int activeMenuIndex = 0; //0 = default
-        private Color activeItemColor = new Color(200, 125, 125);
+        private Color defaultActiveItemColor = new Color(200, 125, 125);
 
 
         public MenuState(string menuText, IMenuItem[] menuItemList)
@@ -174,13 +174,18 @@ namespace Gears.Navigation
                 //for (int i=0; (i + j*maxRows) % maxRows <numMenuItems % maxRows; i++) //keep this CHRIS
                 for (int i = 0; i < mic.Length - (j * maxRows) && i < maxRows; i++)
                 {
-                    if (activeMenuIndex == (i + (maxRows * j))) //if the item we are drawing is active
+                    int currentMenuItem = (int)(i + (maxRows * j));
+
+                    Color currentItemColor = mic.GetIndexItemColorSet(currentMenuItem) ? mic.GetIndexItemColor(currentMenuItem) : defaultMenuItemColor;
+
+
+                    if (activeMenuIndex == currentMenuItem) //if the item we are drawing is active
                     {
-                        spriteBatch.DrawString(menuItemFont, mic.GetIndexMenuText((int)(i + (maxRows * j))), menuItemOriginPosition + (j * menuItemHorizontalOffset) + (i * menuItemVerticalOffset), activeItemColor);
+                        spriteBatch.DrawString(menuItemFont, mic.GetIndexMenuText(currentMenuItem), menuItemOriginPosition + (j * menuItemHorizontalOffset) + (i * menuItemVerticalOffset), defaultActiveItemColor);
                     }
                     else //the item is not an active item
                     {
-                        spriteBatch.DrawString(menuItemFont, mic.GetIndexMenuText((int)(i + (maxRows * j))), menuItemOriginPosition + (j * menuItemHorizontalOffset) + (i * menuItemVerticalOffset), menuItemColor);
+                        spriteBatch.DrawString(menuItemFont, mic.GetIndexMenuText(currentMenuItem), menuItemOriginPosition + (j * menuItemHorizontalOffset) + (i * menuItemVerticalOffset), currentItemColor);
                     }
                 }
             }

@@ -3,6 +3,7 @@ using GearsDebug.Cartography;
 using GearsDebug.Media;
 using GearsDebug.Playable.DevTestArea.Collision;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace GearsDebug.Navigation
 {
@@ -27,7 +28,9 @@ namespace GearsDebug.Navigation
         }
         internal Menu GetMenu()
         {
-            return new Menu("Tests", submenu);
+            Menu theMenu = new Menu("Tests", submenu);
+            theMenu.ItemColor = Color.Blue;
+            return theMenu;
         }
     }
 }

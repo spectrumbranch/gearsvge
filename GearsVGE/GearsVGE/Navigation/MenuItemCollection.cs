@@ -1,5 +1,6 @@
 ﻿using Gears.Cloud;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace Gears.Navigation
 {
@@ -36,6 +37,14 @@ namespace Gears.Navigation
         internal string GetIndexMenuText(int index)
         {
             return _mi[index].MenuText;
+        }
+        internal Color GetIndexItemColor(int index)
+        {
+            return _mi[index].ItemColor;
+        }
+        internal bool GetIndexItemColorSet(int index)
+        {
+            return _mi[index].ItemColorSet;
         }
     }
 }

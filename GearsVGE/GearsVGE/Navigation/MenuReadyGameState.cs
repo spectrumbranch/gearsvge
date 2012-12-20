@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Gears.Cloud;
+using Microsoft.Xna.Framework;
 
 namespace Gears.Navigation
 {
@@ -26,9 +27,23 @@ namespace Gears.Navigation
                 }
             }
         }
-        public virtual void ThrowPushEvent()
-        {
 
+        private bool itemColorSet = false;
+        public bool ItemColorSet 
+        { 
+            get { return itemColorSet; } 
         }
+
+        private Color itemColor;
+        public Color ItemColor
+        {
+            get { return itemColor; }
+            set
+            {
+                itemColorSet = true;
+                itemColor = value;
+            }
+        }
+        public virtual void ThrowPushEvent() { }
     }
 }
