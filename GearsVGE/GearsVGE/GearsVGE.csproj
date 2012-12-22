@@ -127,6 +127,8 @@
     <Compile Include="Cloud\Master.cs" />
     <Compile Include="Cloud\Media\AudioPlayer.cs" />
     <Compile Include="Cloud\Media\Sound.cs" />
+    <Compile Include="Cloud\Utility\Drawing\DrawingHelper.cs" />
+    <Compile Include="Cloud\Utility\Drawing\LineSegment.cs" />
     <Compile Include="Cloud\Utility\XMLEngine.cs">
       <SubType>Code</SubType>
     </Compile>
