@@ -9,10 +9,9 @@ namespace Gears.Cloud.Utility.Drawing
 {
     public class DrawingHelper
     {
-        public LineSegment DefaultDrawLine(ref SpriteBatch spriteBatch, LineSegment line, ref Texture2D texture)
+        public void DefaultDrawLine(ref SpriteBatch spriteBatch, LineSegment line, ref Texture2D texture)
         {
             spriteBatch.Draw(texture, line.GetOrigin(), null, line.GetColor(), line.GetAngle(), Vector2.Zero, line.GetScale(), SpriteEffects.None, 0);
-            return line;
         }
 
         public LineSegment CreateLine(float width, Color color, Vector2 point1, Vector2 point2)
