@@ -24,6 +24,7 @@ namespace Gears.Playable
     public abstract class Unit : Entity
     {
         protected internal BoundingBox _boundingBox;
+        protected internal Vector3[] _transformedPoints;
 
         protected internal Vector2 _position;
         protected internal Vector2 _imageOrigin;
@@ -106,13 +107,14 @@ namespace Gears.Playable
             Vector2 transformed_oneZero = Vector2.Transform(oneZero, finalMatrix);
             Vector2 transformed_oneOne = Vector2.Transform(oneOne, finalMatrix);
 
-            Vector3[] transformedPoints = new Vector3[4];
-            transformedPoints[0] = new Vector3(transformed_zeroZero, 0);
-            transformedPoints[1] = new Vector3(transformed_zeroOne, 0);
-            transformedPoints[2] = new Vector3(transformed_oneZero, 0);
-            transformedPoints[3] = new Vector3(transformed_oneOne, 0);
-            
-            _boundingBox = BoundingBox.CreateFromPoints(transformedPoints);
+            _transformedPoints = null;
+            _transformedPoints = new Vector3[4];
+            _transformedPoints[0] = new Vector3(transformed_zeroZero, 0);
+            _transformedPoints[1] = new Vector3(transformed_zeroOne, 0);
+            _transformedPoints[2] = new Vector3(transformed_oneZero, 0);
+            _transformedPoints[3] = new Vector3(transformed_oneOne, 0);
+
+            _boundingBox = BoundingBox.CreateFromPoints(_transformedPoints);
         }
 
         private void HandleTextureFileLocationError(bool throwException)
