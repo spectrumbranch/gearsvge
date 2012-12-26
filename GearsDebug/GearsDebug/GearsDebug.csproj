@@ -137,6 +137,7 @@
     <Compile Include="Playable\DevTestArea\Joe Test\JoeState.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeZone.cs" />
     <Compile Include="Playable\DevTestArea\Joe Test\JoeZoneUnitManager.cs" />
+    <Compile Include="Playable\DevTestArea\Menu Theming\PerformMenuSerialize.cs" />
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnit.cs" />
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitManager.cs" />
     <Compile Include="Playable\DevTestArea\Test Unit Architecture\TestUnitTypeFactory.cs" />

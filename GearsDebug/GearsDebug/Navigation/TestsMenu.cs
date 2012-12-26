@@ -4,6 +4,7 @@ using GearsDebug.Media;
 using GearsDebug.Playable.DevTestArea.Collision;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using GearsDebug.Playable.DevTestArea.MenuTheming;
 
 namespace GearsDebug.Navigation
 {
@@ -23,6 +24,7 @@ namespace GearsDebug.Navigation
             submenu.Add(new PerformMapSerialize());
             submenu.Add(new PerformMapDeserialize());
             submenu.Add(new PlayTestMusic());
+            submenu.Add(new PerformMenuSerialize());
             submenu.Add(new HardExitGameState());
             submenu.Add(new BackMenuOption());
         }

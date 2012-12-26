@@ -9,7 +9,10 @@ using Gears.Cloud._Debug;
 
 namespace Gears.Cartography
 {
-    //TODO: This needs to be refactored and parameterized.
+    /// <summary>
+    /// Do not use this class.
+    /// //TODO: This needs to be refactored and parameterized.
+    /// </summary>
     public sealed class MapEngine
     {
         private Map map0; //for testing purposes

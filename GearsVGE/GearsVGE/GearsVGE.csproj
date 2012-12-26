@@ -139,6 +139,7 @@
     <Compile Include="Navigation\HardExitGameState.cs" />
     <Compile Include="Navigation\IMenuItem.cs" />
     <Compile Include="Navigation\Menu.cs" />
+    <Compile Include="Navigation\MenuElement.cs" />
     <Compile Include="Navigation\MenuItemCollection.cs" />
     <Compile Include="Navigation\MenuReadyGameState.cs" />
     <Compile Include="Navigation\MenuState.cs" />
