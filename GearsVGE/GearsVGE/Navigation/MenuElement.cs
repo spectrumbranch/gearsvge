@@ -11,7 +11,9 @@ namespace Gears.Navigation
     [XmlRootAttribute("MenuElement", Namespace = "http://www.spectrumbranch.com", IsNullable = false)]
     public class MenuElement
     {
-
+        [XmlAttribute("Hidden")]
+        public bool Hidden = false;
+        
         /// <summary>
         /// ThrowPushAction is not serializable, because System.Action is not serializable.
         /// All ThrowPushActions must be manually assigned.
@@ -22,14 +24,23 @@ namespace Gears.Navigation
         [XmlIgnore]
         private SpriteFont _font;
 
+        [XmlIgnore]
+        private Texture2D _texture;
+
         [XmlElement("ActiveArea", IsNullable = false)]
         public Rectangle ActiveArea;
 
-        [XmlElement("ForegroundColor")]
+        [XmlElement("ForegroundColor", IsNullable = false)]
         public Color ForegroundColor;
 
-        [XmlElement("BackgroundColor")]
+        [XmlElement("ActiveForegroundColor", IsNullable = false)]
+        public Color ActiveForegroundColor;
+
+        [XmlElement("BackgroundColor", IsNullable = false)]
         public Color BackgroundColor;
+
+        [XmlElement("ActiveBackgroundColor", IsNullable = false)]
+        public Color ActiveBackgroundColor;
 
         [XmlElement("Selectable", IsNullable = false)]
         public bool Selectable = false;
@@ -43,16 +54,16 @@ namespace Gears.Navigation
         /// </summary>
         [XmlElement("SpriteFont", IsNullable = true)]
         public String SpriteFont = null;
+
+        /// <summary>
+        /// The Texture2D field is used only during the loading phase, if this._texture is not already set.
+        /// Set this field equal to the content-friendly filepath of a valid Texture2D file.
+        /// </summary>
+        [XmlElement("Texture2D", IsNullable = true)]
+        public String Texture2D = null;
+
         
-        //[XmlElement("layerwidth")]
-        //[XmlAttribute]
-        //[XmlElementAttribute("thename", IsNullable = false)]
-        //[XmlArrayAttribute("Items")]
-
-        public MenuElement()
-        {
-
-        }
+        public MenuElement() { }
 
         public void SetThrowPushEvent(Action action)
         {
@@ -68,7 +79,6 @@ namespace Gears.Navigation
                 this._throwPushAction();
             }
         }
-
         public void SetFont(ref SpriteFont font)
         {
             if (font != null)
@@ -76,10 +86,20 @@ namespace Gears.Navigation
                 this._font = font;
             }
         }
-
         public SpriteFont GetFont()
         {
             return this._font;
+        }
+        public void SetTexture(ref Texture2D texture)
+        {
+            if (texture != null)
+            {
+                this._texture = texture;
+            }
+        }
+        public Texture2D GetTexture()
+        {
+            return this._texture;
         }
     }
 }
