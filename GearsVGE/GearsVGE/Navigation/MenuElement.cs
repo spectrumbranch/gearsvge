@@ -22,7 +22,7 @@ namespace Gears.Navigation
         private Action _throwPushAction;
 
         [XmlIgnore]
-        private SpriteFont _font;
+        private SpriteFont _font = null;
 
         [XmlIgnore]
         private Texture2D _texture;
@@ -79,7 +79,7 @@ namespace Gears.Navigation
                 this._throwPushAction();
             }
         }
-        public void SetFont(ref SpriteFont font)
+        public void SetFont(SpriteFont font)
         {
             if (font != null)
             {
@@ -90,7 +90,7 @@ namespace Gears.Navigation
         {
             return this._font;
         }
-        public void SetTexture(ref Texture2D texture)
+        public void SetTexture(Texture2D texture)
         {
             if (texture != null)
             {

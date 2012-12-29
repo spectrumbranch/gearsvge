@@ -33,9 +33,9 @@ namespace GearsDebug.Navigation
             sub[4] = new HardExitGameState();
             sub[5] = new BackMenuOption();
         }
-        internal Menu GetMenu()
+        internal Old_Menu GetMenu()
         {
-            return new Menu("Development", sub);
+            return new Old_Menu("Development", sub);
         }
         internal void CreditsCompletedHandler()
         {

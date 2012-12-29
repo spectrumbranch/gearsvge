@@ -28,9 +28,9 @@ namespace GearsDebug.Navigation
             submenu.Add(new HardExitGameState());
             submenu.Add(new BackMenuOption());
         }
-        internal Menu GetMenu()
+        internal Old_Menu GetMenu()
         {
-            Menu theMenu = new Menu("Tests", submenu);
+            Old_Menu theMenu = new Old_Menu("Tests", submenu);
             theMenu.ItemColor = Color.Blue;
             return theMenu;
         }

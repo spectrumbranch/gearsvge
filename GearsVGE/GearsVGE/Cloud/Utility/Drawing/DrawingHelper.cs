@@ -14,6 +14,12 @@ namespace Gears.Cloud.Utility.Drawing
             spriteBatch.Draw(texture, line.GetOrigin(), null, line.GetColor(), line.GetAngle(), Vector2.Zero, line.GetScale(), SpriteEffects.None, 0);
         }
 
+        public void DefaultDrawRectangle(ref SpriteBatch spriteBatch, Rectangle rectangle, ref Texture2D texture, Color color)
+        {
+            spriteBatch.Draw(texture, rectangle, color);
+        }
+
+
         public LineSegment CreateLine(float width, Color color, Vector2 point1, Vector2 point2)
         {
             float angle = (float)Math.Atan2(point2.Y - point1.Y, point2.X - point1.X);

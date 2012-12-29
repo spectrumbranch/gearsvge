@@ -13,13 +13,13 @@ namespace Gears.Cloud
             get { return _IsOverlay; }
             set { if (_IsOverlay != false) _IsOverlay = value; }
         }
-        protected internal bool _HandlesInput = false;
+        //protected internal bool _HandlesInput = false;
         protected internal bool _StateIsActive = false;
 
-        internal bool HandlesInput()
-        {
-            return _HandlesInput;
-        }
+        //internal bool HandlesInput()
+        //{
+        //    return _HandlesInput;
+        //}
         public bool StateIsActive()
         {
             return _StateIsActive;

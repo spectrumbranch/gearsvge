@@ -21,7 +21,7 @@ namespace GearsDebug.Navigation
             imi.Add(new HardExitGameState());
 
             //insert into a MenuState
-            Menu debugMenu = new Menu("Debugger Menu",imi);
+            Old_Menu debugMenu = new Old_Menu("Debugger Menu",imi);
             Master.Push(debugMenu);
         }
     }    

@@ -22,9 +22,9 @@ namespace GearsDebug.Navigation
             sub[1] = new HardExitGameState();
             sub[2] = new BackMenuOption();
         }
-        internal Menu GetMenu()
+        internal Old_Menu GetMenu()
         {
-            return new Menu("RadialAssaultMenu", sub);
+            return new Old_Menu("RadialAssaultMenu", sub);
         }
     }
 }

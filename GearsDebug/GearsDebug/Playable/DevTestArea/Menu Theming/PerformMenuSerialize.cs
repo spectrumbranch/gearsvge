@@ -18,13 +18,17 @@ namespace GearsDebug.Playable.DevTestArea.MenuTheming
 
         public override void ThrowPushEvent()
         {
+            Menu menu = new Menu();
+
             MenuElement menuElement = new MenuElement();
             menuElement.SetThrowPushEvent(new Action(() => { Master.Pop(); }));
             menuElement.ActiveArea = new Rectangle(100,200,800,600);
             menuElement.ForegroundColor = Color.Aquamarine;
             menuElement.BackgroundColor = Color.Indigo;
 
-            XMLEngine<MenuElement>.SaveToFile("testSaveMenuElement-001.xml", menuElement);
+            menu.AddMenuElement(menuElement);
+
+            XMLEngine<Menu>.SaveToFile("testSaveMenu-001.xml", menu);
         }
     }
 }
