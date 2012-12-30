@@ -276,12 +276,14 @@ namespace Gears.Navigation
                     currentKeyboardState.IsKeyDown(Keys.Down) != oldKeyboardState.IsKeyDown(Keys.Down))
                 {
                     activeMenuIndex++;
+                    _menu.SetActiveMenuIndex(activeMenuIndex);
                 }
                 if (currentKeyboardState.IsKeyDown(Keys.Up) &&
                     activeMenuIndex != 0 &&
                     currentKeyboardState.IsKeyDown(Keys.Up) != oldKeyboardState.IsKeyDown(Keys.Up))
                 {
                     activeMenuIndex--;
+                    _menu.SetActiveMenuIndex(activeMenuIndex);
                 }
                 // Temporarily not using this.
                 //if (currentKeyboardState.IsKeyDown(Keys.Left) &&
@@ -341,10 +343,13 @@ namespace Gears.Navigation
                     spriteBatch.Draw(element.GetTexture(), element.ActiveArea, Color.White);
                 }
 
-                if (element.GetFont() != null)
+                if (element.GetFont() != null && !string.IsNullOrEmpty(element.MenuText))
                 {
                     int activeMenuIndex = _menu.GetActiveMenuIndex();
                     Color fgcolor;
+
+                    MenuElement drawingElemTmp = this._menu.GetDrawableMenuElements()[i];
+                    MenuElement selectedElemTmp = this._menu.GetSelectableMenuElements()[activeMenuIndex];
                     bool currentElementIsActive = this._menu.GetDrawableMenuElements()[i].Equals(this._menu.GetSelectableMenuElements()[activeMenuIndex]);
                     if (currentElementIsActive)
                     {
@@ -362,7 +367,7 @@ namespace Gears.Navigation
                         fgcolor = element.ForegroundColor;
                     }
 
-                    spriteBatch.DrawString(element.GetFont(), element.MenuText, new Vector2(element.ActiveArea.X, element.ActiveArea.Y), element.ForegroundColor);
+                    spriteBatch.DrawString(element.GetFont(), element.MenuText, new Vector2(element.ActiveArea.X, element.ActiveArea.Y), fgcolor);
                 }
                 i++;
             }

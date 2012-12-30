@@ -140,5 +140,16 @@ namespace Gears.Navigation
         {
             return this._cacheSelectableActiveIndex;
         }
+        /// <summary>
+        /// Sets the numeric active menu index for the Selectable MenuElements.
+        /// </summary>
+        /// <param name="index">The numeric index between the minimum and maximum values of the Selectable MenuElements.</param>
+        public void SetActiveMenuIndex(int index)
+        {
+            if (index >= 0 && index < this._cacheSelectable.Length)
+            {
+                this._cacheSelectableActiveIndex = index;
+            }
+        }
     }
 }

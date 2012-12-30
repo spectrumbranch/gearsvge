@@ -62,7 +62,7 @@ namespace GearsDebug
                 //  DEBUG :: The uncommented line will change the default state that runs first.
                 //  Only one of the following Master.Push() lines should be uncommented at a time.
                 //Master.Push(new Splash());    //Uncomment this line to start game normally.
-                Master.Push(new debugger());    //Uncomment this line to start the game with debug menu.
+                Master.Push(new DebugBootstrapper());    //Uncomment this line to start the game with debug menu.
                 //  END of Master.Push() lines
                 
             #else //release

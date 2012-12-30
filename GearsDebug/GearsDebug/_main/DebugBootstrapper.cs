@@ -8,12 +8,12 @@ namespace GearsDebug
     /// <summary>
     /// The debug bootstrapper for GearsDebug.
     /// </summary>
-    class debugger : GameState
+    class DebugBootstrapper : GameState
     {
         /// <summary>
         /// The entry point for this class.
         /// </summary>
-        public debugger()
+        public DebugBootstrapper()
         {
             Initialize();
             LoadContent();
