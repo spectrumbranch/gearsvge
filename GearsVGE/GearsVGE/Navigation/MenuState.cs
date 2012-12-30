@@ -85,6 +85,7 @@ namespace Gears.Navigation
         /// </summary>
         private void InactivateState()
         {
+            //Master.GetInputManager().GetCurrentInputHandler().UnsubscribeInputHook(KeyDown);
             Master.GetInputManager().GetCurrentInputHandler().ClearEventHandler();
             _StateIsActive = false;
         }

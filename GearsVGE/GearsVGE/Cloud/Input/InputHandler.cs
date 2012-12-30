@@ -43,9 +43,32 @@ namespace Gears.Cloud.Input
         }
         public void ClearEventHandler()
         {
-            keyboardEventList = null;
-            mouseEventList = null;
-            gamePadEventList = null;
+            if (keyboardEventList != null)
+            {
+                foreach (KeyboardStateEvent e in keyboardEventList.GetInvocationList())
+                {
+                    keyboardEventList -= e;
+                }
+            }
+
+            if (mouseEventList != null)
+            {
+                foreach (MouseStateEvent e in mouseEventList.GetInvocationList())
+                {
+                    mouseEventList -= e;
+                }
+            }
+
+            if (gamePadEventList != null)
+            {
+                foreach (GamePadStateEvent e in gamePadEventList.GetInvocationList())
+                {
+                    gamePadEventList -= e;
+                }
+            }
+            //keyboardEventList = null;
+            //mouseEventList = null;
+            //gamePadEventList = null;
         }
         public void SubscribeInputHook(KeyboardStateEvent kse)
         {
@@ -58,6 +81,28 @@ namespace Gears.Cloud.Input
         public void SubscribeInputHook(GamePadStateEvent gpse)
         {
             gamePadEventList += gpse;
+        }
+
+        public void UnsubscribeInputHook(KeyboardStateEvent kse)
+        {
+            if (keyboardEventList.GetInvocationList().Contains(kse))
+            {
+                keyboardEventList -= kse;
+            }
+        }
+        public void UnsubscribeInputHook(MouseStateEvent mse)
+        {
+            if (mouseEventList.GetInvocationList().Contains(mse))
+            {
+                mouseEventList -= mse;
+            }
+        }
+        public void UnsubscribeInputHook(GamePadStateEvent gpse)
+        {
+            if (gamePadEventList.GetInvocationList().Contains(gpse))
+            {
+                gamePadEventList -= gpse;
+            }
         }
 
     }

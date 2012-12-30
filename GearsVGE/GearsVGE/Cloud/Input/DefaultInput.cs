@@ -19,10 +19,6 @@ namespace Gears.Cloud.Input
     public class DefaultInput : InputHandler
     {
         private static bool _enabled = false;
-        private static KeyboardState _keyState;
-
-        
-        
 
         internal KeyboardState OldKeyboardState
         {
