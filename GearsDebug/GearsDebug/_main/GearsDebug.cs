@@ -17,8 +17,16 @@ namespace GearsDebug
     public class GearsDebug : Microsoft.Xna.Framework.Game
     {
         //Screen Resolution defaults
-        private const int ScreenWidth = 1280;
-        private const int ScreenHeight = 720;
+        private static int GameResolutionWidth = 1920;
+        private static int GameResolutionHeight = 1080;
+        private static int WindowResolutionWidth = 800;
+        private static int WindowResolutionHeight = 600;
+        //private static int ScreenWidth = 800;
+        //private static int ScreenHeight = 600;
+
+        private static bool resultionIndependent = true; // DON'T CHANGE THIS DURING RUNTIME FOR NOW
+        private Vector2 baseScreenSize = new Vector2(GameResolutionWidth, GameResolutionHeight);
+
 
         private GraphicsDeviceManager graphics;
         private GraphicsDevice device;
@@ -48,10 +56,12 @@ namespace GearsDebug
             Master.Initialize(this);
 
             //Setup screen display/graphics device
-            ViewportHandler.SetScreen(ScreenWidth, ScreenHeight);
-            graphics.PreferredBackBufferWidth = ViewportHandler.GetWidth();
-            graphics.PreferredBackBufferHeight = ViewportHandler.GetHeight();
+            ViewportHandler.SetScreen(GameResolutionWidth, GameResolutionHeight);
+            graphics.PreferredBackBufferWidth = WindowResolutionWidth;
+            graphics.PreferredBackBufferHeight = WindowResolutionHeight;
+            //graphics.
             graphics.IsFullScreen = false;
+            //graphics.
             graphics.ApplyChanges();
             
 
@@ -81,6 +91,17 @@ namespace GearsDebug
         {
             device = graphics.GraphicsDevice;
             spriteBatch = new SpriteBatch(device);
+
+            if (resultionIndependent)
+            {
+                GameResolutionWidth = ViewportHandler.GetWidth();
+                GameResolutionHeight = ViewportHandler.GetHeight();
+            }
+            else
+            {
+                GameResolutionWidth = device.PresentationParameters.BackBufferWidth;
+                GameResolutionHeight = device.PresentationParameters.BackBufferHeight;
+            }
         }
 
         protected override void UnloadContent()
@@ -96,9 +117,28 @@ namespace GearsDebug
 
         protected override void Draw(GameTime gameTime)
         {
+            Vector3 screenScalingFactor;
+            if (resultionIndependent)
+            {
+                float horScaling = (float)device.PresentationParameters.BackBufferWidth / ViewportHandler.GetWidth();
+                float verScaling = (float)device.PresentationParameters.BackBufferHeight / ViewportHandler.GetHeight();
+                screenScalingFactor = new Vector3(horScaling, verScaling, 1);
+            }
+            else
+            {
+                screenScalingFactor = new Vector3(1, 1, 1);
+            }
+
+            Matrix globalTransformation = Matrix.CreateScale(screenScalingFactor);
+
+
+            
+            /**************************************/
             device.Clear(Master.GetClearColor());
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);//, SaveStateMode.None);//, ViewportHandler.GetScaleMatrix());
+            //spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None, globalTransformation);
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, RasterizerState.CullNone, null, globalTransformation);
+            //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);//, SaveStateMode.None);//, ViewportHandler.GetScaleMatrix());
 
             Master.Draw(spriteBatch);
 

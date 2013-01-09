@@ -15,10 +15,13 @@ namespace GearsDebug
         /// </summary>
         public DebugBootstrapper()
         {
-            Initialize();
+            InitializeLocal();
             LoadContent();
         }
-        private void Initialize() {  }
+        private void InitializeLocal()
+        {
+
+        }
         private void LoadContent() {  }
 
         public override void Update(GameTime gameTime)

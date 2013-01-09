@@ -7,12 +7,10 @@ namespace GearsDebug.Navigation
 {
     internal sealed class DebugMenu
     {
-        //Main debug menu
-        //private List<IMenuItem> imi = new List<IMenuItem>();
-
         //Menus themselves
         private TestsMenu tests = new TestsMenu();
         private DevelopmentMenu development = new DevelopmentMenu();
+        private VideoSettingsMenu videoSettings = new VideoSettingsMenu();
 
         internal DebugMenu()
         {
@@ -48,11 +46,27 @@ namespace GearsDebug.Navigation
             testsProxyMenuElement.SpriteFont = @"Fonts\MenuItem";
             testsProxyMenuElement.SetThrowPushEvent(new System.Action(() => { Master.Push(tests.GetMenu()); }));
 
+            MenuElement videoSettingsMenuElement = new MenuElement();
+            videoSettingsMenuElement.MenuText = "Video Settings";
+            videoSettingsMenuElement.Selectable = true;
+            videoSettingsMenuElement.Hidden = false;
+            videoSettingsMenuElement.ActiveArea = new Rectangle(35, 226, 200, 40);
+            videoSettingsMenuElement.ForegroundColor = new Color(225, 225, 225);
+            videoSettingsMenuElement.ActiveForegroundColor = new Color(200, 125, 125);
+            videoSettingsMenuElement.SpriteFont = @"Fonts\MenuItem";
+            videoSettingsMenuElement.SetThrowPushEvent(new System.Action(() => 
+            {
+                Master.Push(new MenuState(videoSettings.GetMenu()));
+                //Menu videoSettingsMenu = new Menu();
+
+                //Master.Push(videoSettingsMenu);
+            }));
+
             MenuElement hardExitMenuElement = new MenuElement();
             hardExitMenuElement.MenuText = "Exit Game";
             hardExitMenuElement.Selectable = true;
             hardExitMenuElement.Hidden = false;
-            hardExitMenuElement.ActiveArea = new Rectangle(35, 226, 200, 40);
+            hardExitMenuElement.ActiveArea = new Rectangle(35, 272, 200, 40);
             hardExitMenuElement.ForegroundColor = new Color(225, 225, 225);
             hardExitMenuElement.ActiveForegroundColor = new Color(200, 125, 125);
             hardExitMenuElement.SpriteFont = @"Fonts\MenuItem";
@@ -68,17 +82,10 @@ namespace GearsDebug.Navigation
             menuElements.Add(titleMenuElement);
             menuElements.Add(developmentProxyMenuElement);
             menuElements.Add(testsProxyMenuElement);
+            menuElements.Add(videoSettingsMenuElement);
             menuElements.Add(hardExitMenuElement);
 
             newDebugMenu.AddMenuElements(menuElements);
-            //private Vector2 menuItemOriginPosition = new Vector2(35, 134);
-            //private Vector2 menuItemVerticalOffset = new Vector2(0, 46);
-            //private Vector2 menuItemHorizontalOffset = new Vector2(247, 0);
-            //private Color defaultMenuItemColor = new Color(225, 225, 225);
-            //private uint maxRows = 10;
-            //private uint maxColumns = 3;
-
-            //private Color defaultActiveItemColor = new Color(200, 125, 125);
 
             Master.Push(new MenuState(newDebugMenu));
         }
