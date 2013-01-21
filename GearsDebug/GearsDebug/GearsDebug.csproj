@@ -113,6 +113,7 @@
     <Compile Include="Navigation\DevelopmentMenu.cs" />
     <Compile Include="Navigation\RadialAssaultMenu.cs" />
     <Compile Include="Navigation\TestsMenu.cs" />
+    <Compile Include="Navigation\VideoSettingsMenu.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestController.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestPlayerManager.cs" />
     <Compile Include="Playable\DevTestArea\Collision Test Area\CollisionTestState.cs" />

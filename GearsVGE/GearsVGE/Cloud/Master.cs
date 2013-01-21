@@ -24,7 +24,7 @@ namespace Gears.Cloud
         //0,0,255,255 Blue
 
         private static Stack<GameState> stack = new Stack<GameState>();
-        private static LinkedList<GameState> list = new LinkedList<GameState>();
+        private static LinkedList<GameState> overlays = new LinkedList<GameState>();
 
 
         private static InputManager inputManager = new InputManager();
@@ -60,18 +60,18 @@ namespace Gears.Cloud
             //no matter what, if draw is called, we are drawing the top stack item.
             stack.Peek().Draw(spriteBatch);
 
-            //it's an overlay. we are able to draw more than one layer if there's anything below
-            if (stack.Peek().IsOverlay)
+            //if we have at least one overlay. we are able to draw more than one layer
+            if (overlays.Count > 0)
             {
-                if (list.Count != 0)
+                //**Note that this code does not take into account culling.
+                foreach (GameState overlay in overlays)
                 {
-                    //**Note that this code does not take into account culling.
-                    list.First().Draw(spriteBatch);
+                    overlay.Draw(spriteBatch);
                 }
             }
-            else //it's not an overlay. 
+            //else //it's not an overlay. 
             //since we are already drawing the top stack item, we dont need to do anything else.
-            { }  //this is just here in case it is useful in the future.
+            //{ }  //this is just here in case it is useful in the future.
         }
         /// <summary>
         /// Master Update call. 
@@ -90,48 +90,65 @@ namespace Gears.Cloud
             //old
             //DefaultInput_old.Update(gameTime);
 
-
-            //only updating the top item, whether it is an overlay or just a regular state
-            //there are no known cases where two items need to be updated at the same time
-            stack.Peek().Update(gameTime);
+            if (overlays.Count > 0)
+            {
+                overlays.Last.Value.Update(gameTime);
+            }
+            else
+            {
+                //only updating the top item of the stack.
+                //as of right now, we have no use cases where two items need to be updated at the same time.
+                //if this feature is requested, it can be implemented.
+                stack.Peek().Update(gameTime);
+            }
+            
+            
 
             //NOTE: Only do this for the frame event!!!
             CGlobalEvents.GFrameTrigger.getEvent(0).triggered = false;
 
         }
-        private static void PopToList()
+        public static void AddOverlay(GameState overlay)
         {
-            if (stack.Count != 0)
-            {
-                Debug.Out("Master::StoreTop(): Stack is not empty. Popping stack to list.");
-                list.AddFirst(stack.Pop());
-            }
-            else
-            {
-                Debug.Out("Master::StoreTop(): ERROR Stack is empty. Cannot pop stack.");
-            }
+            overlays.AddLast(overlay);
+        }
+        public static void RemoveLastOverlay()
+        {
+            overlays.RemoveLast();
+        }
+        //private static void PopToList()
+        //{
+        //    if (stack.Count != 0)
+        //    {
+        //        Debug.Out("Master::StoreTop(): Stack is not empty. Popping stack to list.");
+        //        overlays.AddFirst(stack.Pop());
+        //    }
+        //    else
+        //    {
+        //        Debug.Out("Master::StoreTop(): ERROR Stack is empty. Cannot pop stack.");
+        //    }
+        //}
+        //private static void PushReturnToStack()
+        //{
+        //    if (overlays.Count != 0)
+        //    {
+        //        Debug.Out("Master::ReturnToStack(): List is not empty. Pushing first item of list to stack.");
+        //        stack.Push(overlays.First());
+        //        overlays.RemoveFirst();
+        //    }
+        //    else
+        //    {
+        //        Debug.Out("Master::ReturnToStack(): ERROR List is empty. Unable to push any object to stack.");
+        //    }
+        //}
 
-        }
-        private static void PushReturnToStack()
+        private static void ClearOverlays()
         {
-            if (list.Count != 0)
-            {
-                Debug.Out("Master::ReturnToStack(): List is not empty. Pushing first item of list to stack.");
-                stack.Push(list.First());
-                list.RemoveFirst();
-            }
-            else
-            {
-                Debug.Out("Master::ReturnToStack(): ERROR List is empty. Unable to push any object to stack.");
-            }
-        }
-        private static void CleanList()
-        {
-            list.Clear();
+            overlays.Clear();
         }
         public static int GetListLength()
         {
-            return list.Count;
+            return overlays.Count;
         }
         public static int GetStackLength()
         {
