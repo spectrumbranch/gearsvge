@@ -19,10 +19,8 @@ namespace GearsDebug
         //Screen Resolution defaults
         private static int GameResolutionWidth = 1920;
         private static int GameResolutionHeight = 1080;
-        private static int WindowResolutionWidth = 800;
-        private static int WindowResolutionHeight = 600;
-        //private static int ScreenWidth = 800;
-        //private static int ScreenHeight = 600;
+        private static int WindowResolutionWidth = 1280;
+        private static int WindowResolutionHeight = 720;
 
         private static bool resultionIndependent = true; // DON'T CHANGE THIS DURING RUNTIME FOR NOW
         private Vector2 baseScreenSize = new Vector2(GameResolutionWidth, GameResolutionHeight);
