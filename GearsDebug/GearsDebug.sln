@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearsVGE", "..\GearsVGE\Gea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearsDebugContent", "GearsDebug\Content\GearsDebugContent.contentproj", "{F6E410CD-7923-44CF-ABF7-976DCA2B1C95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateManagement", "..\GearsVGE\GearsVGE\Cogs\StateManagement\StateManagement\StateManagement.csproj", "{E84C09A2-20D6-4CE7-AE56-AD3C57C9C6E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +25,10 @@ Global
 		{B3F2860E-45F9-4BB3-B936-E749660F1969}.Release|x86.Build.0 = Release|x86
 		{F6E410CD-7923-44CF-ABF7-976DCA2B1C95}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{F6E410CD-7923-44CF-ABF7-976DCA2B1C95}.Release|x86.ActiveCfg = Debug|Any CPU
+		{E84C09A2-20D6-4CE7-AE56-AD3C57C9C6E3}.Debug|x86.ActiveCfg = Debug|x86
+		{E84C09A2-20D6-4CE7-AE56-AD3C57C9C6E3}.Debug|x86.Build.0 = Debug|x86
+		{E84C09A2-20D6-4CE7-AE56-AD3C57C9C6E3}.Release|x86.ActiveCfg = Release|x86
+		{E84C09A2-20D6-4CE7-AE56-AD3C57C9C6E3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
