@@ -1,3 +1,0 @@
-[submodule "GearsVGE/GearsVGE/Cogs/StateManagement"]
-	path = GearsVGE/GearsVGE/Cogs/StateManagement
-	url = git://github.com/spectrumbranch/cog-statemanagement.git
