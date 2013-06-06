@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace Gears.Cloud.Utility
 {
-    class HighPerfTimer
+    public class HighPerfTimer
     {
         [DllImport("Kernel32.dll")]
         private static extern bool QueryPerformanceCounter(
