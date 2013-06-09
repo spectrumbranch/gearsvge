@@ -43,7 +43,6 @@ namespace Gears.Navigation
         private int activeMenuIndex = 0; //0 = default
         private Color defaultActiveItemColor = new Color(200, 125, 125);
 
-
         public Old_MenuState(string menuText, IMenuItem[] menuItemList)
         {
             mic = new MenuItemCollection(menuItemList);
@@ -198,6 +197,8 @@ namespace Gears.Navigation
         private Menu _menu;
         private DrawingHelper _drawingHelper = new DrawingHelper();
         private Texture2D blank;
+
+        public KeyboardState KoTCurrentKeyboard, KoTPreviousKeyboard;
 
         public MenuState(Menu menu)
         {
@@ -382,7 +383,7 @@ namespace Gears.Navigation
         {
             if (StateIsActive())
             {
-
+                KeyDown(ref KoTCurrentKeyboard, ref KoTPreviousKeyboard);
             }
             else
             {

@@ -33,6 +33,13 @@ namespace Gears.Playable
             //    u.LoadContent();
             //}
         }
+        protected List<Unit> units
+        {
+            get
+            {
+                return _units;
+            }
+        }
         public void Update(GameTime gameTime)
         {
             if (_units != null)
@@ -47,6 +54,32 @@ namespace Gears.Playable
             //    throw new Exception("DESIGNER ERROR: Gears.Playable.UnitTypeFactory: No units assigned. _units is null.");
             //}
         }
+
+        public void AddUnit(Unit unit)
+        {
+            if (!_units.Contains(unit))
+            {
+                _units.Add(unit);
+            }
+            else
+            {
+                throw new InvalidOperationException("Unit " + unit.ToString() + " already exists!");
+            }
+        }
+
+        public void RemoveUnit(Unit unit)
+        {
+            try
+            {
+                _units.Remove(unit);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                throw new InvalidOperationException("Could not find Unit " + unit.ToString(), ex);
+            }
+
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             if (_units != null)

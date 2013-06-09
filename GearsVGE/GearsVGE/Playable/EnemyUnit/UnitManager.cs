@@ -25,6 +25,14 @@ namespace Gears.Playable
         {
             //
         }
+        public void AddUnit(Unit unit, int factory)
+        {
+            _factories[factory].AddUnit(unit);
+        }
+        public void RemoveUnit(Unit unit, int factory)
+        {
+            _factories[factory].RemoveUnit(unit);
+        }
         public void Update(GameTime gameTime)
         {
             foreach (UnitTypeFactory utf in _factories)
@@ -44,5 +52,8 @@ namespace Gears.Playable
             _factories = factories;
             Initialize();
         }
+        
+
+
     }
 }

@@ -49,7 +49,6 @@ namespace Gears.Cartography
             map0.NUM_LAYERS = 5;
             map0.LAYER_WIDTH_TILES = 80;
             map0.LAYER_HEIGHT_TILES = 35;
-            map0.TILE_DATA = "439f8h,f309f,43f3fj34f,-34f349";
 
         }
         private static void SerializeToXML(Map map, string SAVE_LOCATION)
@@ -81,7 +80,6 @@ namespace Gears.Cartography
                         Debug.Out("@MAP/LAYERS=" + map.NUM_LAYERS);
                         Debug.Out("@MAP/LAYERWIDTH=" + map.LAYER_WIDTH_TILES);
                         Debug.Out("@MAP/LAYERHEIGHT=" + map.LAYER_HEIGHT_TILES);
-                        Debug.Out("@MAP/DATA=" + map.TILE_DATA);
                         return map;
                     }
                     catch (InvalidOperationException ioe)
@@ -127,8 +125,27 @@ namespace Gears.Cartography
     public class Map
     {
         //ASSIGNMENTS ARE FOR TESTING PURPOSES ONLY!!!
+        //protected Map(Map copyMe)
+        //{
+        //    VERSION = copyMe.VERSION;
+        //    BGM_FILE_LOC = copyMe.BGM_FILE_LOC;
+        //    FADE_IN_FILE_LOC = copyMe.FADE_IN_FILE_LOC;
+        //    FADE_OUT_FILE_LOC = copyMe.FADE_OUT_FILE_LOC;
+        //    BG_IMAGE_FILE_LOC = copyMe.BG_IMAGE_FILE_LOC;
+        //    NUM_LAYERS = copyMe.NUM_LAYERS;
+        //    LAYER_WIDTH_TILES = copyMe.LAYER_WIDTH_TILES;
+        //    LAYER_HEIGHT_TILES = copyMe.LAYER_HEIGHT_TILES;
+        //    LAYERS = new layer[copyMe.LAYERS.Length];
 
-        [XmlAttribute("vers")]
+        //    for (int i = 0; i < LAYERS.Length; i++)
+        //        LAYERS[i] = copyMe.LAYERS[i];
+
+
+        //}
+
+        //public Map() { }
+
+        [XmlElement("version")]
         public string VERSION {get; set;}
 
         [XmlElement("bgmfile")]
@@ -139,24 +156,125 @@ namespace Gears.Cartography
         public string FADE_OUT_FILE_LOC {get; set;}
         [XmlElement("bgifile")]
         public string BG_IMAGE_FILE_LOC {get; set;}
+        [XmlElement("name")]
+        public string NAME { get; set; }
+        [XmlElement("tileset")]
+        public string TILESET { get; set; }
 
-        [XmlElement("layers")]
+        [XmlElement("layerCount")]
         public byte NUM_LAYERS {get; set;}
-        [XmlElement("layerwidth")]
-        public int LAYER_WIDTH_TILES {get; set;}
-        [XmlElement("layerheight")]
-        public int LAYER_HEIGHT_TILES {get; set;}
 
-        [XmlElement("data")]
-        public string TILE_DATA {get; set;}
+            
+
+            [XmlArray("layers")]
+            public layer[] LAYERS { get; set; }
+
+                [XmlAttribute("width")]
+                public int LAYER_WIDTH_TILES { get; set; }
+                [XmlAttribute("height")]
+                public int LAYER_HEIGHT_TILES { get; set; }
+
+            public static Map deserialize(string load_location)
+            {
+                return deserializeFromXml(load_location);
+            }
+
+            protected static Map deserializeFromXml(string fileName)
+            {
+                XmlRootAttribute root = new XmlRootAttribute();
+                root.ElementName = "map";
+                root.IsNullable = true;
+                XmlSerializer deserializer = new XmlSerializer(typeof(Map),root);
+                TextReader reader = new StreamReader(fileName);
+                
+                Map map = (Map)deserializer.Deserialize(reader);
+                return map;
+            }
+
+            public void serializeToXml(string fileName)
+            {
+
+                    XmlSerializer serialiser = new XmlSerializer(typeof(Map));
+                    TextWriter writer = new StreamWriter(fileName);
+                    serialiser.Serialize(writer, this);
+                
+
+            }
+
+                
+
 
 
     }
+
+    [Serializable]
+    public class layer
+    {
+        [XmlAttribute("width")]
+        public int LAYER_WIDTH { get; set; }
+
+        [XmlAttribute("height")]
+        public int LAYER_HEIGHT { get; set; }
+
+        [XmlAttribute("name")]
+        public string NAME { get; set; }
+
+        [XmlArray("tiles")]
+        [XmlArrayItem("tile")]
+        public tile[] TILES { get; set; }
+
+        [XmlArray("components")]
+        [XmlArrayItem("component")]
+        public component[] COMPONENTS { get; set; }
+
+
+    }
+
+    [Serializable]
+    public class tile
+    {
+        [XmlAttribute("coordinates")] //where in the map to place this tile
+        public string COORDS { get; set; }
+        [XmlAttribute("tileSet")] //which texture atlas to take from.
+        public string TILESET { get; set; }
+        [XmlAttribute("selection")] //the coordinate set for the piece of the atlas to use
+        public string TILESELECTION { get; set; }
+    }
+
+    [Serializable]
+    public class component
+    {
+        [XmlAttribute("address")]
+        public int ADDRESS { get; set; }
+
+        //first actor in the list is the root
+        [XmlArray("actors")]
+        [XmlArrayItem("actor")]
+        public actors[] ACTORS { get; set; }
+        
+    }
+
+    [Serializable]
+    public class actors
+    {
+        [XmlAttribute("name")]
+        public string NAME { get; set; } //this is the datatype -> CONVERT IT LATER
+        [XmlAttribute("type")]
+        public string TYPE {get; set; }
+        [XmlAttribute("coordinates")]
+        public string COORDS { get; set; }
+        [XmlAttribute("params")] //if any, this will probably be blank in most cases.
+        public string param { get; set; }
+    }
+
+
     //TODO
     internal class MapLoader : Map
     {
         //strings instead of values. throw exception if not cool
     }
+
+
 
     public class InvalidMapFileFormatException : System.IO.FileLoadException
     {
