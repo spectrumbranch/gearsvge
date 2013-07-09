@@ -1,6 +1,6 @@
 ![Gears logo](http://devcloud.spectrumbranch.com/components/gearsmain/img/gears_logoA.png)
 
-Copyright (C) 2012 Spectrum Branch
+Copyright (C) 2012-2013 Spectrum Branch
 
 License info can be found in LICENSE
 
