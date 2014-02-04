@@ -152,7 +152,7 @@ namespace Gears.Playable
             //movement and such here
             CheckUpdateEvents(gameTime);
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             CheckDrawEvents(spriteBatch);
             spriteBatch.Draw(_texture, _position, null, _color, _rotation, _imageOrigin, _scale, SpriteEffects.None, _depth);
